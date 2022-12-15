@@ -74,24 +74,25 @@ navigate("/otp")
             <Box>
               <FormControl id="firstName2" isRequired>
                 <FormLabel>First Name</FormLabel>
-                <Input type="text" value={firstName} onChange={(e)=>setFirstName(e.target.value)} />
+                <Input type="text" required value={firstName} 
+                 onChange={(e)=>setFirstName(e.target.value)} isRequired/>
               </FormControl>
             </Box>
             <Box>
               <FormControl id="lastName2">
                 <FormLabel>Last Name</FormLabel>
-                <Input type="text" value={lastName} onChange={(e)=>setLastName(e.target.value)}/>
+                <Input type="text" value={lastName} onChange={(e)=>setLastName(e.target.value)} isRequired/>
               </FormControl>
             </Box>
           </HStack>
           <FormControl id="email2" isRequired>
             <FormLabel>Email address</FormLabel>
-            <Input type="email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
+            <Input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} isRequired/>
           </FormControl>
           <FormControl id="mobile" isRequired>
             <FormLabel>Mobile no</FormLabel>
             <InputGroup>
-            <Input type="number" value={mobile} onChange={(e)=>setMobile(e.target.value)} /> 
+            <Input type="number" value={mobile} onChange={(e)=>setMobile(e.target.value)} isRequired/> 
               
             </InputGroup>
           </FormControl>

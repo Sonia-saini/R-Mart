@@ -19,10 +19,10 @@ import {
  import axios from "axios";
  import {Link,useNavigate} from "react-router-dom"
 //  import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-
+import { useToast } from '@chakra-ui/react';
 
 const Register = () => {
-    
+  const toast = useToast()
    const [firstName,setFirstName]=useState("");
    const [lastName,setLastName]=useState("");
    const [email,setEmail]=useState("");
@@ -44,10 +44,22 @@ const handleSubmit=(e)=>{
     getData()
    if(firstName===""|| lastName===""||email===""||mobile==="")
    {
-    alert("Please fill the details")
+    toast({
+      title: 'Please fill the details carefully',
+      description: "Put details",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
    }
    else{
-    alert("Your otp is 143143")
+    toast({
+      title: 'Your OTP is 143143',
+      description: "Please Put OTP Carefully.",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
 navigate("/otp")
    }
 }

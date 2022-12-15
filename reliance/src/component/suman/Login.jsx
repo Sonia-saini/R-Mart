@@ -62,7 +62,13 @@ getData()
          } 
          else
          {
-        alert("login failed")
+          toast({
+            title: 'Mobile Number not registered',
+            description: "Something went wrong",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
          }
       }
 

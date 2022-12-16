@@ -16,6 +16,7 @@ import AppContextProvider from "./component/suman/authContext/AuthContextProvide
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 import { BrowserRouter } from 'react-router-dom';

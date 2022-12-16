@@ -19,7 +19,7 @@ function App() {
   return (
 
     <div > 
-   
+   <h1>Hi group</h1>
        {/* <Register/>
        <Otp/>
        <Login/> 

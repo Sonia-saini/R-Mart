@@ -12,22 +12,38 @@ import {
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import {useNavigate} from "react-router-dom"
+import { useToast } from '@chakra-ui/react';
 
 const Otp = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [otp,setOtp]=useState("");
-    const navigate=useNavigate()
+
+    const navigate=useNavigate();
+    const toast = useToast()
 
 const handleOtp=(e)=>{
     e.preventDefault();
-    if(otp==="825109")
+    if(otp==="143143")
     {
-        alert("signin successful")
-        console.log(otp)
+      toast({
+        title: 'Account Created',
+        description: "We've created your account for you.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
         navigate("/login")
     }
-    else{
-        alert("You put wrong otp")
+    else
+    {
+      toast({
+        title: 'You put wrong otp',
+        description: "We have not created your account for you.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+          
     }
 }
   return (
@@ -47,21 +63,21 @@ const handleOtp=(e)=>{
         my={10}>
         <Center>
           <Heading lineHeight={1.1} fontSize={{ base: 'xl', md: '2xl' }}>
-            Verify your Mobile Number
+           OTP verification
           </Heading>
         </Center>
         <Center
           fontSize={{ base: 'sm', sm: 'md' }}
           color={useColorModeValue('gray.800', 'gray.400')}>
-          We have sent code to your Mobile
+         Please enter the otp sent to your mobile number
         </Center>
 
         <FormControl>
           <Center>
             <HStack>
               <InputGroup>
-              <Input type={showPassword ? 'text' : 'password'} 
-              value={otp} onChange={(e)=>setOtp(e.target.value)}/>
+              <Input type={showPassword ? 'text' : 'password'}
+              value={otp} onChange={(e)=>setOtp(e.target.value)} isRequired/>
               <InputRightElement h={'full'}>
                 <Button
                   variant={'ghost'}

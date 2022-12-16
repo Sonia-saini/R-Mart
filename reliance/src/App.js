@@ -10,8 +10,13 @@ import "./App.css";
  import React from "react"
 // import Admin from "./component/suman/Admin";
 import Admin from "./component/suman/Admin";
+
+
+
+import Allroutes from "./router/allroutes";
 import { Home } from "./component/sonia/home";
 import Navbar from "./component/Saurabh/Navbar";
+
 
 
 
@@ -25,12 +30,8 @@ function App() {
   return (
 
     <div >
-   <h1>Hi group</h1>
-       {/* <Register/>
-       <Otp/>
-       <Login/> 
-       <Admin/> */}
-       <Home/>
+  
+  
 
       <Navbar/>
        {/* <Register/>
@@ -39,9 +40,17 @@ function App() {
        {/* <Admin/>
          <Cart /> */}
      {/* <AllRoutes/> */}
+
+     <Allroutes/>
+     
+      
+
+
+
       {/* <Home/>  */}
       
       
+
      
      
 

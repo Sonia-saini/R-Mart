@@ -1,38 +1,34 @@
 import React from 'react'
-import { useEffect , useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from "react-redux";
 import "./juicers.css"
-import { Card, CardBody,Heading,Box,Checkbox,Text ,Image,Skeleton, Stack} from '@chakra-ui/react'
+import { Card, CardBody,Heading,Box,Checkbox,Text ,Image,Skeleton, Stack,CloseButton} from '@chakra-ui/react'
 import { Search2Icon ,ChevronDownIcon} from '@chakra-ui/icons'
 import { AiFillStar,AiOutlineHeart } from "react-icons/ai"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import Navbar from '../nav'
 
-import {getPosts,updatePosts} from '../../api/api.action';
-import axios from 'axios';
+import {getPostsJuicers,updatePosts} from '../../api/api.action';
 
 
 export const Juicers = () => {
     let posts= useSelector((store)=>store.postsManager.posts)
     let loading = useSelector((store)=>store.postsManager.loading)
-    
-    let [datas, setDatas] = useState([])
+    let datas = useSelector((store)=>store.postsManager.datas)
+    let [texts, setText] = useState('')
+
     const dispatch = useDispatch()
-   //console.log('data',datas)
+    console.log("p",posts)
+    if(!datas[0]){
+      datas=posts
+    }
   
     useEffect(() => {
-        dispatch(getPosts())
+        dispatch(getPostsJuicers())
       }, []);
-let getData=async()=>{
-  let res=await axios.get('https://shines-node-deploy.onrender.com/products');
-  setDatas(res.data.juicers)
-}
- 
-     useEffect(()=>{
-      getData()
-     },[]) 
-console.log(datas)
+
    //  console.log("data",datas)
 // slider images and settings 
 
@@ -101,13 +97,38 @@ console.log(datas)
     }
 
     let asc=()=>{
-     datas.sort((a,b)=>{
+      dispatch(getPostsJuicers())
+     posts.sort((a,b)=>{
       return (a.price)-(b.price);
      })
-     dispatch(updatePosts(datas))
-     //console.log('yes',datas)
-     setDatas(datas)
+     dispatch(updatePosts(posts))
     }
+
+    let desc=()=>{
+      dispatch(getPostsJuicers())
+      posts.sort((a,b)=>{
+        return (b.price) - (a.price)
+      })
+      dispatch(updatePosts(posts))
+    }
+    let filter=(txt)=>{
+     
+      dispatch(getPostsJuicers())
+        let datas=[];
+        posts.map((d)=>{
+          if(d.comp===txt){
+            datas= [...datas,d]
+          }
+        })
+      
+      dispatch(updatePosts(datas))
+      setText(txt)
+    }
+    let filterBack=(txt)=>{
+      setText('');
+      dispatch(updatePosts(posts))
+    }
+ 
 // if page loads show skeleton
   if(loading){
    return <Stack>
@@ -118,20 +139,9 @@ console.log(datas)
   </Stack>
   }
 
-  let navData=['HOME APPLIANCE', 'COMPUTERS', 'KITCHEN APPLIANCE', 'PERSONAL CARE', 'ACCESSOIES', 'AUDIO']
- let navbar= navData.map((d)=>{
-    return(
-      <Box >
-        <Text>{d}</Text>
-      <ChevronDownIcon marginTop={'4%'} marginLeft={'0.5rem'}/>
-      </Box>
-    )
-  })
   return (
     <>
-    <div className='navbar'>
-    {navbar}
-    </div>
+   <Navbar/>
     {/* ui slider part */}
     <Slider {...settings}>
         {
@@ -168,11 +178,10 @@ console.log(datas)
             </CardBody>
       </Box>
       <Box className='checkbox'mt="-2rem">
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
+      <Checkbox onChange={()=>{filter('Usha')}}>Usha </Checkbox>
+      <Checkbox onChange={()=>{filter('Philips')}}>Philips </Checkbox>
+      <Checkbox onChange={()=>{filter('Kelvinator')}}>Kelvinator </Checkbox>
+      <Checkbox onChange={()=>{filter('BPL')}}>BPL </Checkbox>
       </Box>
     </Card>
     {/* filter by price and discount */}
@@ -200,20 +209,23 @@ console.log(datas)
       <CardBody className="m-head">
         <Box>
             <Heading size='x' textStyle='h5'>
-                  MAKE UP
+                  JUICERS
             </Heading>
             <Text >(showing items total of 15)</Text>
         </Box>
         <Box style={{display:"flex"}}>
             <Text >Sort By : </Text>
             <Text className='text' onClick={asc}>Price(Low-High) </Text>
-            <Text className='text'>Price(High-Low)</Text>
+            <Text className='text' onClick={desc}>Price(High-Low)</Text>
         </Box>
       </CardBody>
   </Card>
   <Card style={{marginTop:"1rem", textAlign:"start"}}  bg={'whiteAlpha.900'}>
-      <CardBody>
-        <Text>Filter</Text>
+  <CardBody style={{display:"flex", }}>
+        <Box>Filter :</Box>
+        <Box style={{marginLeft:"4rem",}}>
+        <Box style={{display:"flex", }}><Text>{texts}</Text>{texts && <CloseButton onClick={()=>{filterBack({texts})}}/>}</Box>
+        </Box>
       </CardBody>
   </Card>
  {/* ui fetched data */}
@@ -223,9 +235,9 @@ console.log(datas)
       <Card key={post.id}  bg={'whiteAlpha.900'}>
        <Image src={post.img} alt={post.price}className="image"/>
        <Box style={{height:'40%'}}>
-           <Text style={{height:"40%", overflow:"hidden"}}>{post.desc}</Text>
+           <Text style={{height:"40%", overflow:"hidden",textOverflow: "ellipsis"}}>{post.desc}</Text>
            <Text>&#8377; {post.price}</Text>
-           <Text style={{display:"flex"}}>{post.rating? star(post.rating) : ""}</Text>
+           <Text style={{display:"flex",marginLeft:"30%"}}>{post.rating? star(post.rating) : ""}</Text>
            <Box className='offers'>OFFERS AVAILABLE</Box>
        </Box> 
         <Box style={{display:"flex", height:"10%"}}>

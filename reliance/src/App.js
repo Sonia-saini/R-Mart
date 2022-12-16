@@ -8,6 +8,7 @@ import Register from './component/suman/Register';
 function App() {
   return (
     <div > 
+    <h1>Hey Group</h1>
        <Register/>
        <Otp/>
        <Login/>

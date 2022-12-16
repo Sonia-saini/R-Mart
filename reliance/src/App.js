@@ -11,6 +11,7 @@ import AllRoutes from './component/mitali/allRoute/allRoutes'
 
 import Admin from "./component/suman/Admin";
 import { Home } from "./component/sonia/home";
+import Navbar from "./component/Saurabh/Navbar";
 
 
 
@@ -27,15 +28,16 @@ function App() {
   return (
 
     <div > 
+      <Navbar/>
        {/* <Register/>
        <Otp/>
        <Login/> */}
        {/* <Admin/>
          <Cart /> */}
      {/* <AllRoutes/> */}
-      <Home/> 
+      {/* <Home/>  */}
       
-
+      
      
      
 

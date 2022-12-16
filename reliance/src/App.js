@@ -30,9 +30,9 @@ function App() {
        {/* <Register/>
        <Otp/>
        <Login/> */}
-       <Admin/>
-         <Cart />
-     <AllRoutes/>
+       {/* <Admin/>
+         <Cart /> */}
+     {/* <AllRoutes/> */}
       <Home/> 
       
 

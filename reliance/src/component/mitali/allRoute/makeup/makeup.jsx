@@ -14,8 +14,8 @@ import axios from 'axios';
 
 
 const Makeup = () => {
-    let posts= useSelector((store)=>store.postsManager.posts)
-    let loading = useSelector((store)=>store.postsManager.loading)
+    let posts= useSelector((store)=>store.postsManager)
+    let loading = useSelector((store)=>store.postsManager)
 console.log(posts)
    
     let [datas, setDatas] = useState([])

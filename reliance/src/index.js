@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import AppContextProvider from "./component/suman/authContext/AuthContextProvider";
 import { ChakraProvider } from '@chakra-ui/react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
@@ -12,11 +13,22 @@ import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+
   <ChakraProvider>
   
   <BrowserRouter>
+
+
+
+
+ 
+
+ <AppContextProvider>
+
     <App />
+     </AppContextProvider>
     </BrowserRouter>
+
   </ChakraProvider>
 );
 

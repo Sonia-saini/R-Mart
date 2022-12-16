@@ -1,6 +1,19 @@
+
+
+
+
+import './App.css';
+import Makeup from './component/mitali/allRoute/makeup/makeup'
+import Iron from './component/mitali/allRoute/mobiles/mobiles'
+import AllRoutes from './component/mitali/allRoute/allRoutes'
+
+
 // import logo from './logo.svg';
  import React from "react";
+
+import Admin from "./component/suman/Admin";
 import { Home } from "./component/sonia/home";
+
 
 
 // import Login from './component/suman/Login';
@@ -12,17 +25,33 @@ import { Home } from "./component/sonia/home";
 
 
 
-
 function App() {
   return (
-    <div>
+
+    <div > 
+       {/* <Register/>
+       <Otp/>
+       <Login/> */}
+       <Admin/>
+     <AllRoutes/>
       <Home/> 
       
 
      
      
+
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+

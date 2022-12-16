@@ -1,8 +1,6 @@
 
-
-
-
-import './App.css';
+import "./App.css";
+import Cart from "./component/sanket/cart/cart";
 import Makeup from './component/mitali/allRoute/makeup/makeup'
 import Iron from './component/mitali/allRoute/mobiles/mobiles'
 import AllRoutes from './component/mitali/allRoute/allRoutes'
@@ -33,12 +31,14 @@ function App() {
        <Otp/>
        <Login/> */}
        <Admin/>
+         <Cart />
      <AllRoutes/>
       <Home/> 
       
 
      
      
+
 
     </div>
   );

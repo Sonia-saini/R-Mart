@@ -17,14 +17,17 @@ import {
   } from '@chakra-ui/react';
   import { useState } from 'react';
   import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-  import { Link } from 'react-router-dom';
-import axios from 'axios';
-
+  import { Link,useNavigate } from 'react-router-dom';
+   import axios from 'axios';
+   import { useToast } from '@chakra-ui/react';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [mobile,setMobile]=useState();
-    const [otp,setOtp]=useState("")
+    const [otp,setOtp]=useState("");
+
+    const navigate=useNavigate()
+    const toast = useToast()
 
 const getData=()=>{
     return axios.get(`https://blog-data-tan.vercel.app/register`)
@@ -48,16 +51,49 @@ getData()
        
       const finalcheck=(filtered)=>{
         if(filtered.length>0){
-        alert("Your OTP is 987654")
-      
-         } else{
-        alert("login failed")
+        toast({
+          title: 'Your OTP is 987654',
+          description: "Please Put OTP Carefully.",
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+        navigate("/")
+         } 
+         else
+         {
+          toast({
+            title: 'Mobile Number not registered',
+            description: "Something went wrong",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
          }
       }
 
 const handleOtpPart=(e)=>{
 e.preventDefault()
-otp==="987654" ?alert("login succesful"):alert("put right input")
+if(otp==="987654")
+{
+  toast({
+    title: 'Login Successful',
+    description: "We've created your account for you.",
+    status: 'success',
+    duration: 9000,
+    isClosable: true,
+  })
+}
+else{
+  toast({
+    title: 'You put wrong OTP',
+    description: "Please Put right OTP",
+    status: 'success',
+    duration: 9000,
+    isClosable: true,
+  })
+}
+ 
 
 }
 
@@ -82,7 +118,7 @@ otp==="987654" ?alert("login succesful"):alert("put right input")
         <Stack spacing={4}>
           <FormControl id="email" isRequired>
             <FormLabel>Mobile Number</FormLabel>
-            <Input type="email" value={mobile} onChange={(e)=>setMobile(e.target.value)}/>
+            <Input type="email" value={mobile} onChange={(e)=>setMobile(e.target.value)} isRequired/>
           </FormControl>
          
           <Stack spacing={10} pt={2}>
@@ -107,7 +143,7 @@ otp==="987654" ?alert("login succesful"):alert("put right input")
             <FormLabel>OTP</FormLabel>
             <InputGroup>
               <Input type={showPassword ? 'text' : 'password'} value={otp}
-                onChange={(e)=>setOtp(e.target.value)}
+                onChange={(e)=>setOtp(e.target.value)} isRequired
               />
               <InputRightElement h={'full'}>
                 <Button

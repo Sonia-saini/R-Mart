@@ -26,7 +26,7 @@ function App() {
        <Login/>  */}
        {/* <Admin/> */}
        {/* <Home/> */}
-       {/* <AdminPage/> */}
+       <AdminPage/>
     </div>
   );
 }

@@ -7,6 +7,9 @@ import Slider from 'react-slick';
 import { ChevronLeftIcon ,ChevronRightIcon} from '@chakra-ui/icons';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Heading } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+import { Single } from './SingleProduct/action';
+import { Link, Navigate } from 'react-router-dom';
       
 
 let data=["https://www.reliancedigital.in/medias/Accessories-Fiesta-Carousel-Banner-D.jpg?context=bWFzdGVyfGltYWdlc3w5MTAwN3xpbWFnZS9qcGVnfGltYWdlcy9oY2MvaDI5Lzk5Mjk4MTAyMTQ5NDIuanBnfGUxYTc3MTMzNThhNzlkZGQyNTNlYTYxMzM3OWM4NzQzYjY2YWYwYzFkNjhhMjA5M2YwNDhiYTMwMzA2ZGY5MTY",
@@ -131,8 +134,15 @@ let data=["https://www.reliancedigital.in/medias/Accessories-Fiesta-Carousel-Ban
         };
         
         const Card = ({ item }) => {
+          const dispatch=useDispatch()
+          // const d=useSelector((state)=>state)
+        const onClick=(el)=>{
+          
+          dispatch(Single(el))
+        return <Navigate to="/single"/>
+        }
           return (
-            <div style={{ textAlign: 'center' }}>
+        <Link to="/single">    <div style={{ textAlign: 'center' }} onClick={()=>onClick(item)}>
               <img
                 className='multi__image'
                 src={item.url}
@@ -156,7 +166,7 @@ let data=["https://www.reliancedigital.in/medias/Accessories-Fiesta-Carousel-Ban
               <p style={{ fontSize: '14px', padding: '5px 0', color: 'gray' }}>
                 Up To ₹ 5,000 Off on HDFC
               </p>
-            </div>
+            </div></Link>
           );
         };
         

@@ -10,7 +10,9 @@ import AllRoutes from './component/mitali/allRoute/allRoutes'
  import React from "react";
 
 import Admin from "./component/suman/Admin";
-import { Home } from "./component/sonia/home";
+
+
+import Allroutes from "./router/allroutes";
 
 
 
@@ -33,8 +35,10 @@ function App() {
        {/* <Admin/>
          <Cart /> */}
      {/* <AllRoutes/> */}
-      <Home/> 
+     <Allroutes/>
+     
       
+
 
      
      

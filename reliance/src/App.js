@@ -11,20 +11,22 @@ import "./App.css";
 
 // import Admin from "./component/suman/Admin";
 // import Login from './component/suman/Login';
-//  import Otp from './component/suman/Otp';
-// import Register from './component/suman/Register';
-import {Home} from "./component/sonia/home"
+//   import Otp from './component/suman/Otp';
+//  import Register from './component/suman/Register';
+import AdminPage from "./component/suman/AdminPage";
+//  import {Home} from "./component/sonia/home"
 
 function App() {
   return (
 
     <div > 
-   <h1>Hi group</h1>
+  
        {/* <Register/>
        <Otp/>
-       <Login/> 
-       <Admin/> */}
-       <Home/>
+       <Login/>  */}
+       {/* <Admin/> */}
+       {/* <Home/> */}
+       {/* <AdminPage/> */}
     </div>
   );
 }

@@ -8,8 +8,6 @@ import {Juicers} from './juicers/juicers'
 import {Computers} from './computers/computers'
 import {Camaras} from './camaras/camaras'
 
-
-
 const AllRoutes = () => {
   return (
     <div>

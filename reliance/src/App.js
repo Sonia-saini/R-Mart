@@ -7,9 +7,20 @@ import "./App.css";
 
 
 // import logo from './logo.svg';
- import React from "react";
-
+ import React from "react"
 // import Admin from "./component/suman/Admin";
+import Admin from "./component/suman/Admin";
+
+
+
+import Allroutes from "./router/allroutes";
+import { Home } from "./component/sonia/home";
+import Navbar from "./component/Saurabh/Navbar";
+
+
+
+
+
 // import Login from './component/suman/Login';
 //   import Otp from './component/suman/Otp';
 //  import Register from './component/suman/Register';
@@ -20,13 +31,12 @@ function App() {
   return (
 
     <div > 
-  
+   <h1>Hi group</h1>
        {/* <Register/>
        <Otp/>
-       <Login/>  */}
-       {/* <Admin/> */}
-       {/* <Home/> */}
-       <AdminPage/>
+       <Login/> 
+       <Admin/> */}
+       <Home/>
     </div>
   );
 }

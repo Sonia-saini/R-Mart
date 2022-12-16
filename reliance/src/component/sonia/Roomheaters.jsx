@@ -7,6 +7,14 @@ import Slider from 'react-slick';
 import { ChevronLeftIcon ,ChevronRightIcon} from '@chakra-ui/icons';
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
 import { Heading } from '@chakra-ui/react';
+
+
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Link, Navigate, NavLink } from 'react-router-dom';
+import { Single } from './SingleProduct/action';
+
+
       
 const watch=[
           {url:"https://www.reliancedigital.in/medias/Usha-QH-3002-Radiators-490784083-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w3Mzc5NTN8aW1hZ2UvanBlZ3xpbWFnZXMvaDljL2hjOC85NDE2NTExMzU2OTU4LmpwZ3w4MDQ4Yjk2Nzc5ZWFmM2NhNGYxNTA5Mzg1Zjc4M2ZlNWNhMzkzYjA0NTAxZTQ0NTQxZWI0MjcyMzcwM2U3NjFj",
@@ -84,7 +92,7 @@ const watch=[
         ]
         
         // import { ArrowBackIos, ArrowForwardIos } from '@material-ui/icons';
-       
+        
         let slidesToShow = 5;
         const PreviousBtn = (props) => {
           console.log(props);
@@ -146,6 +154,7 @@ const watch=[
         };
         const RoomHeater = () => {
           const [width, setWidth] = useState(window.innerWidth);
+         
           const updateWidth = () => {
             setWidth(window.innerWidth);
           };
@@ -164,7 +173,7 @@ const watch=[
           } else {
             slidesToShow = 5;
           }
-        
+         
           return (
             <div style={{ margin: '30px' }} className='carousel'>
              
@@ -177,10 +186,23 @@ const watch=[
             </div>
           );
         };
-        
+       
         const Card = ({ item }) => {
+          const dispatch=useDispatch()
+          const d=useSelector((state)=>state)
+        const onClick=(el)=>{
+          
+          dispatch(Single(el))
+        return <Navigate to="/single"/>
+        }
+      
+        
+      
+        
           return (
-            <div style={{ textAlign: 'center' }}>
+       
+            
+      <Link to="/single">   <div style={{ textAlign: 'center' }} onClick={()=>onClick(item)}>
               <img
                 className='multi__image'
                 src={item.url}
@@ -204,7 +226,8 @@ const watch=[
               <p style={{ fontSize: '14px', padding: '5px 0', color: 'gray' }}>
                 Up To ₹ 5,000 Off on HDFC
               </p>
-            </div>
+            </div></Link>
+            
           );
         };
         

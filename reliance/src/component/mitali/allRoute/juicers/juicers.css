@@ -1,0 +1,108 @@
+
+.m-left{
+    width:31%;
+}
+.checkbox{
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    padding:2rem;
+    margin-top: 1rem;
+    font-weight: 200;
+}
+.brand{
+    margin-top: 1rem;
+}
+.m-right{
+    width:100%;
+    margin-left: 1.5rem;
+}
+.m-head{
+    display:flex;
+    text-align: start;
+    justify-content: space-between;
+}
+.text{
+    margin-left: 0.8rem;
+    text-align: center;
+    width:auto;
+    height:"auto";
+    padding: 0.5rem 1rem 0 1rem;
+    border-radius: 5px;
+    background-color: rgb(237, 235, 235);
+}
+.text:hover{
+    cursor: pointer;
+    border:0.001px solid black
+}
+.details{
+   display:grid;
+   grid-template-columns: repeat(4,1fr);
+   gap:1rem;
+   margin-top: 1rem;
+   padding:0.5rem
+}
+.wishList{
+    width:50%;
+    text-align: center;
+    display:flex;
+    overflow: hidden;
+}
+.wishList:hover{
+    cursor: pointer;
+}
+.offers{
+    background-color: rgb(223, 250, 223);
+    color:rgb(3, 155, 3);
+    border-radius: 25px;
+    width:65%;
+    font-size: 12px;
+    align-items: center;
+    border : 1px solid rgb(3, 155, 3);
+    transform : scale(0.85);
+}
+.offers:hover{
+    cursor:pointer
+}
+.details>*:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color:red;
+}
+.image{
+    height:50%; 
+    width:80%;
+    align-items: center;
+    margin:auto
+}
+.image:hover{
+    transform:scale(1.1);
+   height:47%
+}
+.navbar{
+    display:flex;
+    justify-content: space-around;
+    color:white;
+    background-color: rgb(8, 8, 124);
+}
+.navbar>*{
+    display:flex;
+    padding:0.5rem
+}
+.navbar>*:hover{
+    cursor:pointer
+}
+@media screen and (max-width: 992px) {
+    .details{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .wishList{
+        transform:scale(0.8)
+    }
+  }
+  @media screen and (max-width: 666px) {
+    .details{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .wishList{
+        transform:scale(0.8)
+    }
+  }

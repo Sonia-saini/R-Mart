@@ -1,59 +1,56 @@
 import React from 'react'
-import { useEffect , useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from "react-redux";
 import "./Iron.css"
-import { Card, CardBody,Heading,Box,Checkbox,Text ,Image,Skeleton, Stack} from '@chakra-ui/react'
+import { Card, CardBody,Heading,Box,Checkbox,Text ,Image,Skeleton, Stack, CloseButton} from '@chakra-ui/react'
 import { Search2Icon ,ChevronDownIcon} from '@chakra-ui/icons'
 import { AiFillStar,AiOutlineHeart } from "react-icons/ai"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import Navbar from '../nav'
+import {getPostsIron,updatePosts} from '../../api/api.action';
 
-import {getPosts,updatePosts} from '../../api/api.action';
-import axios from 'axios';
 
 
 export const Iron = () => {
     let posts= useSelector((store)=>store.postsManager.posts)
     let loading = useSelector((store)=>store.postsManager.loading)
-    
-    let [datas, setDatas] = useState([])
+    let datas = useSelector((store)=>store.postsManager.datas)
+    let [texts, setText] = useState('')
+
     const dispatch = useDispatch()
-   //console.log('data',datas)
+    console.log("p",posts)
+    if(!datas[0]){
+      datas=posts
+    }
   
     useEffect(() => {
-        dispatch(getPosts())
+        dispatch(getPostsIron())
       }, []);
-let getData=async()=>{
-  let res=await axios.get('https://shines-node-deploy.onrender.com/products');
-  setDatas(res.data.Iron)
-}
+
  
-     useEffect(()=>{
-      getData()
-     },[]) 
-console.log(datas)
    //  console.log("data",datas)
 // slider images and settings 
 
       const data=[
         {
             id:1,
-            img:"https://www.reliancedigital.in/medias/1365-260-JUICER.jpg?context=bWFzdGVyfGltYWdlc3wyMjM5Nzh8aW1hZ2UvanBlZ3xpbWFnZXMvaGQ1L2g4MC85ODU4MjY4MjAwOTkwLmpwZ3wzZDgyODNhYzdkMGUzZDhkMDY4MjIwMWZkMmU4MzdhMDlhZWQ5MzRjZDNiNzgwZmM1NmJjYTg1NTIxZjFmM2U2"
+            img:"https://www.reliancedigital.in/medias/Panasonic-Iron-CLP-Banner-22-03-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMTE0Nzl8aW1hZ2UvanBlZ3xpbWFnZXMvaDkxL2g1OS85NDk5MzE5Njk3NDM4LmpwZ3wxZThkYmMyMzNlMzFjOTJlMDBlMDZiNWFjNjc0OTI0ZTk5Zjc1ODkzMDBlOGE3NzhiNTZmMjYwYTY1YTI1MmU2"
     
         },
     {
         id:2,
-        img:"https://www.reliancedigital.in/medias/Reliance-digital-Banner-Kriti-01.jpg?context=bWFzdGVyfGltYWdlc3wxMDU1MTB8aW1hZ2UvanBlZ3xpbWFnZXMvaDRlL2hkNi85ODU4MjY4MDY5OTE4LmpwZ3w2MTY1NGE1ODA3NWIwNDZlNjQ5ZDc1NGY2ODRlMjUxYTk1MGFlNDQ0YjkxYzVjNjkzYjU3OWY3ZWZjNjdhMTI2"
+        img:"https://www.reliancedigital.in/medias/Havells-Insta-Dry-Iron-CLP-Banner-13-04-2021.jpg?context=bWFzdGVyfGltYWdlc3wzMzQ0MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDg0L2gxYS85NTE5MDM0MDQwMzUwLmpwZ3xmMTA1ZDRjYTg3YWUxODhjM2EwMWNmNmUzZGEwNTJiNjZhZDZjY2U0YTI1Mjc0OWI4OGIwMDFlMTM1NzMzYmQ4"
     },
         {
             id:3,
-            img:"https://www.reliancedigital.in/medias/Philips-Juicer-Mixer-Grinder-CLP-Banner-09-04-2021.jpg?context=bWFzdGVyfGltYWdlc3wxNjIwMDR8aW1hZ2UvanBlZ3xpbWFnZXMvaDU1L2gyMy85NTE4NzM2MDE1MzkwLmpwZ3wxZTdmY2E0MTFlZTI1YzFjNmE4YTA0NWU2NDFiMzM4MGZmYzE2OTM5OTQ4NmVhZWM0MmM1ZjcwMjUxYmI3Nzgy"
+            img:"https://www.reliancedigital.in/medias/Havells-Insta-Dry-Iron-CLP-Banner-13-04-2021.jpg?context=bWFzdGVyfGltYWdlc3wzMzQ0MDh8aW1hZ2UvanBlZ3xpbWFnZXMvaDg0L2gxYS85NTE5MDM0MDQwMzUwLmpwZ3xmMTA1ZDRjYTg3YWUxODhjM2EwMWNmNmUzZGEwNTJiNjZhZDZjY2U0YTI1Mjc0OWI4OGIwMDFlMTM1NzMzYmQ4"
         },
     
         {
             id:4,
-            img:"https://www.reliancedigital.in/medias/Havells-Stilus-Juicer-Mixer-Grinder-CLP-Banner-13-04-2021.jpg?context=bWFzdGVyfGltYWdlc3wxMDg2NjJ8aW1hZ2UvanBlZ3xpbWFnZXMvaGQwL2hkYy85NTE5MDMyOTI2MjM4LmpwZ3w2MWFmYzZhZGZlNTE1ZWJjNmUzYTY3YmYwZWMyYzhlZmM4OGUyNzY0YTg5YmU3MTVlMDIyMzEzYjEwM2E5MmMz"
+            img:"https://www.reliancedigital.in/medias/Philips-Dry-Iron-CLP-Banner-09-04-2021.jpg?context=bWFzdGVyfGltYWdlc3wxNTYzOTJ8aW1hZ2UvanBlZ3xpbWFnZXMvaGY5L2hmZS85NTE4NzMyMTgxNTM0LmpwZ3w2ZmU3MWM3YzViMTc2NzMxM2VhNjQzYjNmZmJmZmU4NDU1ZjFlZmJjYTdhMmQxNjc4YmQ4NTA4OTEwMDNhZjYx"
         }
     ]
 
@@ -101,13 +98,39 @@ console.log(datas)
     }
 
     let asc=()=>{
-     datas.sort((a,b)=>{
+      dispatch(getPostsIron())
+     posts.sort((a,b)=>{
       return (a.price)-(b.price);
      })
-     dispatch(updatePosts(datas))
-     //console.log('yes',datas)
-     setDatas(datas)
+     dispatch(updatePosts(posts))
     }
+
+    let desc=()=>{
+      dispatch(getPostsIron())
+      posts.sort((a,b)=>{
+        return (b.price) - (a.price)
+      })
+      dispatch(updatePosts(posts))
+    }
+
+    let filter=(txt)=>{
+     
+      dispatch(getPostsIron())
+        let datas=[];
+        posts.map((d)=>{
+          if(d.comp===txt){
+            datas= [...datas,d]
+          }
+        })
+      
+      dispatch(updatePosts(datas))
+      setText(txt)
+    }
+    let filterBack=(txt)=>{
+      setText('');
+      dispatch(updatePosts(posts))
+    }
+ 
 // if page loads show skeleton
   if(loading){
    return <Stack>
@@ -118,20 +141,9 @@ console.log(datas)
   </Stack>
   }
 
-  let navData=['HOME APPLIANCE', 'COMPUTERS', 'KITCHEN APPLIANCE', 'PERSONAL CARE', 'ACCESSOIES', 'AUDIO']
- let navbar= navData.map((d)=>{
-    return(
-      <Box >
-        <Text>{d}</Text>
-      <ChevronDownIcon marginTop={'4%'} marginLeft={'0.5rem'}/>
-      </Box>
-    )
-  })
   return (
     <>
-    <div className='navbar'>
-    {navbar}
-    </div>
+   <Navbar/>
     {/* ui slider part */}
     <Slider {...settings}>
         {
@@ -152,7 +164,7 @@ console.log(datas)
       <Card className='filter'  bg={'whiteAlpha.900'} w={[100, 150,200 ,300]}>
         <CardBody>
           <Heading size='x' textTransform='uppercase' textStyle='h5'>
-                Filters
+               <Box>Filter</Box>
           </Heading>
         </CardBody>
       </Card>
@@ -168,11 +180,10 @@ console.log(datas)
             </CardBody>
       </Box>
       <Box className='checkbox'mt="-2rem">
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
+      <Checkbox onChange={()=>{filter('Usha')}}>Usha </Checkbox>
+      <Checkbox onChange={()=>{filter('Philips')}}>Philips </Checkbox>
+      <Checkbox onChange={()=>{filter('Kelvinator')}}>Kelvinator </Checkbox>
+      <Checkbox onChange={()=>{filter('BPL')}}>BPL </Checkbox>
       </Box>
     </Card>
     {/* filter by price and discount */}
@@ -186,11 +197,11 @@ console.log(datas)
             </CardBody>
       </Box>
       <Box className='checkbox'mt="-2rem">
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
+        
+        <Checkbox onClick={()=>{filter('Usha')}}>Usha </Checkbox>
+        <Checkbox onClick={()=>{filter('Philips')}}>Philips </Checkbox>
+        <Checkbox onClick={()=>{filter('Kelvinator')}}>Kelvinator </Checkbox>
+        <Checkbox onClick={()=>{filter('BPL')}}>BPL </Checkbox>
       </Box>
     </Card>
      </Box>
@@ -200,20 +211,23 @@ console.log(datas)
       <CardBody className="m-head">
         <Box>
             <Heading size='x' textStyle='h5'>
-                  MAKE UP
+                  IRON
             </Heading>
             <Text >(showing items total of 15)</Text>
         </Box>
         <Box style={{display:"flex"}}>
             <Text >Sort By : </Text>
             <Text className='text' onClick={asc}>Price(Low-High) </Text>
-            <Text className='text'>Price(High-Low)</Text>
+            <Text className='text' onClick={desc}>Price(High-Low)</Text>
         </Box>
       </CardBody>
   </Card>
   <Card style={{marginTop:"1rem", textAlign:"start"}}  bg={'whiteAlpha.900'}>
-      <CardBody>
-        <Text>Filter</Text>
+      <CardBody style={{display:"flex", }}>
+        <Box>Filter :</Box>
+        <Box style={{marginLeft:"4rem",}}>
+        <Box style={{display:"flex", }}><Text>{texts}</Text>{texts && <CloseButton onClick={()=>{filterBack({texts})}}/>}</Box>
+        </Box>
       </CardBody>
   </Card>
  {/* ui fetched data */}
@@ -223,9 +237,9 @@ console.log(datas)
       <Card key={post.id}  bg={'whiteAlpha.900'}>
        <Image src={post.img} alt={post.price}className="image"/>
        <Box style={{height:'40%'}}>
-           <Text style={{height:"40%", overflow:"hidden"}}>{post.desc}</Text>
+           <Text style={{height:"40%", overflow:"hidden"}} >{post.desc}</Text>
            <Text>&#8377; {post.price}</Text>
-           <Text style={{display:"flex"}}>{post.rating? star(post.rating) : ""}</Text>
+           <Text style={{display:"flex",marginLeft:"30%"}}>{post.rating? star(post.rating) : ""}</Text>
            <Box className='offers'>OFFERS AVAILABLE</Box>
        </Box> 
         <Box style={{display:"flex", height:"10%"}}>
@@ -236,7 +250,7 @@ console.log(datas)
            <Text style={{width:"25%"}}>
            <AiOutlineHeart color='red' size="95%" width="40%"/>
            </Text>
-           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}  >Wish List</Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Wish List</Text>
          </Card>
         </Box>
       </Card>

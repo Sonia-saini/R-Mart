@@ -20,31 +20,13 @@ import {
 // import { SmallCloseIcon } from '@chakra-ui/icons';
 import axios from "axios";
 
-import {
-  Box,
-  // Flex,
-  // Avatar,
-  // Link,
-  // Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  // useColorModeValue,
-  // Stack,
-  useColorMode,
-  // Center,
-} from '@chakra-ui/react';
-import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+
+
+import AdminNavbar from './AdminNavbar';
 
 
 const AdminPage = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const {authState,logoutUser}=React.useContext(AppContest);
+ 
 
   const [img,setImg]=React.useState("")
 const [title,setTitle]=React.useState("")
@@ -73,62 +55,8 @@ const handleAddProduct=()=>{
   return (
     <>
 
- <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'} fontSize={{base:"5px",lg:"15px",md:"10px"}}
-        >
-          <Box>Mobiles</Box>
-          <Box>Accessories</Box>
-          <Box>Makeup</Box>
-          <Box>Iron</Box>
-          <Box>Juicers</Box>
-          <Box>Computers</Box>
-          <Box>Camaras</Box>
-          
-
-          <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
-              <Button onClick={toggleColorMode}>
-                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-              </Button>
-
-              <Menu>
-                <MenuButton
-                  as={Button}
-                  rounded={'full'}
-                  variant={'link'}
-                  cursor={'pointer'}
-                  minW={0}>
-                  <Avatar
-                    size={'sm'}
-                    src={'https://ca.slack-edge.com/T049JC010P9-U04ANG3QWJ2-62ad89db213e-512'}
-                  />
-                </MenuButton>
-                <MenuList alignItems={'center'}>
-                  <br />
-                  <Center>
-                    <Avatar
-                      size={'2xl'}
-                      src={'https://ca.slack-edge.com/T049JC010P9-U04ANG3QWJ2-62ad89db213e-512'}
-                    />
-                  </Center>
-                  <br />
-                  <Center>
-                    <p style={{fontSize:"15px"}}>Token : {authState.token}</p>
-                  </Center>
-                  <br />
-                  <MenuDivider />
-                  <MenuItem>Your Servers</MenuItem>
-                  <MenuItem>Account Settings</MenuItem>
-                  <Link to="/admin">
-                  <MenuItem onClick={logoutUser}>Logout</MenuItem>
-                  </Link>
-                </MenuList>
-              </Menu>
-            </Stack>
-          </Flex>
-        </Flex>
-      </Box>
-
+ 
+<AdminNavbar/>
 
 
     <Flex
@@ -148,27 +76,6 @@ const handleAddProduct=()=>{
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
          Add New Product
         </Heading>
-        {/* <FormControl id="userName">
-          <FormLabel>Admin Icon</FormLabel>
-          <Stack direction={['column', 'row']} spacing={6}>
-            <Center>
-              <Avatar size="2xl" src="https://ca.slack-edge.com/T049JC010P9-U04ANG3QWJ2-62ad89db213e-512">
-                <AvatarBadge
-                   as={IconButton}
-                  size="sm"
-                  rounded="full"
-                  top="-10px"
-                   colorScheme="red"
-                  aria-label="remove Image"
-                  icon={<SmallCloseIcon />}
-                />
-              </Avatar>
-            </Center>
-            <Center w="full">
-              <Text w="full">Token: {authState.token}</Text>
-            </Center>
-          </Stack>
-        </FormControl> */}
         <FormControl id="url" isRequired>
           <FormLabel>URL</FormLabel>
           <Input value={img} onChange={(e)=>setImg(e.target.value)}

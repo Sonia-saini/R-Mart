@@ -14,6 +14,7 @@ import {Iron} from '../component/mitali/allRoute/Iron/Iron';
 import {Juicers} from '../component/mitali/allRoute/juicers/juicers';
 import {Computers} from '../component/mitali/allRoute/computers/computers'
 import {Camaras} from '../component/mitali/allRoute/camaras/camaras' 
+import UserDetails from '../component/suman/UserDetails';
 
 function Allroutes() {
   return (
@@ -27,11 +28,11 @@ function Allroutes() {
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/admin' element={<Admin/>}></Route>
             <Route path='/adminpage' element={<AdminPage/>}></Route>
+            <Route path="/userdetails" element={<UserDetails/>}></Route>
 
             <Route path='/cart' element={<Cart/>}></Route>
             <Route path='/payment' element={<Home/>}></Route>
-
-          
+            
             <Route path='/mobiles' element={<Mobiles/>}/>
             <Route path='/Makeup' element= {<Makeup/>} />
             <Route path='/iron' element={<Iron/>}/>

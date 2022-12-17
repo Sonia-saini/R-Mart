@@ -1,7 +1,10 @@
 import React from 'react'
+import {useSelector} from "react-redux"
 import { AiOutlineLineHeight } from 'react-icons/ai';
+let  cart=JSON.parse(localStorage.getItem("cartitem"))||[]
 
 const Navbar = () => {
+const {items}=useSelector((state)=>state.cart)
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-blue shadow-sm" style= {{backgroundColor :'red'}}>
@@ -29,7 +32,7 @@ const Navbar = () => {
               <a href="" className="btn btn-outline-dark">
                 <i className="fa fa-sign-in me-2"></i>Login</a>
                 <a href="" className="btn btn-outline-dark ms-4">
-                <i className="fa fa-shopping-cart me-2"></i>Cart (0)</a>
+                <i className="fa fa-shopping-cart me-2"></i>Cart ({items.length})</a>
             </div>
           </div>
         </div>

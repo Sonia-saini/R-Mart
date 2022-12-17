@@ -5,7 +5,7 @@ import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 
-import { store } from "./component/mitali/store";
+import { store } from "./store";
 
 
 
@@ -19,7 +19,7 @@ import AppContextProvider from "./component/suman/authContext/AuthContextProvide
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-import '../node_modules/font-awesome/css/font-awesome.min.css';
+// import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 
 import { BrowserRouter } from 'react-router-dom';

@@ -7,6 +7,13 @@ function App() {
   return (
     <div > 
        <Allroutes/>
+   
+       
+       
+       
+       
+         
+
     </div>
   );
 }

@@ -9,6 +9,7 @@ import Slider from "react-slick";
 import MultiItemCarousel from './Sliderpage';
 import RoomHeater from './Roomheaters';
  import Navbar from "../Saurabh/Navbar";
+ import Footer from '../Saurabh/Footer';
 
 
 
@@ -308,6 +309,7 @@ h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
     </Box>
     </Stack>  
   {/* <MultipleItems/> */}
+  <Footer />
     </Box>
   )
 }

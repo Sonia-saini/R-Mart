@@ -5,7 +5,7 @@ import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 
-import { store } from "./component/mitali/store";
+import { store } from "./store";
 
 
 

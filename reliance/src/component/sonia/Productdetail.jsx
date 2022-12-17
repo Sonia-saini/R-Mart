@@ -1,30 +1,23 @@
-import { Box, Heading, Stack,Image,HStack, Input,Button } from '@chakra-ui/react'
-import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
 
+import React, { useState } from 'react'
+import { useSelector,useDispatch} from 'react-redux';
+import { Box, Heading, Stack,Image, Input,Button } from '@chakra-ui/react'
+import { addtocart } from '../sanket/cart/redux/actions';
 function Productdetail() {
+    
     const [input,setInput]=useState("");
     const {data}=useSelector((state)=>state.data)
-    console.log(data,"product")
-    const basicBoxStyles = {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
-        boxSize: '250px',
-        color: 'white',
-        textShadow: '0 0 20px black',
-        fontWeight: 'bold',
-        fontSize: '20px',
-        px: 4,
-        background:
-          'url(https://picsum.photos/id/1080/200/300) center/cover no-repeat',
-      }
-  return (<>
+    const {items}=useSelector((state)=>state.cart)
+    const dispatch=useDispatch()
+    console.log(items)
+   
+    
+  return (
+  
     <Stack w="100%" direction="flex" gap={20} mt={10}>
 
 <Box w={"50%"} margin="auto" ml="10"  border={"10px dashed #1a237e"} borderRadius="27px" >
-    <Image src={data.url} w="100%" alt="" border={"10px outset red"} borderRadius="15px"/>
+    <Image src={data.url} w="100%" alt=""  borderRadius="15px"/>
 </Box>
 <Box w={"100%"} p={3}>
     <Heading fontSize={22} mb={10}>{data.name}</Heading>
@@ -69,10 +62,10 @@ Processor AMD Ryzen 3 3250 RAM- 8 GB Internal Storage- 256 GB Storage Type- SSD
 </Box>
     </Stack>
     <Stack p={10} borderLeft="1px dashed gray"borderTop={"1px dashed gray"} w={"100%"}>
- <Box>  <p fontSize={17}>Deal Price:<b style={{color:'blue',fontSize:"30px"}}> ₹{data.price}</b></p>
-    <p fontSize={17}>M.R.P :<b style={{fontSize:"16px",textDecoration:"line-through"}}> ₹{data.price+(data.price*5)/100}</b> (Inclusive of all taxes)</p>
-    <p fontSize={17} style={{color:"16px"}}>You Save :{data.discount?data.discount: 5}%<b style={{fontSize:"16px"}}> (₹{(data.price*(data.discount?data.discount: 5))/100})</b></p>
-  <p>  EMIs (Credit Cards) from ₹{((data.price*3)/100)+(data.price*4)/100}/month</p>
+ <Box>  <p fontSize={17}>Deal Price:<b style={{color:'blue',fontSize:"30px"}}> ₹{data.price.toLocaleString()}</b></p>
+    <p fontSize={17}>M.R.P :<b style={{fontSize:"16px",textDecoration:"line-through"}}> ₹{(data.price+(data.price*5)/100).toLocaleString()}</b> (Inclusive of all taxes)</p>
+    <p fontSize={17} style={{color:"16px"}}>You Save :{(data.discount?data.discount: 5).toLocaleString()}%<b style={{fontSize:"16px"}}> (₹{((data.price*(data.discount?data.discount: 5))/100).toLocaleString()})</b></p>
+  <p>  EMIs (Credit Cards) from ₹{((data.price*3)/100)+((data.price*4)/100).toLocaleString()}/month</p>
   <Heading fontSize={17} mt={5}>FREE Shipping!</Heading>
     </Box> 
  <Box> <Box>  <Input placeholder={"ENTER PINCODE"} maxLength="6" onChange={(e)=>setInput(e.target.value)} name="name"border="2px solid blue" autoComplete='off' 
@@ -88,13 +81,13 @@ Processor AMD Ryzen 3 3250 RAM- 8 GB Internal Storage- 256 GB Storage Type- SSD
 }
 
  </Box>
- <Stack direction={"flex"} justifyContent="space-between" mt={10} w="100%"><Button borderRadius={0} bg={"red.500"} _hover={{bg:"blue.700"}} color="white" w="48%">ADD TO CART</Button>
+ <Stack direction={"flex"} justifyContent="space-between" mt={10} w="100%"><Button borderRadius={0} bg={"red.500"} _hover={{bg:"blue.700"}} color="white" w="48%" onClick={()=>dispatch(addtocart({...data,quantity:1}))}>ADD TO CART</Button>
 <Button bg={"orange.500"} color="white" _hover={{bg:"orange.500"}} w="48%" borderRadius={0}>BUY NOW</Button></Stack>
     </Stack>
     </Stack>
 </Box>
     </Stack>
-    </>
+    
   )
 }
 

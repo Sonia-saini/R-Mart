@@ -58,7 +58,7 @@ getData()
           duration: 9000,
           isClosable: true,
         })
-        navigate("/")
+       
          } 
          else
          {
@@ -83,6 +83,7 @@ if(otp==="987654")
     duration: 9000,
     isClosable: true,
   })
+  navigate("/")
 }
 else{
   toast({
@@ -108,7 +109,6 @@ else{
         <Heading fontSize={'xl'} textAlign={'center'}>
           Login
         </Heading>
-       
       </Stack>
       <Box
         rounded={'lg'}

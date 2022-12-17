@@ -12,6 +12,7 @@ import AllRoutes from './component/mitali/allRoute/allRoutes'
 import Admin from "./component/suman/Admin";
 import { Home } from "./component/sonia/home";
 import Navbar from "./component/Saurabh/Navbar";
+import Footer from "./component/Saurabh/Footer";
 
 
 
@@ -35,7 +36,8 @@ function App() {
        {/* <Admin/>
          <Cart /> */}
      {/* <AllRoutes/> */}
-      {/* <Home/>  */}
+      <Home/> 
+      <Footer/>
       
       
      

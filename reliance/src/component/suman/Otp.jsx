@@ -50,7 +50,7 @@ const handleOtp=(e)=>{
     <Flex
       minH={'100vh'}
       align={'center'}
-      justify={'center'}
+      justify={'right'}
       bg={useColorModeValue('gray.50', 'gray.800')}>
       <Stack
         spacing={4}

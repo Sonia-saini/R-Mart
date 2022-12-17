@@ -22,40 +22,21 @@ import Navbar from "./component/Saurabh/Navbar";
 
 
 // import Login from './component/suman/Login';
-//  import Otp from './component/suman/Otp';
-// import Register from './component/suman/Register';
-import {Home} from "./component/sonia/home"
+//   import Otp from './component/suman/Otp';
+//  import Register from './component/suman/Register';
+import AdminPage from "./component/suman/AdminPage";
+//  import {Home} from "./component/sonia/home"
 
 function App() {
   return (
 
-    <div >
-  
-  
-
-      <Navbar/>
+    <div > 
+   <h1>Hi group</h1>
        {/* <Register/>
        <Otp/>
-       <Login/> */}
-       {/* <Admin/>
-         <Cart /> */}
-     {/* <AllRoutes/> */}
-
-     <Allroutes/>
-     
-      
-
-
-
-      {/* <Home/>  */}
-      
-      
-
-     
-     
-
-
-
+       <Login/> 
+       <Admin/> */}
+       <Home/>
     </div>
   );
 }

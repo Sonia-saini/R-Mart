@@ -1,7 +1,8 @@
 import {
   ERROR_STATE,
   LOADING_STATE,
-  GET_DATA_SUCCESSFULLY
+  GET_DATA_SUCCESSFULLY,
+  ADD_ITEM
 } from "./actionTypes";
 
 import axios from "axios";
@@ -17,3 +18,6 @@ export const getData = () => async (dispatch) => {
     dispatch({ type: ERROR_STATE, payload: error.message });
   }
 };
+export const addtocart=(data)=>({
+  type:ADD_ITEM,payload:data
+})

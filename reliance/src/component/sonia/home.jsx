@@ -1,11 +1,11 @@
 import React from 'react'
-import {Box,Heading,Image,Text,Stack} from "@chakra-ui/react"
+import {Box,Heading,Image,Stack} from "@chakra-ui/react"
 
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import  { Component } from "react";
-import Slider from "react-slick";
+
+
 import MultiItemCarousel from './Sliderpage';
 import RoomHeater from './Roomheaters';
  import Navbar from "../Saurabh/Navbar";
@@ -308,6 +308,7 @@ h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
     </Box>
     </Stack>  
   {/* <MultipleItems/> */}
+  
     </Box>
   )
 }

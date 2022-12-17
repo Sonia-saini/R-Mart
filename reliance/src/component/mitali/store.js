@@ -1,8 +1,8 @@
 import { legacy_createStore, combineReducers,compose, applyMiddleware} from "redux"; 
 import thunk from "redux-thunk"
+import Reducer from "../sonia/SingleProduct/Reducer";
 
 import { postReducer } from "./api/api.reducer";
-import Reducer from "../sonia/SingleProduct/Reducer";
 
 //import {authReducer} from './auth/auth.reducer'
 

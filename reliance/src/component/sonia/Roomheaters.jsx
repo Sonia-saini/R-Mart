@@ -5,13 +5,14 @@ import Slider from 'react-slick';
         import 'slick-carousel/slick/slick-theme.css';
         import './carousel.css';
 import { ChevronLeftIcon ,ChevronRightIcon} from '@chakra-ui/icons';
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons';
+
+
 import { Heading } from '@chakra-ui/react';
 
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { Link, Navigate, NavLink } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Single } from './SingleProduct/action';
 
 
@@ -189,7 +190,8 @@ const watch=[
        
         const Card = ({ item }) => {
           const dispatch=useDispatch()
-          const d=useSelector((state)=>state)
+          
+          
         const onClick=(el)=>{
           
           dispatch(Single(el))
@@ -216,7 +218,7 @@ const watch=[
               />
               <Heading style={{ fontSize: '12px',margin:"auto",width:"200px" }} _hover={{color:"red"}} >{item.name}</Heading>
               <p style={{ fontSize: '16px', padding: '5px 0', color: 'green' }}>
-                From ₹ {item.price}
+                From ₹ {item.price.toLocaleString()}
               </p>
              
              

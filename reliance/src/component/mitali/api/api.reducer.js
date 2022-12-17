@@ -6,7 +6,7 @@ let initialState={
     loading:false,
     error:false,
     posts:[],
-    datas:[]
+    datas: [],
 }   
 
 export const postReducer =(state=initialState, {type, payload})=>{
@@ -32,7 +32,7 @@ export const postReducer =(state=initialState, {type, payload})=>{
             ...state,
             loading:false,
             error:false,
-            posts:payload.makeup
+            posts:payload
         }
     }
     case Update_Data : {
@@ -41,10 +41,12 @@ export const postReducer =(state=initialState, {type, payload})=>{
             ...state,
             loading:false,
             error:false,
+            posts:payload,
             datas:payload
         }
         
     }
+
     //case API_DELETE:{
     //     let deleted= state.posts.filter((d)=> d.id !== payload.id)
     //     return{

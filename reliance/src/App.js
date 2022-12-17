@@ -36,7 +36,8 @@ function App() {
        <Otp/>
        <Login/> 
        <Admin/> */}
-       <Home/>
+       <Allroutes/>
+       {/* <Home/> */}
     </div>
   );
 }

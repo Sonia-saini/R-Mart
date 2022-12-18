@@ -7,9 +7,17 @@ import { getData } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Text, Spinner, Heading, Stack, HStack } from "@chakra-ui/react";
 
+
+import Navbar from "../../Saurabh/Navbar";
+import Menubar from "../../mitali/allRoute/Menubar";
+
+
+
 const Cart = () => {
   const dispatch = useDispatch();
   const { loading, error, items } = useSelector((store) => store.cart);
+
+  console.log(items);
 
   React.useEffect(() => {
     dispatch(getData());
@@ -24,12 +32,21 @@ const Cart = () => {
   }
 
   if (error) return <CartErr />;
+
+
+  if (!items || !items.length) {
+
+
   if (!items.computers || !items.computers.length) {
+
+
     return <EmptyCart />;
   }
 
   return (
     <>
+      <Navbar />
+      <Menubar />
       <Stack
         direction={{ base: "column", lg: "row" }}
         justify='center'
@@ -45,15 +62,11 @@ const Cart = () => {
               My Cart
             </Heading>
             <Text fontSize='sm' color='blackAlpha.800'>
-              (
-              {`${items.computers.length} ${
-                items.computers.length === 1 ? "item" : "items"
-              }`}
-              )
+              ({`${items.length} ${items.length === 1 ? "item" : "items"}`})
             </Text>
           </HStack>
-          {items.computers.map((item) => (
-            <SingleCart key={item.id} {...item} />
+          {items.map((item) => (
+            <SingleCart key={item.name} items={items} {...item} />
           ))}
         </Stack>
         <CheckoutTab items={items} />

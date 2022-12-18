@@ -14,6 +14,11 @@ import {
   FormControl
 } from "@chakra-ui/react";
 
+
+import { Navigate, NavLink } from "react-router-dom";
+
+
+
 const CheckoutTab = ({ items }) => {
   const [value, setValue] = React.useState("");
   const [flag, setFlag] = React.useState(false);
@@ -26,9 +31,17 @@ const CheckoutTab = ({ items }) => {
   const total = () => {
     let modifiedPrices = [];
 
+
+    items.map((item) => {
+      let newPrice;
+      if (typeof item.price === "string" && item.price.includes("₹")) {
+
+
     items.computers.map((item) => {
       let newPrice;
       if (item.price.includes("₹")) {
+
+
         newPrice = item.price.split(".")[0];
         newPrice = newPrice.split("₹")[1];
         newPrice = Number(newPrice.split(",").join(""));
@@ -37,12 +50,21 @@ const CheckoutTab = ({ items }) => {
       return modifiedPrices;
     });
 
+
     let totalPrice = modifiedPrices.reduce((acc, price) => acc + price);
     return totalPrice;
   };
 
+
+
+  // let updatedPrice = total();
+  // console.log(updatedPrice);
+
+
   let updatedPrice = total();
   console.log(updatedPrice);
+
+
 
   // const handleCoupen = (e) => {
   //   e.preventDefault();
@@ -68,6 +90,28 @@ const CheckoutTab = ({ items }) => {
   return (
     <Box height='min-content' w={{ base: "100%", md: "50%" }} m='auto'>
       <Hide below='md'>
+
+
+        <NavLink to='/checkout'>
+          <Button
+            w='100%'
+            m='auto'
+            mb='4'
+            py='4'
+            bg='red.600'
+            color='white'
+            fontSize='sm'
+            boxShadow='lg'
+            borderRadius='4'
+            fontWeight='medium'
+            _hover={{ bg: "red.700" }}
+            _active={{ bg: "red.700" }}
+          >
+            CHECKOUT
+          </Button>
+        </NavLink>
+
+
         <Button
           w='100%'
           m='auto'
@@ -84,6 +128,8 @@ const CheckoutTab = ({ items }) => {
         >
           CHECKOUT
         </Button>
+
+
       </Hide>
       <Box p='4' bg='white' boxShadow='md'>
         <Box>
@@ -157,10 +203,17 @@ const CheckoutTab = ({ items }) => {
           <Stack direction='row' py='1' align='center' justify='space-between'>
             <Text>
               Price (
+
+
+              {`${items.length} ${items.length === 1 ? "item" : "items"}`})
+
+
               {`${items.computers.length} ${
                 items.computers.length === 1 ? "item" : "items"
               }`}
               )
+
+
             </Text>
             <Text
               fontSize={{ base: "sm", md: "md" }}
@@ -219,25 +272,64 @@ const CheckoutTab = ({ items }) => {
           pos='fixed'
           bottom='0'
         >
+
+
+          <Text
+            fontSize='sm'
+            fontWeight='semibold'
+            w='100vw'
+            textAlign='center'
+            color='blue.700'
+          >
+
+
           <Text fontSize='sm' fontWeight='semibold' w='100vh' color='blue.700'>
+
+
             Total:{" "}
             {total() < 500
               ? `₹${total() + 50}`
               : `₹${total().toLocaleString("en-US")}`}
           </Text>
+
+
+          {/* <NavLink to='/checkout'> */}
+
+
           <Button
             fontSize='xs'
             fontWeight='semibold'
             borderRadius='none'
-            w='100vh'
+
+
+            w='100vw'
+
+
+          
+          
+
+
             h='100%'
             color='white'
             bg='red.600'
             _hover={{ bg: "red.700" }}
             _active={{ bg: "red.700" }}
+
+
+            onClick={() => {
+              window.location.href = "/checkout";
+            }}
           >
             CHECKOUT
           </Button>
+          {/* </NavLink> */}
+
+
+          >
+            CHECKOUT
+          </Button>
+
+
         </Flex>
       </Show>
     </Box>

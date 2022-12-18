@@ -1,19 +1,19 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import { Home } from '../component/sonia/home'
-import Productdetail from '../component/sonia/Productdetail';
-import Login from '../component/suman/Login';
-import Admin from '../component/suman/Admin';
-import Cart from "../component/sanket/cart/cart"
-import Register from '../component/suman/Register';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import { Home } from "../component/sonia/home";
+import Productdetail from "../component/sonia/Productdetail";
+import Login from "../component/suman/Login";
+import Admin from "../component/suman/Admin";
+import Cart from "../component/sanket/cart/cart";
+import Register from "../component/suman/Register";
 import Otp from "../component/suman/Otp";
-import AdminPage from '../component/suman/AdminPage';
-import Mobiles from '../component/mitali/allRoute/mobiles/mobiles'
- import Makeup from '../component/mitali/allRoute/makeup/makeup';
-import {Iron} from '../component/mitali/allRoute/Iron/Iron';
-import {Juicers} from '../component/mitali/allRoute/juicers/juicers';
-import {Computers} from '../component/mitali/allRoute/computers/computers'
-import {Camaras} from '../component/mitali/allRoute/camaras/camaras' 
+import AdminPage from "../component/suman/AdminPage";
+import Mobiles from "../component/mitali/allRoute/mobiles/mobiles";
+import Makeup from "../component/mitali/allRoute/makeup/makeup";
+import { Iron } from "../component/mitali/allRoute/Iron/Iron";
+import { Juicers } from "../component/mitali/allRoute/juicers/juicers";
+import { Computers } from "../component/mitali/allRoute/computers/computers";
+import { Camaras } from "../component/mitali/allRoute/camaras/camaras";
 
 import UserDetails from '../component/suman/UserDetails';
 import Pagenotfound from '../component/sonia/Pagenotfound';
@@ -22,11 +22,10 @@ import Pagenotfound from '../component/sonia/Pagenotfound';
 function Allroutes() {
   return (
     <div>
-        <Routes>
-            <Route path='/' element={<Home/>}></Route>
-            <Route path='/single' element={<Productdetail/>}></Route>
-
-            <Route path='/registration' element={<Register/>}></Route>
+      <Routes>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/single' element={<Productdetail />}></Route>
+        <Route path='/registration' element={<Register/>}></Route>
             <Route path='/otp' element={<Otp/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/admin' element={<Admin/>}></Route>
@@ -34,7 +33,8 @@ function Allroutes() {
             <Route path="/userdetails" element={<UserDetails/>}></Route>
 
             <Route path='/cart' element={<Cart/>}></Route>
-            <Route path='/payment' element={<Home/>}></Route>
+          
+          
             
             <Route path='/mobiles' element={<Mobiles/>}/>
             <Route path='/Makeup' element= {<Makeup/>} />
@@ -45,7 +45,7 @@ function Allroutes() {
             <Route path="*" element={<Pagenotfound/>}/>
         </Routes>
     </div>
-  )
+  );
 }
 
-export default Allroutes
+export default Allroutes;

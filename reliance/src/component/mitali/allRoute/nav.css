@@ -1,0 +1,13 @@
+.navbar{
+    display:flex;
+    justify-content: space-around;
+    color:white;
+    background-color: rgb(8, 8, 124);
+}
+.navbar>*{
+    display:flex;
+    padding:0.5rem;
+}
+.navbar>*:hover{
+    cursor:pointer
+}

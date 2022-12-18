@@ -1,12 +1,41 @@
 import "./App.css";
-import Cart from "./component/sanket/cart/cart";
+ import React from "react"
+import Allroutes from "./router/allroutes";
+
 
 function App() {
   return (
-    <div className='App'>
-      <Cart />
+    <div > 
+
+
+
+
+       {/* <Register/>
+       <Otp/>
+       <Login/> 
+       <Admin/> */}
+       <Navbar/>
+
+       <Allroutes/>
+   
+       
+       
+       
+       
+         
+
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+

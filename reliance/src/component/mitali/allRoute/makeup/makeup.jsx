@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -28,6 +30,37 @@ const Makeup = () => {
   let loading = useSelector((store) => store.postsManager.loading);
   let datas = useSelector((store) => store.postsManager.datas);
   let [texts, setText] = useState("");
+
+
+import React from 'react'
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector} from "react-redux";
+import "./makeup.css"
+import { Card, CardBody,Heading,Box,Checkbox,Text ,Image,Skeleton, Stack,CloseButton, useDisclosure,
+  Modal, ModalContent,ModalBody,ModalCloseButton,ModalFooter,ModalHeader,Button,Input,useToast} from '@chakra-ui/react'
+import { Search2Icon ,ChevronDownIcon} from '@chakra-ui/icons'
+import { AiFillStar,AiOutlineHeart ,AiFillHeart} from "react-icons/ai"
+import { FaCartArrowDown } from "react-icons/fa";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Navbar from '../nav'
+import {getPosts,updatePosts} from '../../api/api.action';
+import { Link } from 'react-router-dom';
+
+
+
+const Makeup = () => {
+    let posts= useSelector((store)=>store.postsManager.posts)
+    let loading = useSelector((store)=>store.postsManager.loading)
+    let datas = useSelector((store)=>store.postsManager.datas)
+    let [texts, setText] = useState('')
+    let [cart, setCart] = useState([])
+    let[wish, setWish] = useState([])
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const toast = useToast()
+
+
 
   const dispatch = useDispatch();
   console.log("p", posts);
@@ -119,6 +152,7 @@ const Makeup = () => {
     dispatch(updatePosts(posts));
   };
 
+
   let desc = () => {
     dispatch(getPosts());
     posts.sort((a, b) => {
@@ -155,6 +189,72 @@ const Makeup = () => {
         <Skeleton height='14vh' />
       </Stack>
     );
+
+
+    let desc=()=>{
+      dispatch(getPosts())
+      posts.sort((a,b)=>{
+        return (b.price) - (a.price)
+      })
+      dispatch(updatePosts(posts))
+    }
+    let filter=(txt)=>{
+     
+      dispatch(getPosts())
+        let datas=[];
+        posts.map((d)=>{
+          if(d.comp===txt){
+            datas= [...datas,d]
+          }
+        })
+      
+      dispatch(updatePosts(datas))
+      setText(txt)
+    }
+    let filterBack=(txt)=>{
+      setText('');
+      dispatch(updatePosts(posts))
+    }
+    let addToCart=(ind,st)=>{
+      posts.map((el)=>{
+         if(el.id===ind){
+          setCart([...cart,el])
+         }
+      })
+     }
+    
+     localStorage.setItem('carts',JSON.stringify(cart))
+    
+     let wishList=(ind)=>{
+      posts.map((el)=>{
+        if(el.id===ind){
+          setWish([...wish,el])
+        }
+      })
+     
+    return (
+      toast({
+        title: 'wish added to list.',
+        description: "you can see your list in wishList section",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+    )
+     }
+     localStorage.setItem('wish', JSON.stringify(wish))
+    
+ 
+// if page loads show skeleton
+  if(loading){
+   return <Stack>
+    <Skeleton height='14vh' />
+    <Skeleton height='14vh' />
+    <Skeleton height='14vh' />
+    <Skeleton height='14vh' /><Skeleton height='14vh' /><Skeleton height='14vh' />
+  </Stack>
+
+
   }
 
   return (
@@ -281,6 +381,8 @@ const Makeup = () => {
                 </Box>
               </Box>
             </CardBody>
+
+
           </Card>
           {/* ui fetched data */}
           {!loading && (
@@ -329,6 +431,97 @@ const Makeup = () => {
           )}
         </Box>
       </div>
+
+
+      </Box>
+      <Box className='checkbox'mt="-2rem">
+      <Checkbox onClick={()=>{filter('Usha')}}>20% - 25% </Checkbox>
+        <Checkbox onClick={()=>{filter('Philips')}}>25% - 30%</Checkbox>
+        <Checkbox onClick={()=>{filter('Kelvinator')}}>30% - 35% </Checkbox>
+        <Checkbox onClick={()=>{filter('BPL')}}>35% - 40% </Checkbox>
+      </Box>
+    </Card>
+     </Box>
+<Box className='m-right'>
+  {/* ui right heading */}
+  <Card className='m-heading' bg={'whiteAlpha.900'}>
+      <CardBody className="m-head">
+        <Box>
+            <Heading size='x' textStyle='h5'>
+                  MAKE UP
+            </Heading>
+            <Text >(showing items total of 15)</Text>
+        </Box>
+        <Box style={{display:"flex"}}>
+            <Text >Sort By : </Text>
+            <Text className='text' onClick={asc}>Price(Low-High) </Text>
+            <Text className='text' onClick={desc}>Price(High-Low)</Text>
+        </Box>
+      </CardBody>
+  </Card>
+  <Card style={{marginTop:"1rem", textAlign:"start"}}  bg={'whiteAlpha.900'}>
+      <CardBody style={{display:"flex", }}>
+        <Box>Filter :</Box>
+        <Box style={{marginLeft:"4rem",}}>
+        <Box style={{display:"flex", }}><Text>{texts}</Text>{texts && <CloseButton onClick={()=>{filterBack({texts})}}/>}</Box>
+        </Box>
+        <Link className='Wish'to="/wish" style={{marginLeft:"70%"}}>
+        <AiFillHeart color='red' size="40%"/>
+        </Link>
+      </CardBody>
+  </Card>
+ {/* ui fetched data */}
+    {!loading &&
+    <Box className="details">
+    {datas.map((post) => (
+      <Card key={post.id}  bg={'whiteAlpha.900'}>
+       <Image src={post.url} alt={post.price}className="image"/>
+       <Box style={{height:'40%'}}>
+           <Text style={{height:"40%", overflow:"hidden",textOverflow: "ellipsis"}}>{post.title}</Text>
+           <Text textAlign={'center'}>&#8377; {post.price}</Text>
+           <Text style={{display:"flex", marginLeft:"30%"}}>{post.rating? star(post.rating) : ""}</Text>
+           <Box className='offers'>OFFERS AVAILABLE</Box>
+       </Box> 
+       <Box style={{display:"flex", height:"10%"}}>
+         <Card className="wishList" onClick={()=>{addToCart(post.id)}}>
+         <Text style={{width:"25%"}} className="cart">
+           <FaCartArrowDown color='green' size="95%" width="40%" />
+           </Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Add</Text>
+         </Card>
+         <Card className="wishList" onClick={onOpen}>
+           <Text style={{width:"25%"}}>
+           <AiOutlineHeart color='red' size="95%" width="40%"/>
+           </Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Wish List</Text>
+         </Card>
+        </Box>
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          <ModalHeader>Add Your Product Name</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Input />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant='ghost' onClick={()=>{wishList(post.id)}}>Add</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+      </Card>
+     ))}
+   </Box>  
+  
+    }
+    
+</Box>
+</div>
+
+
     </>
   );
 };

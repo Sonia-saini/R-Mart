@@ -55,7 +55,14 @@ const ProductDetails = ({ actualPrice }) => {
   );
 };
 
+
+
 const SingleCart = ({ items, url, price, name, category }) => {
+
+
+const SingleCart = ({ url, price, name, category }) => {
+
+
   const [value, setValue] = React.useState(1);
   const [length, setLength] = React.useState(1);
   const [internalValue, setInternalValue] = useControllableState({
@@ -64,16 +71,33 @@ const SingleCart = ({ items, url, price, name, category }) => {
   });
 
   const actualPrice1 = () => {
+
+
     if (typeof price === "string" && price.includes("₹")) {
       return +price.split(".")[0];
+
+
+    if (price.includes("₹")) {
+      return price.split(".")[0];
+
+
     } else return `₹${price.toLocaleString("en-US")}`;
   };
 
   const actualPrice2 = () => {
+
+
     if (typeof price === "string" && price.includes("₹")) {
+
+
+    if (price.includes("₹")) {
+
+
       return price;
     } else return `₹${price.toLocaleString("en-US")}.00`;
   };
+
+
 
   const handleMinus = (name) => {
     setInternalValue(value - 1);
@@ -109,6 +133,10 @@ const SingleCart = ({ items, url, price, name, category }) => {
     localStorage.setItem("cart-item", JSON.stringify(afterRemove));
     window.location.reload();
   };
+
+
+
+
 
   return (
     <Box bg='white' boxShadow='sm'>
@@ -147,7 +175,14 @@ const SingleCart = ({ items, url, price, name, category }) => {
                     cursor: "not-allowed"
                   }}
                   icon={<MinusIcon />}
+
+
                   onClick={() => handleMinus(name)}
+
+                  onClick={() => setInternalValue(value - 1)}
+
+
+
                 />
                 <Button
                   size='xs'
@@ -175,7 +210,14 @@ const SingleCart = ({ items, url, price, name, category }) => {
                   bg='blackAlpha.300'
                   _hover={{ bg: "blackAlpha.300" }}
                   icon={<AddIcon />}
+
+
                   onClick={() => handlePlus(name)}
+
+
+                  onClick={() => setInternalValue(value + 1)}
+
+
                 />
               </Stack>
             </Stack>
@@ -211,7 +253,11 @@ const SingleCart = ({ items, url, price, name, category }) => {
         borderTop='1px solid lightgray'
         fontSize={{ base: "xs", md: "sm" }}
         fontWeight={{ base: "bold", md: "semibold" }}
+
+
         onClick={() => removeItem(name)}
+
+
       >
         Remove
       </Button>

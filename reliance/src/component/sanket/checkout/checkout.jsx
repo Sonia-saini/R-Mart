@@ -1,3 +1,5 @@
+
+
 import {
   Accordion,
   AccordionButton,
@@ -13,9 +15,17 @@ import {
 import React from "react";
 import { WarningTwoIcon } from "@chakra-ui/icons";
 
+
+import { Box, Stack } from "@chakra-ui/react";
+import React from "react";
+
+
+
 const Checkout = () => {
   return (
     <Box>
+
+
       <Stack
         direction='column'
         px={{ base: "0", md: "2", lg: "8", xl: "20", "2xl": "28" }}
@@ -81,6 +91,12 @@ const Checkout = () => {
             </AccordionItem>
           </Stack>
         </Accordion>
+
+      <Stack direction='column' align='center'>
+        <Box>Delivery Method</Box>
+        <Box>Order Details</Box>
+        <Box>Pay Securely</Box>
+
       </Stack>
     </Box>
   );

@@ -1,24 +1,26 @@
+
+
 import "./App.css";
-import React from "react";
-// import Checkout from "./component/sanket/checkout/checkout";
-// import Cart from "./component/sanket/cart/cart";
-import Allroutes from "./router/allroutes";
+
+
+
+
+
+
+
+import Allroutes from './router/allroutes';
+import Footer from './component/Saurabh/Footer';
 
 function App() {
   return (
-    <div>
-      {/* <Register/>
-       <Otp/>
-       <Login/> 
-       <Admin/> */}
-      {/* <Navbar/> */}
+    <div className="App">
 
-      <Allroutes/>
 
-      {/* <Cart /> */}
-      {/* <Checkout /> */}
+    <Allroutes/>
+    <Footer/>
     </div>
   );
 }
 
 export default App;
+

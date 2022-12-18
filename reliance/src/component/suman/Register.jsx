@@ -20,6 +20,7 @@ import {
  import {Link,useNavigate} from "react-router-dom"
 //  import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useToast } from '@chakra-ui/react';
+import Navbar from '../Saurabh/Navbar';
 
 const Register = () => {
   const toast = useToast()
@@ -65,6 +66,9 @@ navigate("/otp")
 }
 
   return (
+    <>
+<Navbar/>
+    
 <Flex
     minH={'100vh'}
     align={'center'}
@@ -131,7 +135,7 @@ navigate("/otp")
   </Flex>    
 
 
-
+</>
 
 
  

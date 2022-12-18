@@ -13,6 +13,7 @@ import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 import {useNavigate} from "react-router-dom"
 import { useToast } from '@chakra-ui/react';
+import Navbar from '../Saurabh/Navbar';
 
 const Otp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -47,6 +48,9 @@ const handleOtp=(e)=>{
     }
 }
   return (
+    <>
+<Navbar/>
+   
     <Flex
       minH={'100vh'}
       align={'center'}
@@ -103,6 +107,7 @@ const handleOtp=(e)=>{
         </Stack>
       </Stack>
     </Flex>
+    </>
   )
 }
 

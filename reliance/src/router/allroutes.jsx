@@ -14,7 +14,17 @@ import { Iron } from "../component/mitali/allRoute/Iron/Iron";
 import { Juicers } from "../component/mitali/allRoute/juicers/juicers";
 import { Computers } from "../component/mitali/allRoute/computers/computers";
 import { Camaras } from "../component/mitali/allRoute/camaras/camaras";
+
+
 import Checkout from "../component/sanket/checkout/checkout";
+
+
+
+import UserDetails from '../component/suman/UserDetails';
+import Pagenotfound from '../component/sonia/Pagenotfound';
+
+
+
 
 function Allroutes() {
   return (
@@ -22,6 +32,8 @@ function Allroutes() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/single' element={<Productdetail />}></Route>
+
+
 
         <Route path='/registration' element={<Register />}></Route>
         <Route path='/otp' element={<Otp />}></Route>
@@ -40,6 +52,29 @@ function Allroutes() {
         <Route path='/computers' element={<Computers />} />
         <Route path='camaras' element={<Camaras />} />
       </Routes>
+
+
+        <Route path='/registration' element={<Register/>}></Route>
+            <Route path='/otp' element={<Otp/>}></Route>
+            <Route path='/login' element={<Login/>}></Route>
+            <Route path='/admin' element={<Admin/>}></Route>
+            <Route path='/adminpage' element={<AdminPage/>}></Route>
+            <Route path="/userdetails" element={<UserDetails/>}></Route>
+
+            <Route path='/cart' element={<Cart/>}></Route>
+          
+          
+            
+            <Route path='/mobiles' element={<Mobiles/>}/>
+            <Route path='/Makeup' element= {<Makeup/>} />
+            <Route path='/iron' element={<Iron/>}/>
+            <Route path='/juicers' element={<Juicers/>}/>
+            <Route path='/computers' element={<Computers/>}/> 
+            <Route path='camaras' element={<Camaras/>}/>
+            <Route path="*" element={<Pagenotfound/>}/>
+        </Routes>
+
+
     </div>
   );
 }

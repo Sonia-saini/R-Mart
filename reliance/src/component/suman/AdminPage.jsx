@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{ReactNode} from 'react'
 import { AppContest } from './authContext/AuthContextProvider';
 import { Link } from 'react-router-dom';
 import {
@@ -19,12 +19,16 @@ import {
 } from '@chakra-ui/react';
 // import { SmallCloseIcon } from '@chakra-ui/icons';
 import axios from "axios";
+import { useToast } from '@chakra-ui/react'
+
+
+import AdminNavbar from './AdminNavbar';
 
 
 const AdminPage = () => {
-  const {authState,logoutUser}=React.useContext(AppContest);
+  const toast = useToast()
 
-  const [img,setImg]=React.useState("")
+  const [url,setUrl]=React.useState("")
 const [title,setTitle]=React.useState("")
 const [price,setPrice]=React.useState()
 const [description,setDescription]=React.useState("")
@@ -32,10 +36,13 @@ const [category,setCategory]=React.useState("");
 const [rating,setRating]=React.useState("")
 
 const getData=()=>{
+
+  // https://shines-node-deploy.onrender.com/products
+
   return axios({
       method:"POST",
       url:"",
-      data:{img,title,price,description,category,rating}
+      data:{url,title,price,description,category,rating}
   })
 }
 
@@ -43,12 +50,24 @@ const handleAddProduct=()=>{
   getData()
   .then((res)=>{
     console.log(res.data)
-    alert("Product added successfully")
+    toast({
+      title: 'Product added successfully.',
+      description: "You can add more product",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
   })
 }
 
 
   return (
+    <>
+
+ 
+<AdminNavbar/>
+
+
     <Flex
       minH={'100vh'}
       align={'center'}
@@ -66,30 +85,9 @@ const handleAddProduct=()=>{
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
          Add New Product
         </Heading>
-        <FormControl id="userName">
-          <FormLabel>Admin Icon</FormLabel>
-          <Stack direction={['column', 'row']} spacing={6}>
-            <Center>
-              <Avatar size="2xl" src="https://ca.slack-edge.com/T049JC010P9-U04ANG3QWJ2-62ad89db213e-512">
-                {/* <AvatarBadge
-                   as={IconButton}
-                  size="sm"
-                  rounded="full"
-                  top="-10px"
-                   colorScheme="red"
-                  aria-label="remove Image"
-                  icon={<SmallCloseIcon />}
-                /> */}
-              </Avatar>
-            </Center>
-            <Center w="full">
-              <Text w="full">Token: {authState.token}</Text>
-            </Center>
-          </Stack>
-        </FormControl>
         <FormControl id="url" isRequired>
           <FormLabel>URL</FormLabel>
-          <Input value={img} onChange={(e)=>setImg(e.target.value)}
+          <Input value={url} onChange={(e)=>setUrl(e.target.value)}
             placeholder="product url"
             _placeholder={{ color: 'gray.500' }}
             type="text"
@@ -151,28 +149,22 @@ const handleAddProduct=()=>{
           size="sm"
           w="full"
           rounded="md">
-          <option value="Accessories">Accessories</option>
-          <option value="Accessories">Home</option>
-          <option value="Accessories">Mobile</option>
+          {/* <option value="Accessories">Accessories</option> */}
+          <option value="Juicers">Juicers</option>
+          <option value="mobiles">Mobiles</option>
+          <option value="Makeup">Makeup</option>
+          <option value="Iron">Iron</option>
+          <option value="Camaras">Camaras</option>
+          <option value="Computers">Computers</option>
         </Select>
       </FormControl>
 
         <Stack spacing={6} direction={['column', 'row']}>
-        <Link to="/adminpage">
-          <Button onClick={logoutUser}
-            bg={'red.400'}
-            color={'white'}
-            w="full"
-            _hover={{
-              bg: 'red.500',
-            }}>
-          Logout
-          </Button>
-          </Link>
+       
           <Button  onClick={handleAddProduct}
             bg={'red.400'}
             color={'white'}
-            w="full"
+            w="100%"
             _hover={{
               bg: 'red.500',
             }}>
@@ -181,6 +173,7 @@ const handleAddProduct=()=>{
         </Stack>
       </Stack>
     </Flex>
+    </>
   )
 }
 

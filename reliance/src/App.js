@@ -1,26 +1,20 @@
 import "./App.css";
- import React from "react"
-import Allroutes from "./router/allroutes";
-
+import React from "react";
+// import Allroutes from "./router/allroutes";
+import Checkout from "./component/sanket/checkout/checkout";
+// import Navbar from "./component/Saurabh/Navbar";
 
 
 function App() {
   return (
-    <div > 
 
+    <div>
+    <Allroutes/>
 
-
-
-
-     
-     
-
-
-
-       <Allroutes/>
     </div>
   );
 }
 
 export default App;
+
 

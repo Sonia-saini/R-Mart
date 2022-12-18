@@ -114,15 +114,15 @@ import { Link, Navigate } from 'react-router-dom';
           if (width <= 426) {
             slidesToShow = 1;
           } else if (width > 426 && width <= 769) {
-            slidesToShow = 3;
+            slidesToShow = 1;
           } else if (width > 769 && width <= 1025) {
-            slidesToShow = 4;
+            slidesToShow = 3;
           } else {
             slidesToShow = 5;
           }
         
           return (
-            <div style={{ margin: '30px' }} className='carousel'>
+            <div  className='carousel'>
              
              
               <Slider {...carouselProperties}>
@@ -155,7 +155,7 @@ import { Link, Navigate } from 'react-router-dom';
                   marginBottom: '10px',
                 }}
               />
-              <Heading style={{ fontSize: '12px',margin:"auto",width:"200px" }} _hover={{color:"red"}} >{item.name}</Heading>
+              <Heading fontSize= '14px'margin="10px"width="auto" _hover={{color:"red"}} >{item.name}</Heading>
               <p style={{ fontSize: '16px', padding: '5px 0', color: 'green' }}>
                 From ₹ {item.price.toLocaleString()}
               </p>

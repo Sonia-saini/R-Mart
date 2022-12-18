@@ -1,52 +1,50 @@
-import {
-  API_GET_ERROR,
-  API_GET_LOADING,
-  API_GET_SUCCESS,
-  Update_Data
-} from "./api.type";
+import { API_GET_ERROR, 
+    API_GET_LOADING,
+     API_GET_SUCCESS, Update_Data} from "./api.type";
 
-let initialState = {
-  loading: false,
-  error: false,
-  posts: [],
-  datas: []
-};
+let initialState={
+    loading:false,
+    error:false,
+    posts:[],
+    datas: [],
+}   
 
-export const postReducer = (state = initialState, { type, payload }) => {
-  switch (type) {
-    default: {
-      return state;
+export const postReducer =(state=initialState, {type, payload})=>{
+   switch (type) {
+     default : {
+        return state;
+     }
+    case API_GET_LOADING :{
+        return {
+            ...state,
+            loading: true,
+        }
     }
-    case API_GET_LOADING: {
-      return {
-        ...state,
-        loading: true
-      };
+    case API_GET_ERROR :{
+        return {
+            ...state,
+            loading:true,
+            error:true,
+        }
     }
-    case API_GET_ERROR: {
-      return {
-        ...state,
-        loading: true,
-        error: true
-      };
+    case API_GET_SUCCESS:{
+        return {
+            ...state,
+            loading:false,
+            error:false,
+            posts:payload
+        }
     }
-    case API_GET_SUCCESS: {
-      return {
-        ...state,
-        loading: false,
-        error: false,
-        posts: payload
-      };
-    }
-    case Update_Data: {
-      // console.log(payload)
-      return {
-        ...state,
-        loading: false,
-        error: false,
-        posts: payload,
-        datas: payload
-      };
+    case Update_Data : {
+        console.log(payload)
+        return {
+            ...state,
+            loading:false,
+            error:false,
+            posts:payload,
+            datas:payload
+        }
+        
     }
 
     //case API_DELETE:{
@@ -72,5 +70,5 @@ export const postReducer = (state = initialState, { type, payload }) => {
     //         posts:updated
     //     }
     // }
-  }
-};
+   }
+}

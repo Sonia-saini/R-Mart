@@ -7,7 +7,7 @@ import {Iron} from './Iron/Iron';
 import {Juicers} from './juicers/juicers'
 import {Computers} from './computers/computers'
 import {Camaras} from './camaras/camaras'
-
+import Wish from './wish/wish'
 
 
 const AllRoutes = () => {
@@ -21,6 +21,7 @@ const AllRoutes = () => {
             <Route path='juicers' element={<Juicers/>}/>
             <Route path='computers' element={<Computers/>}/>
             <Route path='cameras' element={<Camaras/>}/>
+            <Route path='wish' element={<Wish/>}/>
         </Routes>
     </div>
   )

@@ -58,6 +58,7 @@
     font-size: 12px;
     align-items: center;
     border : 1px solid rgb(3, 155, 3);
+    margin-left:15%;
     transform : scale(0.85);
 }
 .offers:hover{
@@ -90,6 +91,9 @@
 .navbar>*:hover{
     cursor:pointer
 }
+.Wish:hover{
+    cursor: pointer;
+}
 @media screen and (max-width: 992px) {
     .details{
         grid-template-columns: repeat(2,1fr);
@@ -106,3 +110,4 @@
         transform:scale(0.8)
     }
   }
+ 

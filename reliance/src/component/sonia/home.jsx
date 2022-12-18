@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Box, Heading, Image, Stack } from "@chakra-ui/react";
 
@@ -171,7 +172,7 @@ let personal = [
   }
 ];
 
-export function Home() {
+export default function Home() {
   return (
     <Box margin={"auto"}>
     
@@ -546,3 +547,7 @@ h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
     </Box>
   );
 }
+
+
+
+

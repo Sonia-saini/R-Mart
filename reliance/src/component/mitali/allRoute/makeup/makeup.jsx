@@ -2,15 +2,18 @@ import React from 'react'
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector} from "react-redux";
 import "./makeup.css"
-import { Card, CardBody,Heading,Box,Checkbox,Text ,Image,Skeleton, Stack,CloseButton} from '@chakra-ui/react'
+import { Card, CardBody,Heading,Box,Checkbox,Text ,Image,Skeleton, Stack,CloseButton, useDisclosure,
+  Modal, ModalContent,ModalBody,ModalCloseButton,ModalFooter,ModalHeader,Button,Input,useToast} from '@chakra-ui/react'
 import { Search2Icon ,ChevronDownIcon} from '@chakra-ui/icons'
-import { AiFillStar,AiOutlineHeart } from "react-icons/ai"
+import { AiFillStar,AiOutlineHeart ,AiFillHeart} from "react-icons/ai"
+import { FaCartArrowDown } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import Navbar from '../Menubar'
+import Navbar from '../nav'
 import {getPosts,updatePosts} from '../../api/api.action';
-import axios from 'axios';
+import { Link } from 'react-router-dom';
+
 
 
 const Makeup = () => {
@@ -18,6 +21,10 @@ const Makeup = () => {
     let loading = useSelector((store)=>store.postsManager.loading)
     let datas = useSelector((store)=>store.postsManager.datas)
     let [texts, setText] = useState('')
+    let [cart, setCart] = useState([])
+    let[wish, setWish] = useState([])
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const toast = useToast()
 
     const dispatch = useDispatch()
     console.log("p",posts)
@@ -127,6 +134,35 @@ const Makeup = () => {
       setText('');
       dispatch(updatePosts(posts))
     }
+    let addToCart=(ind,st)=>{
+      posts.map((el)=>{
+         if(el.id===ind){
+          setCart([...cart,el])
+         }
+      })
+     }
+    
+     localStorage.setItem('carts',JSON.stringify(cart))
+    
+     let wishList=(ind)=>{
+      posts.map((el)=>{
+        if(el.id===ind){
+          setWish([...wish,el])
+        }
+      })
+     
+    return (
+      toast({
+        title: 'wish added to list.',
+        description: "you can see your list in wishList section",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+    )
+     }
+     localStorage.setItem('wish', JSON.stringify(wish))
+    
  
 // if page loads show skeleton
   if(loading){
@@ -194,11 +230,10 @@ const Makeup = () => {
             </CardBody>
       </Box>
       <Box className='checkbox'mt="-2rem">
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
-        <Checkbox >Mitali sinha </Checkbox>
+      <Checkbox onClick={()=>{filter('Usha')}}>20% - 25% </Checkbox>
+        <Checkbox onClick={()=>{filter('Philips')}}>25% - 30%</Checkbox>
+        <Checkbox onClick={()=>{filter('Kelvinator')}}>30% - 35% </Checkbox>
+        <Checkbox onClick={()=>{filter('BPL')}}>35% - 40% </Checkbox>
       </Box>
     </Card>
      </Box>
@@ -225,6 +260,9 @@ const Makeup = () => {
         <Box style={{marginLeft:"4rem",}}>
         <Box style={{display:"flex", }}><Text>{texts}</Text>{texts && <CloseButton onClick={()=>{filterBack({texts})}}/>}</Box>
         </Box>
+        <Link className='Wish'to="/wish" style={{marginLeft:"70%"}}>
+        <AiFillHeart color='red' size="40%"/>
+        </Link>
       </CardBody>
   </Card>
  {/* ui fetched data */}
@@ -239,17 +277,36 @@ const Makeup = () => {
            <Text style={{display:"flex", marginLeft:"30%"}}>{post.rating? star(post.rating) : ""}</Text>
            <Box className='offers'>OFFERS AVAILABLE</Box>
        </Box> 
-        <Box style={{display:"flex", height:"10%"}}>
-         <Card className="wishList">
-         <Checkbox >Compare </Checkbox>
+       <Box style={{display:"flex", height:"10%"}}>
+         <Card className="wishList" onClick={()=>{addToCart(post.id)}}>
+         <Text style={{width:"25%"}} className="cart">
+           <FaCartArrowDown color='green' size="95%" width="40%" />
+           </Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Add</Text>
          </Card>
-         <Card className="wishList">
+         <Card className="wishList" onClick={onOpen}>
            <Text style={{width:"25%"}}>
            <AiOutlineHeart color='red' size="95%" width="40%"/>
            </Text>
-           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}  >Wish List</Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Wish List</Text>
          </Card>
         </Box>
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalContent>
+          <ModalHeader>Add Your Product Name</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Input />
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant='ghost' onClick={()=>{wishList(post.id)}}>Add</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
       </Card>
      ))}
    </Box>  

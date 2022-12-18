@@ -4,18 +4,17 @@ import React from "react";
 import Checkout from "./component/sanket/checkout/checkout";
 // import Navbar from "./component/Saurabh/Navbar";
 
+
 function App() {
   return (
+
     <div>
-      {/* <Register/>
-       <Otp/>
-       <Login/> 
-       <Admin/> */}
-      {/* <Navbar /> */}
-      <Checkout />
-      {/* <Allroutes /> */}
+    <Allroutes/>
+
     </div>
   );
 }
 
 export default App;
+
+

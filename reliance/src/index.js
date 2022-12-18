@@ -9,6 +9,17 @@ import AppContextProvider from "./component/suman/authContext/AuthContextProvide
 import { store } from "./store";
 import { BrowserRouter } from "react-router-dom";
 
+
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle.min';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+
+
+
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>

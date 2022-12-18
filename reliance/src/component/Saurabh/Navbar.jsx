@@ -11,7 +11,7 @@ const Navbar = () => {
 const {items}=useSelector((state)=>state.cart)
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-blue shadow-sm" style= {{backgroundColor :'red'}}>
+      <nav className="navbar navbar-expand-lg navbar-blue shadow-sm" style= {{backgroundColor :'rgb(228,37,41)'}}>
         <div className="container">
        
           <a className="navbar-brand fw-bold fs-4" href="#">

@@ -1,8 +1,18 @@
 import "./App.css";
-import React from "react";
-// import Allroutes from "./router/allroutes";
-import Checkout from "./component/sanket/checkout/checkout";
-// import Navbar from "./component/Saurabh/Navbar";
+
+
+ import React from "react"
+import Allroutes from "./router/allroutes";
+import Footer from "./component/Saurabh/Footer";
+
+
+
+
+
+
+
+
+
 
 
 function App() {
@@ -10,6 +20,18 @@ function App() {
 
     <div>
     <Allroutes/>
+
+
+
+     
+     
+
+
+
+     
+     
+       <Footer/>
+
 
     </div>
   );

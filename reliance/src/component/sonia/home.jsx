@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import MultiItemCarousel from './Sliderpage';
 import RoomHeater from './Roomheaters';
  import Navbar from "../Saurabh/Navbar";
+import Menubar from '../mitali/allRoute/Menubar';
 
 
 
@@ -183,6 +184,7 @@ export function Home() {
   return (
     <Box margin={"auto"}>
     <Navbar/>
+    <Menubar/>
       <Box>
         <Image w="100%"src="https://www.reliancedigital.in/medias/Year-End-Sale-5000-Instant-Discount-Carousel-Banner-05-12-2022.jpg?context=bWFzdGVyfGltYWdlc3wxNDcwODh8aW1hZ2UvanBlZ3xpbWFnZXMvaDkzL2hiNS85OTI4MTY1NTg5MDIyLmpwZ3w4NDk3ZDFhZTM1YzUxYTg3MDFiMWZkZjhmMGE0ZWI2ZWZmYjU0MWNmOGJkMTAzZTYwMTdlNjI5MGNjYzZiOTIx" display="block"margin={"auto"}/>
       </Box>

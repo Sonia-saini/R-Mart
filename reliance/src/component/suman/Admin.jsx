@@ -10,8 +10,9 @@ import {
     Heading,
     useColorModeValue,
   } from '@chakra-ui/react';
+  import Navbar from '../Saurabh/Navbar';
 
-  import { useNavigate } from "react-router-dom";
+  import { Link, useNavigate } from "react-router-dom";
 import { AppContest } from './authContext/AuthContextProvider';
 
 
@@ -50,6 +51,9 @@ const Admin = () => {
 
     
   return (
+  <>
+<Navbar/>
+  
     <Flex
     minH={'100vh'}
     align={'center'}
@@ -76,7 +80,6 @@ const Admin = () => {
               onChange={(e)=>setPassword(e.target.value)} isRequired/>
           </FormControl>
           <Stack spacing={10}>
-            
             <Button onClick={loginStatus}
               bg={'red.400'}
               color={'white'}
@@ -86,10 +89,26 @@ const Admin = () => {
               Sign in
             </Button>
           </Stack>
+
+          <Link to="/">
+          <Stack spacing={10}>
+     
+            <Button
+              bg={'blue.400'}
+              color={'white'}
+              _hover={{
+                bg: 'blue.500',
+              }}>
+              Go Back
+            </Button>
+
+          </Stack>
+          </Link>
         </Stack>
       </Box>
     </Stack>
   </Flex>
+  </>
   )
 }
 

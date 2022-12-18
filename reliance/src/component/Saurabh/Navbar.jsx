@@ -1,11 +1,17 @@
 import React from 'react'
-import { AiOutlineLineHeight } from 'react-icons/ai';
+import {useSelector} from "react-redux"
+// import { AiOutlineLineHeight } from 'react-icons/ai';
+
+
+
 import {Link} from "react-router-dom";
 
+
 const Navbar = () => {
+const {items}=useSelector((state)=>state.cart)
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-blue shadow-sm" style= {{backgroundColor :'red'}}>
+      <nav className="navbar navbar-expand-lg navbar-blue shadow-sm" style= {{backgroundColor :'rgb(228,37,41)'}}>
         <div className="container">
        
           <a className="navbar-brand fw-bold fs-4" href="#">
@@ -32,11 +38,18 @@ const Navbar = () => {
             <Link to="/registration">
               <a className="btn btn-outline-dark">
                 <i className="fa fa-sign-in me-2"></i>Login</a>
+
+</Link>
+  <Link to="/cart">
+                <a href="" className="btn btn-outline-dark ms-4">
+                <i className="fa fa-shopping-cart me-2"></i>Cart ({items.length})</a>
+
+               
+               
+
                 </Link>
-                <Link to="/cart">
-                <a className="btn btn-outline-dark ms-4">
-                <i className="fa fa-shopping-cart me-2"></i>Cart (0)</a>
-                </Link>
+                
+                
             </div>
           </div>
         </div>

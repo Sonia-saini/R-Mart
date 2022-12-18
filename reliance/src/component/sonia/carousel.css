@@ -38,3 +38,15 @@
   transform: scale(1.1);
   transition: 500ms;
 }
+@media (min-width: 280px) and (max-width: 760px) {
+  #prev{
+display: none
+  }
+#next{
+  display: none;
+}
+}
+#car{
+  width: 90%;
+  justify-content: center;
+}

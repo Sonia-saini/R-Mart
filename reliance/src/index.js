@@ -4,21 +4,20 @@ import "./index.css";
 import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
+import { theme } from "./component/sanket/styles/themeConfig";
 
 import { store } from "./store";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
   <Provider store={store}>
-    <ChakraProvider>
-      <App />
-        </AppContextProvider>
-         </BrowserRouter>
-    </ChakraProvider>
+    <BrowserRouter>
+      <AppContextProvider>
+        <ChakraProvider theme={theme}>
+          <App />
+        </ChakraProvider>
+      </AppContextProvider>
+    </BrowserRouter>
   </Provider>
-
-
-  
-  
 );

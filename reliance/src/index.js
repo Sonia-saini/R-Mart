@@ -5,7 +5,7 @@ import App from "./App";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import { theme } from "./component/sanket/styles/themeConfig";
-
+import AppContextProvider from "./component/suman/authContext/AuthContextProvider";
 import { store } from "./store";
 import { BrowserRouter } from "react-router-dom";
 

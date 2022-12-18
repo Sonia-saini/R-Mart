@@ -19,16 +19,16 @@ import {
 } from '@chakra-ui/react';
 // import { SmallCloseIcon } from '@chakra-ui/icons';
 import axios from "axios";
-
+import { useToast } from '@chakra-ui/react'
 
 
 import AdminNavbar from './AdminNavbar';
 
 
 const AdminPage = () => {
- 
+  const toast = useToast()
 
-  const [img,setImg]=React.useState("")
+  const [url,setUrl]=React.useState("")
 const [title,setTitle]=React.useState("")
 const [price,setPrice]=React.useState()
 const [description,setDescription]=React.useState("")
@@ -36,10 +36,13 @@ const [category,setCategory]=React.useState("");
 const [rating,setRating]=React.useState("")
 
 const getData=()=>{
+
+  // https://shines-node-deploy.onrender.com/products
+
   return axios({
       method:"POST",
       url:"",
-      data:{img,title,price,description,category,rating}
+      data:{url,title,price,description,category,rating}
   })
 }
 
@@ -47,7 +50,13 @@ const handleAddProduct=()=>{
   getData()
   .then((res)=>{
     console.log(res.data)
-    alert("Product added successfully")
+    toast({
+      title: 'Product added successfully.',
+      description: "You can add more product",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
   })
 }
 
@@ -78,7 +87,7 @@ const handleAddProduct=()=>{
         </Heading>
         <FormControl id="url" isRequired>
           <FormLabel>URL</FormLabel>
-          <Input value={img} onChange={(e)=>setImg(e.target.value)}
+          <Input value={url} onChange={(e)=>setUrl(e.target.value)}
             placeholder="product url"
             _placeholder={{ color: 'gray.500' }}
             type="text"
@@ -140,9 +149,9 @@ const handleAddProduct=()=>{
           size="sm"
           w="full"
           rounded="md">
-          <option value="Accessories">Accessories</option>
+          {/* <option value="Accessories">Accessories</option> */}
           <option value="Juicers">Juicers</option>
-          <option value="Mobiles">Mobiles</option>
+          <option value="mobiles">Mobiles</option>
           <option value="Makeup">Makeup</option>
           <option value="Iron">Iron</option>
           <option value="Camaras">Camaras</option>
@@ -151,17 +160,7 @@ const handleAddProduct=()=>{
       </FormControl>
 
         <Stack spacing={6} direction={['column', 'row']}>
-        {/* <Link to="/adminpage">
-          <Button onClick={logoutUser}
-            bg={'red.400'}
-            color={'white'}
-            w="full"
-            _hover={{
-              bg: 'red.500',
-            }}>
-          Logout
-          </Button>
-          </Link> */}
+       
           <Button  onClick={handleAddProduct}
             bg={'red.400'}
             color={'white'}

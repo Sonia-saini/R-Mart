@@ -20,6 +20,7 @@ import {
   import { Link,useNavigate } from 'react-router-dom';
    import axios from 'axios';
    import { useToast } from '@chakra-ui/react';
+   import Navbar from '../Saurabh/Navbar';
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -28,6 +29,8 @@ const Login = () => {
 
     const navigate=useNavigate()
     const toast = useToast()
+    const status = [ 'warning'];
+
 
 const getData=()=>{
     return axios.get(`https://blog-data-tan.vercel.app/register`)
@@ -63,12 +66,12 @@ getData()
          else
          {
           toast({
-            title: 'Mobile Number not registered',
-            description: "Something went wrong",
-            status: 'success',
-            duration: 9000,
+            title: `Mobile Number not registered`,
+            status: status,
             isClosable: true,
           })
+
+
          }
       }
 
@@ -99,6 +102,9 @@ else{
 }
 
   return (
+    <>
+<Navbar/>
+   
     <Flex
     minH={'100vh'}
     align={'center'}
@@ -135,7 +141,7 @@ else{
           </Stack>
           <Stack pt={6}>
             <Text align={'center'}>
-              Not a user? <Link  to="/register" color={'blue.400'}>Register</Link>
+              Not a user? <Link  to="/registration" color={'blue.400'}>Register</Link>
             </Text>
           </Stack>
 
@@ -156,8 +162,6 @@ else{
               </InputRightElement>
             </InputGroup>
           </FormControl>
-
-
           <Stack spacing={10} pt={2}>
             <Button onClick={handleOtpPart}
               loadingText="Submitting"
@@ -175,6 +179,7 @@ else{
       </Box>
     </Stack>
   </Flex>
+  </>
   )
 }
 

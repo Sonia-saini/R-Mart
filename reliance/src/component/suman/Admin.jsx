@@ -10,6 +10,7 @@ import {
     Heading,
     useColorModeValue,
   } from '@chakra-ui/react';
+  import Navbar from '../Saurabh/Navbar';
 
   import { Link, useNavigate } from "react-router-dom";
 import { AppContest } from './authContext/AuthContextProvider';
@@ -50,6 +51,9 @@ const Admin = () => {
 
     
   return (
+  <>
+<Navbar/>
+  
     <Flex
     minH={'100vh'}
     align={'center'}
@@ -104,6 +108,7 @@ const Admin = () => {
       </Box>
     </Stack>
   </Flex>
+  </>
   )
 }
 

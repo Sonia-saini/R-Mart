@@ -5,6 +5,121 @@ import { Box, Heading, Image, Stack } from "@chakra-ui/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import  { Component } from "react";
+import Slider from "react-slick";
+import MultiItemCarousel from './Sliderpage';
+import RoomHeater from './Roomheaters';
+ import Navbar from "../Saurabh/Navbar";
+ import Footer from '../Saurabh/Footer';
+
+
+
+
+let data=["https://www.reliancedigital.in/medias/Accessories-Fiesta-Carousel-Banner-D.jpg?context=bWFzdGVyfGltYWdlc3w5MTAwN3xpbWFnZS9qcGVnfGltYWdlcy9oY2MvaDI5Lzk5Mjk4MTAyMTQ5NDIuanBnfGUxYTc3MTMzNThhNzlkZGQyNTNlYTYxMzM3OWM4NzQzYjY2YWYwYzFkNjhhMjA5M2YwNDhiYTMwMzA2ZGY5MTY",
+
+            
+"https://www.reliancedigital.in/medias/Entertainment-Fest-Carousel-Banner-08-D.jpg?context=bWFzdGVyfGltYWdlc3wyMDEwMzl8aW1hZ2UvanBlZ3xpbWFnZXMvaGQxL2g2MS85OTI5MTgxNjI2Mzk4LmpwZ3w2MjQzNGNlODRiMmRkZmE1ZDA1Njg3MTNmM2ExMWE5ZDQ4MDJhN2VkYTBmOWVjMjg1MTdhNTM3YmNhM2E3YjM0",
+              
+            "https://www.reliancedigital.in/medias/Smartwatch-Carnival-Carousel-Banner-D.jpg?context=bWFzdGVyfGltYWdlc3w5MTMyMnxpbWFnZS9qcGVnfGltYWdlcy9oYmYvaGFmLzk5Mjk4MzI1NjI3MTguanBnfDBkOTJjZDk5YTI1MTU3NWU5MDc1NGQ0ZDg2YjFlOWRhOGRhN2FiMzgxMDY3YWI5Y2M1NDk0MjNjZjU1MzNjYjY"
+            
+              
+           
+            ,"https://www.reliancedigital.in/medias/Laptop-Carnival-Carousel-Banner-D.jpg?context=bWFzdGVyfGltYWdlc3w5MTcwNXxpbWFnZS9qcGVnfGltYWdlcy9oM2UvaDJiLzk5MzA5MTgwNjgyNTQuanBnfDM0NDIxMjI1ZmE2NjQ1MDk4MWY2MjJlMjU2Mjg0YzAxNDViYTRiM2YzMTEyYjU5OGUwNTZlNDY4NzcxYzk3M2Y"
+            ,
+              
+           
+            "https://www.reliancedigital.in/medias/Moto-G42-Carousel-Banner-09-12-2022.jpg?context=bWFzdGVyfGltYWdlc3wxMDMyNDN8aW1hZ2UvanBlZ3xpbWFnZXMvaGQ2L2g2ZC85OTI5ODI3Mzg1Mzc0LmpwZ3w4MzEyODVmNTUyNWIwODNlNTA1YThjNTA4Njg5ZmU1YTU1ZjZlMzM5NWY5ODI0ZWNmOTAwYjY5M2RhNWVkOTky" 
+            ,
+            
+            "https://www.reliancedigital.in/medias/Apple-Accessories-Carousel-Banner-01-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w3MjY3M3xpbWFnZS9qcGVnfGltYWdlcy9oZTIvaDg3Lzk5MjgxNzE1NTI3OTguanBnfDkzOTI0MDE5YzgxOTVmNzdiMTBlNWZhMTQwMWZmNDc1ZTU2MzY5YmIwZTBlZWQ2ZjRkYWVhYzBkZTkzMTM3Y2M" 
+            ,
+           
+           'https://www.reliancedigital.in/medias/Monitors-Carousel-Banner-02-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w4Mjc4NHxpbWFnZS9qcGVnfGltYWdlcy9oNTEvaDNlLzk5MzExODEzNTkxMzQuanBnfDA5Nzc0YWExYjdjM2YzNTg4Njk4MDJjZGU1ZWQ4NzAzOTIzZDgxMWU2MjVhYjdkNTI2MzBhNWJhYzg0ZTZjMTk' 
+           ,
+              
+              "https://www.reliancedigital.in/medias/Apple-S8-CLP-Banner-14-11-2022.jpg?context=bWFzdGVyfGltYWdlc3w5MjcyNHxpbWFnZS9qcGVnfGltYWdlcy9oMzgvaDdkLzk5MjgzNzEwNDQzODIuanBnfDcxMDY3Y2FkZDNmNTkxNGM5MmMzZDNmYjI3Y2U0MzQ4Yzk1NGM1YTMwZDkzNWZiZWYzMjc0NWExNWY4NmExMGQ" 
+              
+        ]
+        const watch=[
+          {url:"https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzAzNjB8aW1hZ2UvanBlZ3xpbWFnZXMvaDA2L2hlNC85ODkxOTY0ODQ2MTEwLmpwZ3wzYmJlMzk2MWE3ODY0ZTY1ODZkMzFiMmQ0NjBlYjMwNGRlM2ExNjVlYjEzNTFiMjNiODRkZGY2NTAyODcwMDFm",
+        price:85405,
+        discount:5,
+        name:'Apple Watch Ultra GPS + Cellular - 49 mm Titanium Case with Blue and Gray Trail Loop - M/L'
+        }
+        ,{
+        
+          url: "https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-3-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w5MTcyMHxpbWFnZS9qcGVnfGltYWdlcy9oNjMvaDY3Lzk4OTE5NjA5MTM5NTAuanBnfGM1ZjRkMjAwMWExYzg1MTA4ODYzOTYyOWRlOWNkY2JlNjA5ZjFjYmY4Yzg3ZjRiNzA0ODczMTY4YzNhMWYxODk",
+        price:80000,
+        discount:4,
+        name:"Apple Watch SE GPS + Cellular - 40 mm Silver Aluminium Case with White 2nd Generation Sport Band"
+        },
+        {
+          url:"https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxNzE5OTV8aW1hZ2UvanBlZ3xpbWFnZXMvaDAzL2hhYy85ODkxOTYwMjU4NTkwLmpwZ3w3M2Q2ZjEwNGMzMzQzODg2MmU0YzQ4MmM5YzA3NWUzZmE4YjRlODY2YTdkMDhjYmRiODEzMDNkODZkZDA0NGU2"
+        ,price:90000,
+        discount:3,
+        name:"Apple Watch SE GPS + Cellular 44 mm Starlight Aluminium Case with Starlight 2nd Generation Sport Band"
+        },{
+          url:"https://www.reliancedigital.in/medias/Apple-SE-Sports-Fitness-Watches-493177927-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w4MzUyNnxpbWFnZS9qcGVnfGltYWdlcy9oZTMvaGNmLzk4OTE5OTI3NjQ0NDYuanBnfGExYWE0ZjI3MWE0MTlkMmQxNjdhNDlhNDg4Nzk3NWI2Yzg5NzI1MDMzMmFjZTk5NTA3MWExZGM0NmEzN2NjZjM",
+          price:85000,
+          discount:6,
+          name:"Apple Watch Ultra GPS + Cellular - 49 mm Titanium Case with Orange Alpine Loop - Medium"
+        },
+        {url:"https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzAzNjB8aW1hZ2UvanBlZ3xpbWFnZXMvaDA2L2hlNC85ODkxOTY0ODQ2MTEwLmpwZ3wzYmJlMzk2MWE3ODY0ZTY1ODZkMzFiMmQ0NjBlYjMwNGRlM2ExNjVlYjEzNTFiMjNiODRkZGY2NTAyODcwMDFm",
+        price:85405,
+        discount:5,
+        name:'Apple Watch Ultra GPS + Cellular - 49 mm Titanium Case with Blue and Gray Trail Loop - M/L'
+        }
+        ,{
+        
+          url: "https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-3-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w5MTcyMHxpbWFnZS9qcGVnfGltYWdlcy9oNjMvaDY3Lzk4OTE5NjA5MTM5NTAuanBnfGM1ZjRkMjAwMWExYzg1MTA4ODYzOTYyOWRlOWNkY2JlNjA5ZjFjYmY4Yzg3ZjRiNzA0ODczMTY4YzNhMWYxODk",
+        price:80000,
+        discount:4,
+        name:"Apple Watch SE GPS + Cellular - 40 mm Silver Aluminium Case with White 2nd Generation Sport Band"
+        },
+        {
+          url:"https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxNzE5OTV8aW1hZ2UvanBlZ3xpbWFnZXMvaDAzL2hhYy85ODkxOTYwMjU4NTkwLmpwZ3w3M2Q2ZjEwNGMzMzQzODg2MmU0YzQ4MmM5YzA3NWUzZmE4YjRlODY2YTdkMDhjYmRiODEzMDNkODZkZDA0NGU2"
+        ,price:90000,
+        discount:3,
+        name:"Apple Watch SE GPS + Cellular 44 mm Starlight Aluminium Case with Starlight 2nd Generation Sport Band"
+        },{
+          url:"https://www.reliancedigital.in/medias/Apple-SE-Sports-Fitness-Watches-493177927-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w4MzUyNnxpbWFnZS9qcGVnfGltYWdlcy9oZTMvaGNmLzk4OTE5OTI3NjQ0NDYuanBnfGExYWE0ZjI3MWE0MTlkMmQxNjdhNDlhNDg4Nzk3NWI2Yzg5NzI1MDMzMmFjZTk5NTA3MWExZGM0NmEzN2NjZjM",
+          price:85000,
+          discount:6,
+          name:"Apple Watch Ultra GPS + Cellular - 49 mm Titanium Case with Orange Alpine Loop - Medium"
+        },{url:"https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzAzNjB8aW1hZ2UvanBlZ3xpbWFnZXMvaDA2L2hlNC85ODkxOTY0ODQ2MTEwLmpwZ3wzYmJlMzk2MWE3ODY0ZTY1ODZkMzFiMmQ0NjBlYjMwNGRlM2ExNjVlYjEzNTFiMjNiODRkZGY2NTAyODcwMDFm",
+        price:85405,
+        discount:5,
+        name:'Apple Watch Ultra GPS + Cellular - 49 mm Titanium Case with Blue and Gray Trail Loop - M/L'
+        }
+        ,{
+        
+          url: "https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-3-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w5MTcyMHxpbWFnZS9qcGVnfGltYWdlcy9oNjMvaDY3Lzk4OTE5NjA5MTM5NTAuanBnfGM1ZjRkMjAwMWExYzg1MTA4ODYzOTYyOWRlOWNkY2JlNjA5ZjFjYmY4Yzg3ZjRiNzA0ODczMTY4YzNhMWYxODk",
+        price:80000,
+        discount:4,
+        name:"Apple Watch SE GPS + Cellular - 40 mm Silver Aluminium Case with White 2nd Generation Sport Band"
+        },
+        {
+          url:"https://www.reliancedigital.in/medias/Apple-Ultra-Sports-Fitness-Watches-493177945-i-2-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wxNzE5OTV8aW1hZ2UvanBlZ3xpbWFnZXMvaDAzL2hhYy85ODkxOTYwMjU4NTkwLmpwZ3w3M2Q2ZjEwNGMzMzQzODg2MmU0YzQ4MmM5YzA3NWUzZmE4YjRlODY2YTdkMDhjYmRiODEzMDNkODZkZDA0NGU2"
+        ,price:90000,
+        discount:3,
+        name:"Apple Watch SE GPS + Cellular 44 mm Starlight Aluminium Case with Starlight 2nd Generation Sport Band"
+        },{
+          url:"https://www.reliancedigital.in/medias/Apple-SE-Sports-Fitness-Watches-493177927-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w4MzUyNnxpbWFnZS9qcGVnfGltYWdlcy9oZTMvaGNmLzk4OTE5OTI3NjQ0NDYuanBnfGExYWE0ZjI3MWE0MTlkMmQxNjdhNDlhNDg4Nzk3NWI2Yzg5NzI1MDMzMmFjZTk5NTA3MWExZGM0NmEzN2NjZjM",
+          price:85000,
+          discount:6,
+          name:"Apple Watch Ultra GPS + Cellular - 49 mm Titanium Case with Orange Alpine Loop - Medium"
+        }
+        ]
+        
+
+    let data1=[
+      "https://www.reliancedigital.in/medias/iPad-Pro-NPI-Banner-Available-now-27-10-2022.jpg?context=bWFzdGVyfGltYWdlc3wxMDYwNjh8aW1hZ2UvanBlZ3xpbWFnZXMvaDNlL2gyMC85OTEzNjU2NTQxMjE0LmpwZ3wwOTcxYjg0MTc5NDQxNDcwNTRjMzcwNjkxYWJlNGI2NDk3ZjkyYzNhNzM5NWY3NzM0NTRiYjA3ODA1MzRiOWFk",
+      "https://www.reliancedigital.in/medias/iPad-10th-Gen-NPI-Banner-Available-now-27-10-2022.jpg?context=bWFzdGVyfGltYWdlc3wxMDYzNDB8aW1hZ2UvanBlZ3xpbWFnZXMvaGY2L2hiMS85OTEzNjU2NDEwMTQyLmpwZ3wxNTJiZjhiZDMxYTcyZWJmMGM4MzE4OTdlYjkzOGMwYWMzM2E0Mzk1YWFiNTQzZjdiYmJkOTJlNGQ3Yjk5MDBm",
+      "https://www.reliancedigital.in/medias/airpods-pro-2nd-gen-Buy-now-NPI-Banner-01-11-2022.jpg?context=bWFzdGVyfGltYWdlc3wxMDM4NjB8aW1hZ2UvanBlZ3xpbWFnZXMvaDQ2L2g2Ny85OTIyNDU2MTkxMDA2LmpwZ3w0MGQxZjFhYjQ0ZjU1NTQzZjJiOGJmYzZhMDg5NTY5M2Y3NzIxZDkzOTQ2Yjg4YmNmOWZlMzc4OWM0YjlkMjA2"
+    ]    
+let personal=[
+
+
 import MultiItemCarousel from "./Sliderpage";
 import RoomHeater from "./Roomheaters";
 import Navbar from "../Saurabh/Navbar";
@@ -542,6 +657,7 @@ h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
     </Box>
     </Box>
     </Stack>  
+
 
 
     </Box>

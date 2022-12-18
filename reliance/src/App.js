@@ -3,6 +3,7 @@ import "./App.css";
 import Allroutes from "./router/allroutes";
 
 
+
 function App() {
   return (
     <div > 
@@ -10,32 +11,16 @@ function App() {
 
 
 
-       {/* <Register/>
-       <Otp/>
-       <Login/> 
-       <Admin/> */}
-       {/* <Navbar/> */}
+
+     
+     
+
+
 
        <Allroutes/>
-   
-       
-       
-       
-       
-         
-
     </div>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
 

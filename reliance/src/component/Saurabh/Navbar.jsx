@@ -16,16 +16,17 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const x=useSelector((state)=>state.cart)
   const  items =JSON.parse(localStorage.getItem("cart-item"))||[]
-
+const username=JSON.parse(localStorage.getItem("signin"))||""
   return (
     <div>
 
 
 
       <nav className="navbar navbar-expand-lg navbar-blue shadow-sm" style= {{backgroundColor :'rgb(228,37,41)'}}>
+      
         <div className="container">
        
-          <a className="navbar-brand fw-bold fs-4" href="#">
+          <a className="navbar-brand fw-bold fs-4" href="/">
             <img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg" alt="home" />
 
           </a>
@@ -57,11 +58,13 @@ const Navbar = () => {
             </ul>
 
             <div className='buttons'>
-              <Link to='/registration'>
+              {
+              username === "" ?  <Link to='/registration'>
                 <a className='btn btn-outline-dark'>
                   <i className='fa fa-sign-in me-2'></i>Login
                 </a>
-              </Link>
+              </Link>:`Hey ${username}`
+              }
               <Link to='/cart'>
                 <a className='btn btn-outline-dark ms-4'>
                   <i className='fa fa-shopping-cart me-2'></i>Cart (

@@ -22,6 +22,7 @@ import Checkout from "../component/sanket/checkout/checkout";
 
 import UserDetails from '../component/suman/UserDetails';
 import Pagenotfound from '../component/sonia/Pagenotfound';
+import Wish from "../component/mitali/allRoute/wish/wish";
 
 
 
@@ -50,13 +51,13 @@ function Allroutes() {
             <Route path='/cart' element={<Cart/>}></Route>
           
           
-            
+            <Route path="/wish" element={<Wish/>}/>
             <Route path='/mobiles' element={<Mobiles/>}/>
             <Route path='/Makeup' element= {<Makeup/>} />
             <Route path='/iron' element={<Iron/>}/>
             <Route path='/juicers' element={<Juicers/>}/>
             <Route path='/computers' element={<Computers/>}/> 
-            <Route path='camaras' element={<Camaras/>}/>
+            <Route path='cameras' element={<Camaras/>}/>
             <Route path="*" element={<Pagenotfound/>}/>
         </Routes>
 

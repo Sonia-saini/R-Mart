@@ -175,6 +175,8 @@ return (
   })
 )
  }
+ localStorage.setItem('wish', JSON.stringify(wish))
+
  
  
 
@@ -189,7 +191,7 @@ return (
   }
   let add=(el)=>{
     dispatch(addtocart(el))
-    window.location.reload()
+    
    }
   return (
     <>
@@ -301,7 +303,7 @@ return (
          <Text style={{width:"25%"}} className="cart">
            <FaCartArrowDown color='green' size="95%" width="40%" />
            </Text>
-           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}} onClick={()=>add(post)} >Add</Text>
+        <Link to="/cart">   <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}} onClick={()=>add(post)} >Add</Text></Link>
          </Card>
          <Card className="wishList" onClick={onOpen}>
            <Text style={{width:"25%"}}>

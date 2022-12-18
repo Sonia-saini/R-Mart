@@ -42,6 +42,8 @@ const getData=()=>{
 getData()
 .then((res)=>{
     checkcredentials(res.data)
+    let x=res.data[(res.data).length-1]
+    localStorage.setItem("signin",JSON.stringify(x.firstName))
 })
 
     }

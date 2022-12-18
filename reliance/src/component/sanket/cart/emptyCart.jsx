@@ -1,4 +1,5 @@
 import { Box, Button, Text, Tooltip, Image } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
 
 const EmptyCart = () => {
   return (
@@ -14,22 +15,24 @@ const EmptyCart = () => {
         />
       </Tooltip>
       <Text fontSize='xl'>Your Shopping Cart is Empty</Text>
-      <Button
-        w='3xs'
-        py='6'
-        m='auto'
-        mt='16'
-        bg='red.600'
-        color='white'
-        fontSize='sm'
-        boxShadow='lg'
-        borderRadius='4'
-        fontWeight='semibold'
-        _hover={{ bg: "red.700" }}
-        _active={{ bg: "red.700" }}
-      >
-        CONTINUE SHOPPING
-      </Button>
+      <NavLink to='/'>
+        <Button
+          w='3xs'
+          py='6'
+          m='auto'
+          mt='16'
+          bg='red.600'
+          color='white'
+          fontSize='sm'
+          boxShadow='lg'
+          borderRadius='4'
+          fontWeight='semibold'
+          _hover={{ bg: "red.700" }}
+          _active={{ bg: "red.700" }}
+        >
+          CONTINUE SHOPPING
+        </Button>
+      </NavLink>
     </Box>
   );
 };

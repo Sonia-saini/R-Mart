@@ -6,15 +6,12 @@ import {
 } from "./actionTypes";
 
 const initialState = {
-  items: [],
+  items: JSON.parse(localStorage.getItem("cart-item")) || [],
   loading: false,
   error: false
 };
-let arr=[]
 export const cartReducer = (state = initialState, action) => {
-
   switch (action.type) {
-    // Wirte down the cases
     case LOADING_STATE: {
       return {
         ...state,
@@ -26,25 +23,21 @@ export const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload || true
+        error: true
       };
     }
 
     case GET_DATA_SUCCESSFULLY: {
       return {
         ...state,
-        loading: false,
-        items: action.payload
+        loading: false
       };
     }
-    case ADD_ITEM:{
-      arr.push(action.payload)
-      localStorage.setItem("cartitem",JSON.stringify(arr))
+    case ADD_ITEM: {
       return {
         ...state,
-        loading: false,
-        items:[...state.items,action.payload]
-      }
+        loading: false
+      };
     }
 
     default: {

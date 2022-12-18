@@ -1,23 +1,23 @@
-import {
-  ERROR_STATE,
-  LOADING_STATE,
-  GET_DATA_SUCCESSFULLY,
-  ADD_ITEM
-} from "./actionTypes";
+import { GET_DATA_SUCCESSFULLY, ADD_ITEM } from "./actionTypes";
 
-import axios from "axios";
+export const getData = () => (dispatch) => {
+  dispatch({ type: GET_DATA_SUCCESSFULLY });
+};
 
-export const getData = () => async (dispatch) => {
-  dispatch({ type: LOADING_STATE });
-  try {
-    let response = await axios.get(
-      "https://shines-node-deploy.onrender.com/products"
-    );
-    dispatch({ type: GET_DATA_SUCCESSFULLY, payload: response.data });
-  } catch (error) {
-    dispatch({ type: ERROR_STATE, payload: error.message });
+export const addtocart = (data) => {
+  let response = JSON.parse(localStorage.getItem("cart-item")) || [];
+  let isMatch = false;
+
+  response.map((item) => {
+    if (item.name === data.name) {
+      return (isMatch = true);
+    }
+  });
+
+  if (!isMatch) {
+    response.push(data);
+    localStorage.setItem("cart-item", JSON.stringify(response));
+    window.location.reload();
+    return { type: ADD_ITEM };
   }
 };
-export const addtocart=(data)=>({
-  type:ADD_ITEM,payload:data
-})

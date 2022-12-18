@@ -9,13 +9,12 @@ import RoomHeater from "./Roomheaters";
 import Navbar from "../Saurabh/Navbar";
 
 
+
+import Menubar from '../mitali/allRoute/Menubar';
 let data = [
   "https://www.reliancedigital.in/medias/Accessories-Fiesta-Carousel-Banner-D.jpg?context=bWFzdGVyfGltYWdlc3w5MTAwN3xpbWFnZS9qcGVnfGltYWdlcy9oY2MvaDI5Lzk5Mjk4MTAyMTQ5NDIuanBnfGUxYTc3MTMzNThhNzlkZGQyNTNlYTYxMzM3OWM4NzQzYjY2YWYwYzFkNjhhMjA5M2YwNDhiYTMwMzA2ZGY5MTY",
 
-import MultiItemCarousel from './Sliderpage';
-import RoomHeater from './Roomheaters';
- import Navbar from "../Saurabh/Navbar";
-import Menubar from '../mitali/allRoute/Menubar';
+
 
 
 

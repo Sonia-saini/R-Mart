@@ -7,6 +7,16 @@ import Allroutes from "./router/allroutes";
 function App() {
   return (
     <div > 
+
+
+
+
+
+     
+     
+
+
+
        <Allroutes/>
     </div>
   );

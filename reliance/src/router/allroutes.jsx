@@ -14,7 +14,10 @@ import {Iron} from '../component/mitali/allRoute/Iron/Iron';
 import {Juicers} from '../component/mitali/allRoute/juicers/juicers';
 import {Computers} from '../component/mitali/allRoute/computers/computers'
 import {Camaras} from '../component/mitali/allRoute/camaras/camaras' 
+
 import UserDetails from '../component/suman/UserDetails';
+import Pagenotfound from '../component/sonia/Pagenotfound';
+
 
 function Allroutes() {
   return (
@@ -39,6 +42,7 @@ function Allroutes() {
             <Route path='/juicers' element={<Juicers/>}/>
             <Route path='/computers' element={<Computers/>}/> 
             <Route path='camaras' element={<Camaras/>}/>
+            <Route path="*" element={<Pagenotfound/>}/>
         </Routes>
     </div>
   )

@@ -214,7 +214,7 @@ export function Home() {
       
 {/* watach */}
    <Stack mt="30px">
-    <Heading fontSize="22px" p="10px">PRICE DROP ON APPLE SMARTWATCHES</Heading>
+    <Heading fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">PRICE DROP ON APPLE SMARTWATCHES</Heading>
 
    <Box width="100%" display={{md:"grid",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}}>
       <Image src="https://www.reliancedigital.in/medias/Apple-Watches-Producst-Carousel-29-11-2022.jpg?context=bWFzdGVyfGltYWdlc3w1NTYyOHxpbWFnZS9qcGVnfGltYWdlcy9oOTQvaDQyLzk5MjgzNzA5Nzg4NDYuanBnfDg5OTE2MzFkOTU2YmI1ODhjOTZmODQ2YzkyNjUzNjYwZTYxZGQ2NGY4OTdhNmU3YjBkZGZmZGI3MzM2OWQwNzQ"w={{base:"100%",md:"auto",lg:"100%"}} mt="10px" mb="10px"/>
@@ -246,7 +246,7 @@ export function Home() {
     </Stack>
     <Box w={"100%"} margin={"auto"}>
       <Heading  fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">GREAT DEALS ON ELECTRONICS</Heading>
-      <Box display={"grid"} gridTemplateColumns={"repeat(4,1fr)"}  alignSelf={"center"}  margin="auto">
+      <Box display={{base:"grid",md:"grid",sm:"grid"}} gridTemplateColumns={{md:"repeat(4,1fr)",base:"repeat(2,1fr)",sm:"repeat(1,1fr)"}}  alignSelf={"center"}  margin="auto">
         {
           ["https://www.reliancedigital.in/medias/Winter-Appliances-Small-banners.jpg?context=bWFzdGVyfGltYWdlc3w2ODA0M3xpbWFnZS9qcGVnfGltYWdlcy9oYTUvaDhmLzk5MTM3NzczMjQwNjIuanBnfDdjMTE5YzUzNjcyODZiNDljNGJlNDMzZTNkNGI5Nzg2ZjlhOTg0YmFhYTViOTZmOTFkNmY1MWRlZGQ4NWY5ZDY",
         'https://www.reliancedigital.in/medias/True-Wireless-Small-Banners.jpg?context=bWFzdGVyfGltYWdlc3w0NjcyOXxpbWFnZS9qcGVnfGltYWdlcy9oODAvaDljLzk5MTM3NzcyNTg1MjYuanBnfGY3MDIxZDZlYTBhMjEwYjQ4NGIzMmQwZjdjMzQ2M2FhYzIwYWE0NGE4MzFmYjRlZjQwNzFlZjk2NWMwMzYxN2Y',
@@ -279,7 +279,7 @@ export function Home() {
   </Box>
   <Box>
     <Heading p="10px" fontSize={{sm:"10px",base:"12px",md:"18px"}} color="blue.700" textAlign="center">THE RELIANCE DIGITAL BRAND PROMISE</Heading>
-    <Box display={"flex" }gap="20px" justifyContent={"center"} pt={10}>
+    <Box display={{md:"flex",base:"grid",lg:"flex"} }gap="20px" justifyContent={"center"} pt={10}>
       {
         [{src:"https://www.reliancedigital.in/medias/Insta-Delivery-Brand-Promise-Icon.png?context=bWFzdGVyfGltYWdlc3wxNTM3fGltYWdlL3BuZ3xpbWFnZXMvaGI2L2gwNS85NDQ3MTcwMzQyOTQyLnBuZ3w2Yzc1ZmY1ZjYwOWIyNWU0ZTgwMjFlYmRkMTU5ZTgzMGI4ZDNmZTE2NjVjYmRlMmUwMmRiODI2OTExNWM5ZTdk"
       ,h:"INSTA DELIVERY",p:"LESS THAN 3 HOURS"},
@@ -289,7 +289,7 @@ export function Home() {
   h:"SERVICE GURANTEE",p:"HASSLE FREE"},
  { src:"https://www.reliancedigital.in/medias/unmatched-network-img.png?context=bWFzdGVyfGltYWdlc3w3NDV8aW1hZ2UvcG5nfGltYWdlcy9oODIvaDJhLzkwOTA3OTgwNTk1NTAucG5nfDFmMThjYzdiYTNiOTgxYjA5YzdlZTFiMmQyODI5MGY2NTM4ZTcxOWZkZTA1ZjAzY2Q1ZTk5YjQ1NTMxMWViYzU",
 h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
-  .map((el)=><Box border="1px solid gray" w={300} height={120} borderRadius={10} bg="blue.50" textAlign="center">
+  .map((el)=><Box border="1px solid gray" w={"auto"} height={120} borderRadius={10} bg="blue.50" textAlign="center">
   <Image src={el.src} w={{base:"30px",md:"40px",sm:"20px"}} h={"auto"} margin="auto" mt="35px" />
   <Heading color="blue.700" fontSize={{sm:"10px",base:"9px",md:"13px"}}>{el.h}</Heading>
   <Heading fontSize={{sm:"6px",base:"9px",md:"12px"}}>{el.p}</Heading>
@@ -298,7 +298,7 @@ h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
     </Box>
   </Box>
   <Stack mt="30px">
-    <Heading fontSize="22px" p="10px">UP TO 80% OFF ON PERSONAL CARE APPLIANCES</Heading>
+    <Heading fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">UP TO 80% OFF ON PERSONAL CARE APPLIANCES</Heading>
 
    <Box width="100%" display={{md:"grid",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}}>
       <Image src="https://www.reliancedigital.in/medias/Best-of-Monitors-Producst-Carousel-27-Personal-care-appliances-02.jpg?context=bWFzdGVyfGltYWdlc3w1MDYxN3xpbWFnZS9qcGVnfGltYWdlcy9oNTcvaDU1Lzk5MjkyMTYxNjM4NzAuanBnfDU2YWUyODU2M2UxNTZiM2ZkZDgyNDBiNDliN2I1YmVkYmQwYWQ1YmMzY2NmOWNhYjQyMDI2ODY1ZGMzYWVkOGQ" w={{base:"100%",md:"auto",lg:"auto"}} mt="10px" mb="10px"/>

@@ -1,7 +1,8 @@
 
 import React from "react";
 import { useSelector } from "react-redux";
-import { AiOutlineLineHeight } from "react-icons/ai";
+
+
 
 
 
@@ -13,7 +14,8 @@ import { AiOutlineLineHeight } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { items } = useSelector((state) => state.cart);
+  const x=useSelector((state)=>state.cart)
+  const  items =JSON.parse(localStorage.getItem("cart-item"))||[]
 
   return (
     <div>
@@ -67,27 +69,13 @@ const Navbar = () => {
                 </a>
               </Link>
 
-            <div className="buttons">
-            <Link to="/registration">
-              <a className="btn btn-outline-dark">
-                <i className="fa fa-sign-in me-2"></i>Login</a>
-
-</Link>
-  <Link to="/cart">
-                <a href="" className="btn btn-outline-dark ms-4">
-                <i className="fa fa-shopping-cart me-2"></i>Cart ({items.length})</a>
-
-               
-               
-
-                </Link>
-                
-                
-
-            </div>
+          
+          
           </div>
         </div>
+        </div>
       </nav>
+     
     </div>
   );
 };

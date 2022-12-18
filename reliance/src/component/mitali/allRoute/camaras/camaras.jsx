@@ -10,9 +10,11 @@ import { FaCartArrowDown } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import Navbar from '../nav'
+import Navbar from '../../../Saurabh/Navbar';
 import {getPostsCameras,updatePosts} from '../../api/api.action';
 import { Link } from 'react-router-dom';
+import Menubar from '../Menubar';
+import { addtocart } from '../../../sanket/cart/redux/actions';
 
 
 
@@ -177,6 +179,7 @@ export const Camaras = () => {
   return (
     <>
     <Navbar/>
+    <Menubar/>
     {/* ui slider part */}
     <Slider {...settings}>
         {
@@ -283,7 +286,7 @@ export const Camaras = () => {
          <Text style={{width:"25%"}} className="cart">
            <FaCartArrowDown color='green' size="95%" width="40%" />
            </Text>
-           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Add</Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}} onClick={()=>dispatch(addtocart(post))}>Add</Text>
          </Card>
          <Card className="wishList" onClick={onOpen}>
            <Text style={{width:"25%"}}>

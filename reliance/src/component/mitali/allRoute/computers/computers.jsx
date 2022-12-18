@@ -10,9 +10,10 @@ import { FaCartArrowDown } from "react-icons/fa";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import Navbar from '../nav'
+import Navbar from '../../../Saurabh/Navbar';
 import {getPostsComputers,updatePosts} from '../../api/api.action';
 import { Link } from 'react-router-dom';
+import Menubar from '../Menubar';
 
 
 
@@ -178,6 +179,7 @@ export const Computers = () => {
   return (
     <>
     <Navbar/>
+    <Menubar/>
     {/* ui slider part */}
     <Slider {...settings}>
         {

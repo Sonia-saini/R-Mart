@@ -17,7 +17,8 @@ export const addtocart = (data) => {
   if (!isMatch) {
     response.push(data);
     localStorage.setItem("cart-item", JSON.stringify(response));
-    window.location.reload();
+   
+    
     return { type: ADD_ITEM };
   }
 };

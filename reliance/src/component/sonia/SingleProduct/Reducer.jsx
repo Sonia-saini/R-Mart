@@ -1,4 +1,3 @@
-
 import { single } from './actionType'
 const singleP={
     data:{}

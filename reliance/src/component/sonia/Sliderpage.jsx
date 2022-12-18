@@ -140,6 +140,7 @@ import { Link, Navigate } from 'react-router-dom';
         const onClick=(el)=>{
           
           dispatch(Single(el))
+          console.log(el,"added")
         return <Navigate to="/single"/>
         }
           return (

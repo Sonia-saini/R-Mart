@@ -10,9 +10,11 @@ import { AiFillStar,AiOutlineHeart,AiFillHeart } from "react-icons/ai"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-import Navbar from '../nav'
+import Navbar from '../../../Saurabh/Navbar';
 import {getPostsIron,updatePosts} from '../../api/api.action';
 import { Link } from 'react-router-dom';
+import Menubar from '../Menubar';
+import { addtocart } from '../../../sanket/cart/redux/actions';
 
 
 export const Iron = () => {
@@ -152,13 +154,15 @@ export const Iron = () => {
   })
  }
 
- localStorage.setItem('carts',JSON.stringify(cart))
+ localStorage.setItem('cart-item',JSON.stringify(cart))
 
  let wishList=(ind)=>{
   posts.map((el)=>{
     if(el.id===ind){
       setWish([...wish,el])
     }
+  
+    
   })
  
 return (
@@ -171,7 +175,8 @@ return (
   })
 )
  }
- localStorage.setItem('wish', JSON.stringify(wish))
+ 
+ 
 
 // if page loads show skeleton
   if(loading){
@@ -182,10 +187,14 @@ return (
     <Skeleton height='14vh' /><Skeleton height='14vh' /><Skeleton height='14vh' />
   </Stack>
   }
-
+  let add=(el)=>{
+    dispatch(addtocart(el))
+    window.location.reload()
+   }
   return (
     <>
    <Navbar/>
+   <Menubar/>
     {/* ui slider part */}
     <Slider {...settings}>
         {
@@ -288,11 +297,11 @@ return (
            <Box className='offers'>OFFERS AVAILABLE</Box>
        </Box> 
         <Box style={{display:"flex", height:"10%"}}>
-         <Card className="wishList" onClick={()=>{addToCart(post.id,ind+1)}}>
+         <Card className="wishList" >
          <Text style={{width:"25%"}} className="cart">
            <FaCartArrowDown color='green' size="95%" width="40%" />
            </Text>
-           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Add</Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}} onClick={()=>add(post)} >Add</Text>
          </Card>
          <Card className="wishList" onClick={onOpen}>
            <Text style={{width:"25%"}}>
@@ -313,7 +322,7 @@ return (
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button variant='ghost' onClick={()=>{wishList(post.id)}}>Add</Button>
+            <Button variant='ghost' onClick={()=>{wishList(post.id)}} >Add</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

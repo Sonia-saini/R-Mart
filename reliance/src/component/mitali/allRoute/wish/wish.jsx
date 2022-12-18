@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react'
-import Nav from '../nav'
+import Navbar from '../../../Saurabh/Navbar';
 import {Text,Box,Card,Image, useDisclosure,useToast} from '@chakra-ui/react'
 import { FaCartArrowDown } from "react-icons/fa";
 import { AiFillHeart ,AiFillStar} from "react-icons/ai"
@@ -9,6 +9,7 @@ import '../Iron/Iron.css'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+import Menubar from '../Menubar';
 
 const Wish = () => {
     let wishes=JSON.parse(localStorage.getItem('wish'))
@@ -124,7 +125,8 @@ pauseOnHover: true
       //localStorage.removeItem()
   return (
     <div>
-        <Nav/>
+        <Navbar/>
+        <Menubar/>
         <Slider {...settings}>
         {
             data.map((item)=>(

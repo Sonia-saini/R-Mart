@@ -1,8 +1,13 @@
 import { Box, Button, Text, Tooltip, Image } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import Menubar from "../../mitali/allRoute/Menubar";
+import Navbar from "../../Saurabh/Navbar";
 
 const EmptyCart = () => {
   return (
+    <>
+    <Navbar/>
+    <Menubar/>
     <Box align='center' py='12'>
       <Tooltip
         placement='right'
@@ -34,6 +39,7 @@ const EmptyCart = () => {
         </Button>
       </NavLink>
     </Box>
+    </>
   );
 };
 

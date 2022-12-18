@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Home } from "../component/sonia/home";
+import  Home  from "../component/sonia/home";
 import Productdetail from "../component/sonia/Productdetail";
 import Login from "../component/suman/Login";
 import Admin from "../component/suman/Admin";
@@ -35,26 +35,12 @@ function Allroutes() {
 
 
 
-        <Route path='/registration' element={<Register />}></Route>
-        <Route path='/otp' element={<Otp />}></Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/admin' element={<Admin />}></Route>
-        <Route path='/adminpage' element={<AdminPage />}></Route>
-
-        <Route path='/cart' element={<Cart />}></Route>
+    
+    
         <Route path='/checkout' element={<Checkout />} />
         <Route path='/payment' element={<Home />}></Route>
 
-        <Route path='/mobiles' element={<Mobiles />} />
-        <Route path='/Makeup' element={<Makeup />} />
-        <Route path='/iron' element={<Iron />} />
-        <Route path='/juicers' element={<Juicers />} />
-        <Route path='/computers' element={<Computers />} />
-        <Route path='camaras' element={<Camaras />} />
-      </Routes>
-
-
-        <Route path='/registration' element={<Register/>}></Route>
+ <Route path='/registration' element={<Register/>}></Route>
             <Route path='/otp' element={<Otp/>}></Route>
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/admin' element={<Admin/>}></Route>

@@ -55,14 +55,7 @@ const ProductDetails = ({ actualPrice }) => {
   );
 };
 
-
-
-const SingleCart = ({ items, url, price, name, category }) => {
-
-
-const SingleCart = ({ url, price, name, category }) => {
-
-
+const SingleCart = ({ items, url, price, name, category ,quantity}) => {
   const [value, setValue] = React.useState(1);
   const [length, setLength] = React.useState(1);
   const [internalValue, setInternalValue] = useControllableState({
@@ -71,45 +64,30 @@ const SingleCart = ({ url, price, name, category }) => {
   });
 
   const actualPrice1 = () => {
-
-
     if (typeof price === "string" && price.includes("₹")) {
       return +price.split(".")[0];
-
-
-    if (price.includes("₹")) {
-      return price.split(".")[0];
-
-
     } else return `₹${price.toLocaleString("en-US")}`;
   };
 
   const actualPrice2 = () => {
-
-
     if (typeof price === "string" && price.includes("₹")) {
-
-
-    if (price.includes("₹")) {
-
-
       return price;
     } else return `₹${price.toLocaleString("en-US")}.00`;
   };
-
-
 
   const handleMinus = (name) => {
     setInternalValue(value - 1);
 
     let updatedQty = items.map((ele) => {
       if (ele.name === name) {
-        ele.quantity = value - 1;
+        ele.quantity = ele.quantity - 1;
+        console.log(ele.quantity,"quant")
       }
       return ele;
     });
     localStorage.setItem("cart-item", JSON.stringify(updatedQty));
     window.location.reload();
+    
   };
 
   const handlePlus = (name) => {
@@ -117,7 +95,7 @@ const SingleCart = ({ url, price, name, category }) => {
 
     let updatedQty = items.map((ele) => {
       if (ele.name === name) {
-        ele.quantity = value + 1;
+        ele.quantity = ele.quantity + 1;
       }
       return ele;
     });
@@ -134,11 +112,8 @@ const SingleCart = ({ url, price, name, category }) => {
     window.location.reload();
   };
 
-
-
-
-
   return (
+    
     <Box bg='white' boxShadow='sm'>
       <Box px='4' pt='4' pb={{ base: "4", sm: "6" }}>
         <Stack direction='row' justify='space-between' align='flex-start'>
@@ -168,21 +143,14 @@ const SingleCart = ({ url, price, name, category }) => {
                   color='black'
                   borderRadius='sm'
                   bg='blackAlpha.300'
-                  isDisabled={value === 1}
+                  isDisabled={quantity === 1}
                   _disabled={{
                     bg: "gray.100",
                     color: "gray.600",
                     cursor: "not-allowed"
                   }}
                   icon={<MinusIcon />}
-
-
                   onClick={() => handleMinus(name)}
-
-                  onClick={() => setInternalValue(value - 1)}
-
-
-
                 />
                 <Button
                   size='xs'
@@ -199,7 +167,7 @@ const SingleCart = ({ url, price, name, category }) => {
                     cursor: "not-allowed"
                   }}
                 >
-                  {internalValue}
+                  {quantity}
                 </Button>
                 <IconButton
                   size='xs'
@@ -210,14 +178,7 @@ const SingleCart = ({ url, price, name, category }) => {
                   bg='blackAlpha.300'
                   _hover={{ bg: "blackAlpha.300" }}
                   icon={<AddIcon />}
-
-
                   onClick={() => handlePlus(name)}
-
-
-                  onClick={() => setInternalValue(value + 1)}
-
-
                 />
               </Stack>
             </Stack>
@@ -253,11 +214,7 @@ const SingleCart = ({ url, price, name, category }) => {
         borderTop='1px solid lightgray'
         fontSize={{ base: "xs", md: "sm" }}
         fontWeight={{ base: "bold", md: "semibold" }}
-
-
         onClick={() => removeItem(name)}
-
-
       >
         Remove
       </Button>

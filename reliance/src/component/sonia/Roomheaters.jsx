@@ -195,6 +195,7 @@ const watch=[
         const onClick=(el)=>{
           
           dispatch(Single(el))
+          console.log(el,"add")
         return <Navigate to="/single"/>
         }
       

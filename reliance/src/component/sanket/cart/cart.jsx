@@ -6,16 +6,13 @@ import CheckoutTab from "./checkoutTab";
 import { getData } from "./redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Text, Spinner, Heading, Stack, HStack } from "@chakra-ui/react";
-
-
 import Navbar from "../../Saurabh/Navbar";
 import Menubar from "../../mitali/allRoute/Menubar";
 
-
-
 const Cart = () => {
   const dispatch = useDispatch();
-  const { loading, error, items } = useSelector((store) => store.cart);
+  const { loading, error} = useSelector((store) => store.cart);
+  const  items =JSON.parse(localStorage.getItem("cart-item"))||[]
 
   console.log(items);
 
@@ -32,14 +29,7 @@ const Cart = () => {
   }
 
   if (error) return <CartErr />;
-
-
   if (!items || !items.length) {
-
-
-  if (!items.computers || !items.computers.length) {
-
-
     return <EmptyCart />;
   }
 

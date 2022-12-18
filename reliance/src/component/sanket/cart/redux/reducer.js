@@ -10,6 +10,7 @@ const initialState = {
   loading: false,
   error: false
 };
+let arr=[]
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOADING_STATE: {
@@ -34,6 +35,7 @@ export const cartReducer = (state = initialState, action) => {
       };
     }
     case ADD_ITEM: {
+      arr.push(action.payload)
       return {
         ...state,
         loading: false

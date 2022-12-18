@@ -14,6 +14,7 @@ import { useState } from 'react';
 import {useNavigate} from "react-router-dom"
 import { useToast } from '@chakra-ui/react';
 import Navbar from '../Saurabh/Navbar';
+import Menubar from '../mitali/allRoute/Menubar';
 
 const Otp = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -50,7 +51,7 @@ const handleOtp=(e)=>{
   return (
     <>
 <Navbar/>
-   
+  <Menubar/> 
     <Flex
       minH={'100vh'}
       align={'center'}

@@ -16,8 +16,8 @@ import React from "react";
 import { WarningTwoIcon } from "@chakra-ui/icons";
 
 
-import { Box, Stack } from "@chakra-ui/react";
-import React from "react";
+
+
 
 
 
@@ -91,7 +91,7 @@ const Checkout = () => {
             </AccordionItem>
           </Stack>
         </Accordion>
-
+</Stack>
       <Stack direction='column' align='center'>
         <Box>Delivery Method</Box>
         <Box>Order Details</Box>

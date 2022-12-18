@@ -1,7 +1,12 @@
 import { Box, Button, Text, Tooltip, Image } from "@chakra-ui/react";
+import Menubar from "../../mitali/allRoute/Menubar";
+import Navbar from "../../Saurabh/Navbar";
 
 const CartErr = () => {
   return (
+    <>
+    <Navbar/>
+    <Menubar/>
     <Box align='center' py='12'>
       <Tooltip
         placement='right'
@@ -38,6 +43,7 @@ const CartErr = () => {
         RETRY
       </Button>
     </Box>
+    </>
   );
 };
 

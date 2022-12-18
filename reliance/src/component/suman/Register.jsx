@@ -21,6 +21,7 @@ import {
 //  import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import { useToast } from '@chakra-ui/react';
 import Navbar from '../Saurabh/Navbar';
+import Menubar from '../mitali/allRoute/Menubar';
 
 const Register = () => {
   const toast = useToast()
@@ -68,7 +69,7 @@ navigate("/otp")
   return (
     <>
 <Navbar/>
-    
+  <Menubar/>  
 <Flex
     minH={'100vh'}
     align={'center'}

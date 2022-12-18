@@ -3,6 +3,7 @@ import './App.css';
 
 
 import Allroutes from './router/allroutes';
+import Footer from './component/Saurabh/Footer';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
      {/* <Makeup/>
      <Iron/> */}
     <Allroutes/>
+    <Footer/>
     </div>
   );
 }

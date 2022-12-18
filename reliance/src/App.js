@@ -1,42 +1,17 @@
-import "./App.css";
-
-
- import React from "react"
-import Allroutes from "./router/allroutes";
-import Footer from "./component/Saurabh/Footer";
-
-
-
-
-
-
-
-
-
-
+import logo from './logo.svg';
+import './App.css';
+import Makeup from './component/mitali/allRoute/makeup/makeup'
+import Iron from './component/mitali/allRoute/mobiles/mobiles'
+import AllRoutes from './component/mitali/allRoute/allRoutes'
 
 function App() {
   return (
-
-    <div>
-    <Allroutes/>
-
-
-
-     
-     
-
-
-
-     
-     
-       <Footer/>
-
-
+    <div className="App">
+     {/* <Makeup/>
+     <Iron/> */}
+     <AllRoutes/>
     </div>
   );
 }
 
 export default App;
-
-

@@ -3,25 +3,36 @@ import React, { useState } from 'react'
 import { useSelector,useDispatch} from 'react-redux';
 import { Box, Heading, Stack,Image, Input,Button } from '@chakra-ui/react'
 import { addtocart } from '../sanket/cart/redux/actions';
+import { Fade, ScaleFade, Slide, SlideFade,Collapse } from '@chakra-ui/react'
+import Navbar from '../Saurabh/Navbar';
+import Menubar from '../mitali/allRoute/Menubar';
 function Productdetail() {
-    
+    const [show, setShow] = React.useState(false)
     const [input,setInput]=useState("");
     const {data}=useSelector((state)=>state.data)
     const {items}=useSelector((state)=>state.cart)
     const dispatch=useDispatch()
+    const handleToggle = () => setShow(!show)
     console.log(items)
    
     
   return (
-  
-    <Stack w="100%" direction="flex" gap={20} mt={10}>
+  <>
+  <Navbar/>
+  <Menubar/>
+    <Box w="100%" display={{base:"grid",md:"flex",sm:"grid"}} gap={20} m={"auto"} p="10px">
 
-<Box w={"50%"} margin="auto" ml="10"  border={"10px dashed #1a237e"} borderRadius="27px" >
-    <Image src={data.url} w="100%" alt=""  borderRadius="15px"/>
+<Box w={"100%"} margin="auto"   border={"10px dashed #1a237e"} borderRadius="27px" >
+    <Image src={data.url} w={{md:"80%",base:"50%",sm:"auto"}} alt="" m={"auto"} borderRadius="15px"/>
 </Box>
 <Box w={"100%"} p={3}>
-    <Heading fontSize={22} mb={10}>{data.name}</Heading>
-   <Stack w="100%" direction={"flex"} gap="20px" > <Stack  w={"100%"} borderLeft="1px dashed gray" borderTop={"1px dashed gray"} p={10}>
+    <Heading fontSize={22} mb={10}>{data.name}
+    &nbsp;<Button size='sm'  color="blue"onClick={handleToggle} bgColor="transparent" border={"none"}>
+         {show ? '...Read Less' : 'Read More...'}
+      </Button></Heading>
+ 
+      <Collapse startingHeight={{base:"none",md:100,sm:50,lg:1000}} in={show}>
+      <Stack w="100%" direction={"flex"} gap="20px" > <Stack  w={"100%"} borderLeft="1px dashed gray" borderTop={"1px dashed gray"} p={10}>
 
 <Box fontSize={13}>
 <Heading fontSize={17} mb={3}>Gain more with offers (2)</Heading>
@@ -61,7 +72,11 @@ Processor AMD Ryzen 3 3250 RAM- 8 GB Internal Storage- 256 GB Storage Type- SSD
 </ul>
 </Box>
     </Stack>
-    <Stack p={10} borderLeft="1px dashed gray"borderTop={"1px dashed gray"} w={"100%"}>
+    
+    </Stack>
+      </Collapse>
+      
+    <Stack p={10} margin="auto" border="1px dashed gray"borderTop={"1px dashed gray"} w={"full"}>
  <Box>  <p fontSize={17}>Deal Price:<b style={{color:'blue',fontSize:"30px"}}> ₹{data.price.toLocaleString()}</b></p>
     <p fontSize={17}>M.R.P :<b style={{fontSize:"16px",textDecoration:"line-through"}}> ₹{(data.price+(data.price*5)/100).toLocaleString()}</b> (Inclusive of all taxes)</p>
     <p fontSize={17} style={{color:"16px"}}>You Save :{(data.discount?data.discount: 5).toLocaleString()}%<b style={{fontSize:"16px"}}> (₹{((data.price*(data.discount?data.discount: 5))/100).toLocaleString()})</b></p>
@@ -84,10 +99,10 @@ Processor AMD Ryzen 3 3250 RAM- 8 GB Internal Storage- 256 GB Storage Type- SSD
  <Stack direction={"flex"} justifyContent="space-between" mt={10} w="100%"><Button borderRadius={0} bg={"red.500"} _hover={{bg:"blue.700"}} color="white" w="48%" onClick={()=>dispatch(addtocart({...data,quantity:1}))}>ADD TO CART</Button>
 <Button bg={"orange.500"} color="white" _hover={{bg:"orange.500"}} w="48%" borderRadius={0}>BUY NOW</Button></Stack>
     </Stack>
-    </Stack>
+    </Box>
 </Box>
-    </Stack>
     
+</>  
   )
 }
 

@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import MultiItemCarousel from './Sliderpage';
 import RoomHeater from './Roomheaters';
  import Navbar from "../Saurabh/Navbar";
+import Menubar from '../mitali/allRoute/Menubar';
 
 
 
@@ -183,6 +184,11 @@ export function Home() {
   return (
     <Box margin={"auto"}>
     <Navbar/>
+
+    
+
+    <Menubar/>
+
       <Box>
         <Image w="100%"src="https://www.reliancedigital.in/medias/Year-End-Sale-5000-Instant-Discount-Carousel-Banner-05-12-2022.jpg?context=bWFzdGVyfGltYWdlc3wxNDcwODh8aW1hZ2UvanBlZ3xpbWFnZXMvaDkzL2hiNS85OTI4MTY1NTg5MDIyLmpwZ3w4NDk3ZDFhZTM1YzUxYTg3MDFiMWZkZjhmMGE0ZWI2ZWZmYjU0MWNmOGJkMTAzZTYwMTdlNjI5MGNjYzZiOTIx" display="block"margin={"auto"}/>
       </Box>
@@ -195,16 +201,16 @@ export function Home() {
     {
       data.map((el)=>(
         <div class="carousel-item">
-        <Image src={el} class="d-block w-100" alt="..."/>
+        <Image src={el} class="d-block w-90" alt="..."/>
       </div>
       ))
     }
    </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" id='prev'>
     <span class="carousel-control-prev-icon" aria-hidden="true"  style={{backgroundColor:"gray",padding:"60px 0px",marginLeft:"-180px"}}></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" id='next'>
     <span class="carousel-control-next-icon" aria-hidden="true" style={{backgroundColor:"gray",padding:"60px 0px",marginRight:"-180px"}}></span>
     <span class="visually-hidden">Next</span>
   </button>
@@ -212,29 +218,29 @@ export function Home() {
       
 {/* watach */}
    <Stack mt="30px">
-    <Heading fontSize="22px" p="10px">PRICE DROP ON APPLE SMARTWATCHES</Heading>
+    <Heading fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">PRICE DROP ON APPLE SMARTWATCHES</Heading>
 
-   <Box width="100%" display="flex" p="10px"> <Box width="30%">
-      <Image src="https://www.reliancedigital.in/medias/Apple-Watches-Producst-Carousel-29-11-2022.jpg?context=bWFzdGVyfGltYWdlc3w1NTYyOHxpbWFnZS9qcGVnfGltYWdlcy9oOTQvaDQyLzk5MjgzNzA5Nzg4NDYuanBnfDg5OTE2MzFkOTU2YmI1ODhjOTZmODQ2YzkyNjUzNjYwZTYxZGQ2NGY4OTdhNmU3YjBkZGZmZGI3MzM2OWQwNzQ" w="100%" mt="10px" mb="10px"/>
+   <Box width="100%" display={{md:"grid",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}}>
+      <Image src="https://www.reliancedigital.in/medias/Apple-Watches-Producst-Carousel-29-11-2022.jpg?context=bWFzdGVyfGltYWdlc3w1NTYyOHxpbWFnZS9qcGVnfGltYWdlcy9oOTQvaDQyLzk5MjgzNzA5Nzg4NDYuanBnfDg5OTE2MzFkOTU2YmI1ODhjOTZmODQ2YzkyNjUzNjYwZTYxZGQ2NGY4OTdhNmU3YjBkZGZmZGI3MzM2OWQwNzQ"w={{base:"100%",md:"auto",lg:"100%"}} mt="10px" mb="10px"/>
     
     </Box>
-    <Box width="80%">
+    <Box width={{base:"auto",md:"auto",lg:"70%"}}>
       <MultiItemCarousel watch={watch}/>
     </Box>
     </Box>
     </Stack>   
   
-  <Box  w={"100%"}>
+  <Box  w={"99%"}>
     <Heading  fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">
     ENTERTAINMENT FEST
     </Heading>
-    <Box  display={"flex" }gap="20px" justifyContent={"center"} pt={10}>
+    <Box  display={{md:"flex",base:"grid" }}gap="20px" justifyContent={"center"} pt={10}>
     {
       ["https://www.reliancedigital.in/medias/43-inch-UHD-TV-Small-Banner-05-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w2MTc5NXxpbWFnZS9qcGVnfGltYWdlcy9oZDcvaGM2Lzk5MjgxNjcyNjAxOTAuanBnfDg4MjdjN2IwZWViMTNlNmM2ODdiOWZjNzU2M2RkZmVlZTMxMmM4ODRlZWQ3MWNhMWIwYWI3NmNhMDcxNjkxY2M",
     "https://www.reliancedigital.in/medias/Headphones-and-Earphones-Entertainment-Fest-Small-Banner-02-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w0MDQzNHxpbWFnZS9qcGVnfGltYWdlcy9oYTAvaDU0Lzk5MjY3ODEzMzc2MzAuanBnfGI1Y2Q4MDExYTAwOGEzYzhlNWQxOTI0MzU2ZWIyY2YyYWQ5NDE1M2EwYzNmMTNjNjA4MGZiMTU2Y2VlZGNlZDQ",
   "https://www.reliancedigital.in/medias/Best-Deals-in-TV-Small-Banner-05-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w0ODE2NnxpbWFnZS9qcGVnfGltYWdlcy9oNGYvaDY1Lzk5MjgxNjcxOTQ2NTQuanBnfDhiODBlYTA4YmI1OTA0YjZkMTkzYjA0ZTRmOWQ5MzMxMjcyZDJjODY0YTE3MWE4M2ZlNDIxODRhNzFiODJkYjY",
 "https://www.reliancedigital.in/medias/Soundbars-Entertainment-Fest-Small-Banner-02-12-2022.jpg?context=bWFzdGVyfGltYWdlc3wzMTg3NHxpbWFnZS9qcGVnfGltYWdlcy9oMzYvaGQ1Lzk5MjY3ODE0MDMxNjYuanBnfDY5ODQ2ZDU3NDFlMjgxYTY2YTViZmQ1ZTA4Y2U5ZTMwYjVlNjYzNTk3YzJjNzkyMDUwY2VkY2ZlZTViODQ1NjQ"
-].map((el)=><Image src={el} w={"23%"} justifySelf="center"/>)
+].map((el)=><Image src={el} w={{base:"auto",md:"100%"}} justifySelf="center"/>)
     }</Box>
     <Stack mt="10px">
       <Heading  fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">BIGGEST PRICE DROP ON ROOM HEATERS</Heading>
@@ -244,7 +250,7 @@ export function Home() {
     </Stack>
     <Box w={"100%"} margin={"auto"}>
       <Heading  fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">GREAT DEALS ON ELECTRONICS</Heading>
-      <Box display={"grid"} gridTemplateColumns={"repeat(4,1fr)"}  alignSelf={"center"}  margin="auto">
+      <Box display={{base:"grid",md:"grid",sm:"grid"}} gridTemplateColumns={{md:"repeat(4,1fr)",base:"repeat(2,1fr)",sm:"repeat(1,1fr)"}}  alignSelf={"center"}  margin="auto">
         {
           ["https://www.reliancedigital.in/medias/Winter-Appliances-Small-banners.jpg?context=bWFzdGVyfGltYWdlc3w2ODA0M3xpbWFnZS9qcGVnfGltYWdlcy9oYTUvaDhmLzk5MTM3NzczMjQwNjIuanBnfDdjMTE5YzUzNjcyODZiNDljNGJlNDMzZTNkNGI5Nzg2ZjlhOTg0YmFhYTViOTZmOTFkNmY1MWRlZGQ4NWY5ZDY",
         'https://www.reliancedigital.in/medias/True-Wireless-Small-Banners.jpg?context=bWFzdGVyfGltYWdlc3w0NjcyOXxpbWFnZS9qcGVnfGltYWdlcy9oODAvaDljLzk5MTM3NzcyNTg1MjYuanBnfGY3MDIxZDZlYTBhMjEwYjQ4NGIzMmQwZjdjMzQ2M2FhYzIwYWE0NGE4MzFmYjRlZjQwNzFlZjk2NWMwMzYxN2Y',
@@ -268,7 +274,7 @@ export function Home() {
     {
       data1.map((el)=>(
         <div class="carousel-item">
-        <Image src={el} class="d-block w-100" alt="..."/>
+        <Image src={el} class="d-block w-100" id="car"alt="..."/>
       </div>
       ))
     }
@@ -277,7 +283,7 @@ export function Home() {
   </Box>
   <Box>
     <Heading p="10px" fontSize={{sm:"10px",base:"12px",md:"18px"}} color="blue.700" textAlign="center">THE RELIANCE DIGITAL BRAND PROMISE</Heading>
-    <Box display={"flex" }gap="20px" justifyContent={"center"} pt={10}>
+    <Box display={{md:"flex",base:"grid",lg:"flex"} }gap="20px" justifyContent={"center"} pt={10}>
       {
         [{src:"https://www.reliancedigital.in/medias/Insta-Delivery-Brand-Promise-Icon.png?context=bWFzdGVyfGltYWdlc3wxNTM3fGltYWdlL3BuZ3xpbWFnZXMvaGI2L2gwNS85NDQ3MTcwMzQyOTQyLnBuZ3w2Yzc1ZmY1ZjYwOWIyNWU0ZTgwMjFlYmRkMTU5ZTgzMGI4ZDNmZTE2NjVjYmRlMmUwMmRiODI2OTExNWM5ZTdk"
       ,h:"INSTA DELIVERY",p:"LESS THAN 3 HOURS"},
@@ -287,7 +293,7 @@ export function Home() {
   h:"SERVICE GURANTEE",p:"HASSLE FREE"},
  { src:"https://www.reliancedigital.in/medias/unmatched-network-img.png?context=bWFzdGVyfGltYWdlc3w3NDV8aW1hZ2UvcG5nfGltYWdlcy9oODIvaDJhLzkwOTA3OTgwNTk1NTAucG5nfDFmMThjYzdiYTNiOTgxYjA5YzdlZTFiMmQyODI5MGY2NTM4ZTcxOWZkZTA1ZjAzY2Q1ZTk5YjQ1NTMxMWViYzU",
 h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
-  .map((el)=><Box border="1px solid gray" w={300} height={120} borderRadius={10} bg="blue.50" textAlign="center">
+  .map((el)=><Box border="1px solid gray" w={"auto"} height={120} borderRadius={10} bg="blue.50" textAlign="center">
   <Image src={el.src} w={{base:"30px",md:"40px",sm:"20px"}} h={"auto"} margin="auto" mt="35px" />
   <Heading color="blue.700" fontSize={{sm:"10px",base:"9px",md:"13px"}}>{el.h}</Heading>
   <Heading fontSize={{sm:"6px",base:"9px",md:"12px"}}>{el.p}</Heading>
@@ -296,13 +302,13 @@ h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
     </Box>
   </Box>
   <Stack mt="30px">
-    <Heading fontSize="22px" p="10px">UP TO 80% OFF ON PERSONAL CARE APPLIANCES</Heading>
+    <Heading fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">UP TO 80% OFF ON PERSONAL CARE APPLIANCES</Heading>
 
-   <Box width="100%" display="flex" p="10px"> <Box width="30%">
-      <Image src="https://www.reliancedigital.in/medias/Best-of-Monitors-Producst-Carousel-27-Personal-care-appliances-02.jpg?context=bWFzdGVyfGltYWdlc3w1MDYxN3xpbWFnZS9qcGVnfGltYWdlcy9oNTcvaDU1Lzk5MjkyMTYxNjM4NzAuanBnfDU2YWUyODU2M2UxNTZiM2ZkZDgyNDBiNDliN2I1YmVkYmQwYWQ1YmMzY2NmOWNhYjQyMDI2ODY1ZGMzYWVkOGQ" w="100%" mt="10px" mb="10px"/>
+   <Box width="100%" display={{md:"grid",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}}>
+      <Image src="https://www.reliancedigital.in/medias/Best-of-Monitors-Producst-Carousel-27-Personal-care-appliances-02.jpg?context=bWFzdGVyfGltYWdlc3w1MDYxN3xpbWFnZS9qcGVnfGltYWdlcy9oNTcvaDU1Lzk5MjkyMTYxNjM4NzAuanBnfDU2YWUyODU2M2UxNTZiM2ZkZDgyNDBiNDliN2I1YmVkYmQwYWQ1YmMzY2NmOWNhYjQyMDI2ODY1ZGMzYWVkOGQ" w={{base:"100%",md:"auto",lg:"auto"}} mt="10px" mb="10px"/>
     
     </Box>
-    <Box width="80%" >
+    <Box width={{base:"auto",md:"auto",lg:"70%"}} >
       <MultiItemCarousel watch={personal}/>
     </Box>
     </Box>

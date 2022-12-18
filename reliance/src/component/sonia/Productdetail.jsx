@@ -4,6 +4,8 @@ import { useSelector,useDispatch} from 'react-redux';
 import { Box, Heading, Stack,Image, Input,Button } from '@chakra-ui/react'
 import { addtocart } from '../sanket/cart/redux/actions';
 import { Fade, ScaleFade, Slide, SlideFade,Collapse } from '@chakra-ui/react'
+import Navbar from '../Saurabh/Navbar';
+import Menubar from '../mitali/allRoute/Menubar';
 function Productdetail() {
     const [show, setShow] = React.useState(false)
     const [input,setInput]=useState("");
@@ -15,7 +17,9 @@ function Productdetail() {
    
     
   return (
-  
+  <>
+  <Navbar/>
+  <Menubar/>
     <Box w="100%" display={{base:"grid",md:"flex",sm:"grid"}} gap={20} m={"auto"} p="10px">
 
 <Box w={"100%"} margin="auto"   border={"10px dashed #1a237e"} borderRadius="27px" >
@@ -98,7 +102,7 @@ Processor AMD Ryzen 3 3250 RAM- 8 GB Internal Storage- 256 GB Storage Type- SSD
     </Box>
 </Box>
     
-    
+</>  
   )
 }
 

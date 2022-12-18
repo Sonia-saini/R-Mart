@@ -14,7 +14,7 @@ function App() {
        <Otp/>
        <Login/> 
        <Admin/> */}
-       <Navbar/>
+       {/* <Navbar/> */}
 
        <Allroutes/>
    

@@ -39,12 +39,12 @@ const {items}=useSelector((state)=>state.cart)
               <a className="btn btn-outline-dark">
                 <i className="fa fa-sign-in me-2"></i>Login</a>
 
-                <a href="" className="btn btn-outline-dark ms-4">
-                <i className="fa fa-shopping-cart me-2"></i>Cart ({items.length})</a>
+               
+               
                 </Link>
                 <Link to="/cart">
                 <a className="btn btn-outline-dark ms-4">
-                <i className="fa fa-shopping-cart me-2"></i>Cart (0)</a>
+                <i className="fa fa-shopping-cart me-2"></i>Cart ({items.length})</a>
                 </Link>
 
             </div>

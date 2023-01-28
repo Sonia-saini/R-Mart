@@ -75,7 +75,6 @@ const paymetfunc2=()=>{
               <FormLabel>Card Number</FormLabel>
               <Input type="number" />
             </FormControl>
-
             <HStack>
               <Box>
                 <FormControl id="Expiry" isRequired>

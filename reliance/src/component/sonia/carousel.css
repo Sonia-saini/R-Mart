@@ -38,15 +38,27 @@
   transform: scale(1.1);
   transition: 500ms;
 }
-@media (min-width: 280px) and (max-width: 760px) {
+@media (min-width: 700px) and (max-width: 1370px) {
   #prev{
 display: none
   }
 #next{
   display: none;
+  padding-left:-50px ;
+}
+}
+@media (min-width: 150px) and (max-width: 1370px) {
+  #prev{
+display: none
+  }
+#next{
+  display: none;
+  padding-left:-50px ;
 }
 }
 #car{
   width: 90%;
   justify-content: center;
 }
+
+

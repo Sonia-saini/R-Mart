@@ -216,8 +216,8 @@ export default function Home() {
    <Stack mt="30px">
     <Heading fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">PRICE DROP ON APPLE SMARTWATCHES</Heading>
 
-   <Box width="100%" display={{md:"grid",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}}>
-      <Image src="https://www.reliancedigital.in/medias/Apple-Watches-Producst-Carousel-29-11-2022.jpg?context=bWFzdGVyfGltYWdlc3w1NTYyOHxpbWFnZS9qcGVnfGltYWdlcy9oOTQvaDQyLzk5MjgzNzA5Nzg4NDYuanBnfDg5OTE2MzFkOTU2YmI1ODhjOTZmODQ2YzkyNjUzNjYwZTYxZGQ2NGY4OTdhNmU3YjBkZGZmZGI3MzM2OWQwNzQ"w={{base:"100%",md:"auto",lg:"100%"}} mt="10px" mb="10px"/>
+   <Box width="100%" display={{md:"block",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}} margin="auto">
+      <Image src="https://www.reliancedigital.in/medias/Apple-Watches-Producst-Carousel-29-11-2022.jpg?context=bWFzdGVyfGltYWdlc3w1NTYyOHxpbWFnZS9qcGVnfGltYWdlcy9oOTQvaDQyLzk5MjgzNzA5Nzg4NDYuanBnfDg5OTE2MzFkOTU2YmI1ODhjOTZmODQ2YzkyNjUzNjYwZTYxZGQ2NGY4OTdhNmU3YjBkZGZmZGI3MzM2OWQwNzQ"w={{base:"100%",md:"auto",lg:"100%"}} mt="10px" mb={{base:"10px",md:"15px"}} m={"auto"}/>
     
     </Box>
     <Box width={{base:"auto",md:"auto",lg:"70%"}}>
@@ -226,17 +226,17 @@ export default function Home() {
     </Box>
     </Stack>   
   
-  <Box  w={"99%"}>
+  <Box  w={"100%"}>
     <Heading  fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">
     ENTERTAINMENT FEST
     </Heading>
-    <Box  display={{md:"flex",base:"grid" }}gap="20px" justifyContent={"center"} pt={10}>
+    <Box  display={{md:"grid",sm:"grid",xl:"flex"}}  justifyContent={"center"} pt={10}   margin={"auto"}>
     {
       ["https://www.reliancedigital.in/medias/43-inch-UHD-TV-Small-Banner-05-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w2MTc5NXxpbWFnZS9qcGVnfGltYWdlcy9oZDcvaGM2Lzk5MjgxNjcyNjAxOTAuanBnfDg4MjdjN2IwZWViMTNlNmM2ODdiOWZjNzU2M2RkZmVlZTMxMmM4ODRlZWQ3MWNhMWIwYWI3NmNhMDcxNjkxY2M",
     "https://www.reliancedigital.in/medias/Headphones-and-Earphones-Entertainment-Fest-Small-Banner-02-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w0MDQzNHxpbWFnZS9qcGVnfGltYWdlcy9oYTAvaDU0Lzk5MjY3ODEzMzc2MzAuanBnfGI1Y2Q4MDExYTAwOGEzYzhlNWQxOTI0MzU2ZWIyY2YyYWQ5NDE1M2EwYzNmMTNjNjA4MGZiMTU2Y2VlZGNlZDQ",
   "https://www.reliancedigital.in/medias/Best-Deals-in-TV-Small-Banner-05-12-2022.jpg?context=bWFzdGVyfGltYWdlc3w0ODE2NnxpbWFnZS9qcGVnfGltYWdlcy9oNGYvaDY1Lzk5MjgxNjcxOTQ2NTQuanBnfDhiODBlYTA4YmI1OTA0YjZkMTkzYjA0ZTRmOWQ5MzMxMjcyZDJjODY0YTE3MWE4M2ZlNDIxODRhNzFiODJkYjY",
 "https://www.reliancedigital.in/medias/Soundbars-Entertainment-Fest-Small-Banner-02-12-2022.jpg?context=bWFzdGVyfGltYWdlc3wzMTg3NHxpbWFnZS9qcGVnfGltYWdlcy9oMzYvaGQ1Lzk5MjY3ODE0MDMxNjYuanBnfDY5ODQ2ZDU3NDFlMjgxYTY2YTViZmQ1ZTA4Y2U5ZTMwYjVlNjYzNTk3YzJjNzkyMDUwY2VkY2ZlZTViODQ1NjQ"
-].map((el)=><Image src={el} w={{base:"auto",md:"100%"}} justifySelf="center"/>)
+].map((el)=><Image src={el} w={{base:"auto",md:"80%",xl:"310px"}} justifySelf="center" margin={"10px auto"} gap="20px"/>)
     }</Box>
     <Stack mt="10px">
       <Heading  fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">BIGGEST PRICE DROP ON ROOM HEATERS</Heading>
@@ -300,8 +300,8 @@ h:"UNMATCHED NETWORK",p:"700 CITIES, 2000 STORES"}]
   <Stack mt="30px">
     <Heading fontSize={{sm:"20px",base:"12px",md:"24px"}} p="10px">UP TO 80% OFF ON PERSONAL CARE APPLIANCES</Heading>
 
-   <Box width="100%" display={{md:"grid",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}}>
-      <Image src="https://www.reliancedigital.in/medias/Best-of-Monitors-Producst-Carousel-27-Personal-care-appliances-02.jpg?context=bWFzdGVyfGltYWdlc3w1MDYxN3xpbWFnZS9qcGVnfGltYWdlcy9oNTcvaDU1Lzk5MjkyMTYxNjM4NzAuanBnfDU2YWUyODU2M2UxNTZiM2ZkZDgyNDBiNDliN2I1YmVkYmQwYWQ1YmMzY2NmOWNhYjQyMDI2ODY1ZGMzYWVkOGQ" w={{base:"100%",md:"auto",lg:"auto"}} mt="10px" mb="10px"/>
+   <Box width="100%" display={{md:"block",lg:"flex"}} p="10px"> <Box width={{base:"auto",md:"auto",lg:"30%"}}>
+      <Image src="https://www.reliancedigital.in/medias/Best-of-Monitors-Producst-Carousel-27-Personal-care-appliances-02.jpg?context=bWFzdGVyfGltYWdlc3w1MDYxN3xpbWFnZS9qcGVnfGltYWdlcy9oNTcvaDU1Lzk5MjkyMTYxNjM4NzAuanBnfDU2YWUyODU2M2UxNTZiM2ZkZDgyNDBiNDliN2I1YmVkYmQwYWQ1YmMzY2NmOWNhYjQyMDI2ODY1ZGMzYWVkOGQ" w={{base:"100%",md:"auto",lg:"auto"}} mt={"10px"} mb={{base:"10px",md:"15px"}} m="auto"/>
     
     </Box>
     <Box width={{base:"auto",md:"auto",lg:"70%"}} >

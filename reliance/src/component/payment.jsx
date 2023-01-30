@@ -30,7 +30,7 @@ const Payment = () => {
    
 
 const paymetfunc=()=>{
-  if(name=="" || number=="" || expiry=="" || cvv=="")
+  if(name=="" || number=="" || expiry=="" || cvv==""||number.length<16||cvv.length<3||number.length>16)
   {
     toast({
       title: 'Please fill all the details',
@@ -95,19 +95,19 @@ const paymetfunc2=()=>{
         
             <FormControl id="card_number" isRequired>
               <FormLabel>Card Number</FormLabel>
-              <Input value={number} onChange={(e)=>setNumber(e.target.value)} type="number" />
+              <Input value={number} onChange={(e)=>setNumber(e.target.value)} type="number"  />
             </FormControl>
             <HStack>
               <Box>
                 <FormControl id="Expiry" isRequired>
                   <FormLabel>Expiry</FormLabel>
-                  <Input value={expiry} onChange={(e)=>setExpiry(e.target.value)} type="text" />
+                  <Input value={expiry} onChange={(e)=>setExpiry(e.target.value)} type="month"/>
                 </FormControl>
               </Box>
               <Box>
                 <FormControl id="CVV">
                   <FormLabel>CVV</FormLabel>
-                  <Input value={cvv} onChange={(e)=>setCvv(e.target.value)} type="number" />
+                  <Input value={cvv} onChange={(e)=>setCvv(e.target.value)} type="text" maxlength={"3"}/>
                 </FormControl>
               </Box>
             </HStack>

@@ -8,6 +8,7 @@
     display:flex;
     padding:0.5rem;
 }
-.navbar>*:hover{
-    cursor:pointer
-}
+/* .navbar:hover{
+    cursor: pointer;
+    color:white;
+} */

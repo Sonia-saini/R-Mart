@@ -1,4 +1,5 @@
 
+import { Button ,Input} from "@chakra-ui/react";
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -16,7 +17,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const x=useSelector((state)=>state.cart)
   const  items =JSON.parse(localStorage.getItem("cart-item"))||[]
-const username=JSON.parse(localStorage.getItem("signin"))||""
+const username=(localStorage.getItem("signin"))||""
+const logout=()=>{
+  localStorage.removeItem("signin")
+  window.location.reload()
+}
   return (
     <div>
 
@@ -27,7 +32,7 @@ const username=JSON.parse(localStorage.getItem("signin"))||""
         <div className="container">
        
           <a className="navbar-brand fw-bold fs-4" href="/">
-            <img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg" alt="home" />
+            <img src="https://www.reliancedigital.in/build/client/images/loaders/rd_logo.svg" alt="home" width={"70%"}/>
 
           </a>
 
@@ -44,16 +49,13 @@ const username=JSON.parse(localStorage.getItem("signin"))||""
           </button>
           <div className='collapse navbar-collapse' id='navbarSupportedContent'>
             <ul className='navbar-nav mx-auto mb-2 mb-lg-0'>
-              <input
+              <Input
                 type='search'
                 placeholder='Find your favorite products'
                 aria-label='Search'
-                style={{
-                  width: "500px",
-                  height: "35px",
-                  paddingLeft: "20px",
-                  borderRadius: "20px"
-                }}
+                bgColor={"white"}
+                borderRadius="2xl"
+                width={{sm:"200px",md:"300px",lg:"400px"}}
               />
             </ul>
 
@@ -71,7 +73,11 @@ const username=JSON.parse(localStorage.getItem("signin"))||""
                   {items.length})
                 </a>
               </Link>
-
+              {username?<a className='btn btn-outline-dark ms-4'>
+                 <a onClick={logout}>LOGOUT</a> 
+                 
+                 
+                </a>:""}
           
           
           </div>

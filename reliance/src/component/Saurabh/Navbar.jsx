@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   const x=useSelector((state)=>state.cart)
   const  items =JSON.parse(localStorage.getItem("cart-item"))||[]
-const username=(localStorage.getItem("signin"))||""
+const username=JSON.parse(localStorage.getItem("signin"))||""
 const logout=()=>{
   localStorage.removeItem("signin")
   window.location.reload()
@@ -65,7 +65,7 @@ const logout=()=>{
                 <a className='btn btn-outline-dark'>
                   <i className='fa fa-sign-in me-2'></i>Login
                 </a>
-              </Link>:`Hey ${username}`
+              </Link>:`Hey ${username.toLocaleUpperCase()}`
               }
               <Link to='/cart'>
                 <a className='btn btn-outline-dark ms-4'>

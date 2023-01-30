@@ -65,7 +65,7 @@ const logout=()=>{
                 <a className='btn btn-outline-dark'>
                   <i className='fa fa-sign-in me-2'></i>Login
                 </a>
-              </Link>:`Hey ${username.toLocaleUpperCase()}`
+              </Link>:`Hey ${username}`
               }
               <Link to='/cart'>
                 <a className='btn btn-outline-dark ms-4'>

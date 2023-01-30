@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Flex,
   Box,
@@ -10,10 +11,10 @@ import {
   Button,
   Heading,
   Text,
-  useColorModeValue,
+  useColorModeValue,useToast
 } from '@chakra-ui/react';
 import Navbar from '../../Saurabh/Navbar';
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 
 // import {
 //   Accordion,
@@ -110,6 +111,39 @@ import { Link } from 'react-router-dom';
 
 
 const Checkout = () => {
+  const navigate=useNavigate()
+  const toast = useToast()
+  let [name,setName]=React.useState("")
+  let [mobile,setMobile]=React.useState("")
+  let [state2,setState2]=React.useState("")
+  let [city,setCity]=React.useState("")
+  let [street,setStreet]=React.useState("")
+  let [pin,setPin]=React.useState("")
+
+const addaddress=()=>{
+  if(name=="" || mobile=="" || state2=="" || city=="" || street=="" || pin=="")
+  {
+    toast({
+      title: 'Please fill all the details',
+      description: "One or more input,you need to put",
+      status: 'error',
+      duration: 9000,
+      isClosable: true,
+    })
+  }
+  else{
+    toast({
+      title: 'Save Address successfully.',
+      description: "Now select payment method.",
+      status: 'success',
+      duration: 9000,
+      isClosable: true,
+    })
+    navigate("/payment")
+  }
+}
+
+
   return (
     <>
     <Navbar/>
@@ -133,32 +167,32 @@ const Checkout = () => {
         <Stack spacing={4}>
           <FormControl id="name" isRequired>
             <FormLabel>Your Name</FormLabel>
-            <Input type="text" isRequired/>
+            <Input value={name} onChange={(e)=>setName(e.target.value)} type="text" isRequired/>
           </FormControl>
 
           <FormControl id="number" isRequired>
             <FormLabel>Mobile Number</FormLabel>
-            <Input type="number" isRequired/>
+            <Input value={mobile} onChange={(e)=>setMobile(e.target.value)} type="number" isRequired/>
           </FormControl>
 
           <FormControl id="state" isRequired>
             <FormLabel>State</FormLabel>
-            <Input type="text" isRequired/>
+            <Input value={state2} onChange={(e)=>setState2(e.target.value)} type="text" isRequired/>
           </FormControl>
 
           <FormControl id="city" isRequired>
             <FormLabel>City</FormLabel>
-            <Input type="text" isRequired/>
+            <Input value={city} onChange={(e)=>setCity(e.target.value)} type="text" isRequired/>
           </FormControl>
 
           <FormControl id="street" isRequired>
             <FormLabel>Street</FormLabel>
-            <Input type="text" isRequired/>
+            <Input value={street} onChange={(e)=>setStreet(e.target.value)} type="text" isRequired/>
           </FormControl>
 
           <FormControl id="pin" isRequired>
             <FormLabel>Pin code</FormLabel>
-            <Input type="number" isRequired/>
+            <Input value={pin} onChange={(e)=>setPin(e.target.value)} type="number" isRequired/>
           </FormControl>
 
 
@@ -170,8 +204,8 @@ const Checkout = () => {
               <Checkbox>Remember me</Checkbox>
               <Link color={'blue.400'}>Forgot password?</Link>
             </Stack> */}
-            <Link to="/payment">
-            <Button w="200px"
+            {/* <Link to="/payment"> */}
+            <Button w="200px" onClick={addaddress}
               bg={'red.400'}
               color={'white'}
               _hover={{
@@ -179,7 +213,7 @@ const Checkout = () => {
               }}>
               Add
             </Button>
-            </Link>
+            {/* </Link> */}
           </Stack>
         </Stack>
       </Box>

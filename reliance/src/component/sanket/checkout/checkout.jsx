@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react';
 import Navbar from '../../Saurabh/Navbar';
 import { Link,useNavigate } from 'react-router-dom';
+import CheckoutTab from '../cart/checkoutTab';
 
 // import {
 //   Accordion,
@@ -111,6 +112,7 @@ import { Link,useNavigate } from 'react-router-dom';
 
 
 const Checkout = () => {
+ 
   const navigate=useNavigate()
   const toast = useToast()
   let [name,setName]=React.useState("")
@@ -142,22 +144,57 @@ const addaddress=()=>{
     navigate("/payment")
   }
 }
-
+let data=JSON.parse(localStorage.getItem("cart-item"))
+let total = data.reduce((acc, el) => acc + el.price*el.quantity, 0);
 
   return (
     <>
     <Navbar/>
     <Flex
     minH={'100vh'}
-    align={'center'}
-    justify={'center'}
+    alignItems={'center'}
+    // alignContent={"center"}
+    justifyItems={'center'} display={{ base: 'grid', md: 'grid', lg: 'Flex' }}
     bg={useColorModeValue('gray.50', 'gray.800')}>
+
+<Box>
+        <Box
+          boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px"
+          w="100%"
+          p="15px"
+          mt={{ base: '20px', md: '20px', lg: 'auto' }}
+          h="180px"
+          ml={{ base: 'auto', md: 'auto', lg: '100px' }}
+        >
+          <Box>
+            <Text fontSize={16} fontWeight="bold">Price Details</Text>
+            <Flex justifyContent="space-between" fontSize={14} p="10px" fontWeight="bold">
+              <Text>Item Total(MRP)</Text>
+              <Text>₹ {total}</Text>
+            </Flex>
+          </Box>
+          <hr></hr>
+          <Box>
+            <Flex justifyContent="space-between" fontSize={14} p="10px" fontWeight="bold">
+              <Text>Shipping Fee</Text>
+              <Text>{total>500?"free":50}</Text>
+            </Flex>
+          </Box>
+          <hr></hr>
+          <Box>
+            <Flex justifyContent="space-between" fontSize={14} p="10px" fontWeight="bold">
+              <Text>To be paid</Text>
+              <Text>₹ {total>500?total:total+50}</Text>
+            </Flex>
+          </Box>
+        </Box>
+      </Box>
+
+
     <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
       <Stack align={'center'}>
         <Heading fontSize={'4xl'}>Add Your Address</Heading>
-        {/* <Text fontSize={'lg'} color={'gray.600'}>
-          to enjoy all of our cool <Link color={'blue.400'}>features</Link> ✌️
-        </Text> */}
+      
       </Stack>
       <Box
         rounded={'lg'}
@@ -195,16 +232,7 @@ const addaddress=()=>{
             <Input value={pin} onChange={(e)=>setPin(e.target.value)} type="number" isRequired/>
           </FormControl>
 
-
           <Stack spacing={10}>
-            {/* <Stack
-              direction={{ base: 'column', sm: 'row' }}
-              align={'start'}
-              justify={'space-between'}>
-              <Checkbox>Remember me</Checkbox>
-              <Link color={'blue.400'}>Forgot password?</Link>
-            </Stack> */}
-            {/* <Link to="/payment"> */}
             <Button w="200px" onClick={addaddress}
               bg={'red.400'}
               color={'white'}
@@ -218,6 +246,10 @@ const addaddress=()=>{
         </Stack>
       </Box>
     </Stack>
+
+
+
+  
   </Flex>
   </>
   );

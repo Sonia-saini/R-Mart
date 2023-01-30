@@ -24,6 +24,7 @@ import UserDetails from '../component/suman/UserDetails';
 import Pagenotfound from '../component/sonia/Pagenotfound';
 import Wish from "../component/mitali/allRoute/wish/wish";
 import Payment from "../component/payment";
+import Private from "../component/Private";
 
 
 
@@ -34,8 +35,8 @@ function Allroutes() {
       <Routes>
         <Route path='/' element={<Home />}></Route>
         <Route path='/single' element={<Productdetail />}></Route>
-        <Route path='/checkout' element={<Checkout />} />
-        <Route path='/payment' element={<Payment />}></Route>
+        <Route path='/checkout' element={<Private><Checkout /></Private>} />
+        <Route path='/payment' element={<Private><Payment /></Private>}></Route>
 
  <Route path='/registration' element={<Register/>}></Route>
             <Route path='/otp' element={<Otp/>}></Route>

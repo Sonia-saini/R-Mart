@@ -77,7 +77,7 @@
     transform:scale(1.1);
    height:47%
 }
-.navbar{
+/* .navbar{
     display:flex;
     justify-content: space-around;
     color:white;
@@ -89,7 +89,7 @@
 }
 .navbar>*:hover{
     cursor:pointer
-}
+} */
 @media screen and (max-width: 992px) {
     .details{
         grid-template-columns: repeat(2,1fr);

@@ -123,7 +123,8 @@ const Checkout = () => {
   let [pin,setPin]=React.useState("")
 
 const addaddress=()=>{
-  if(name=="" || mobile=="" || state2=="" || city=="" || street=="" || pin=="")
+  if(name=="" || mobile=="" || state2=="" || city=="" || street=="" || pin==""||mobile.length<10||mobile.length>12||pin.length<6||pin.length>6
+  )
   {
     toast({
       title: 'Please fill all the details',
@@ -167,7 +168,7 @@ let total = data.reduce((acc, el) => acc + el.price*el.quantity, 0);
           ml={{ base: 'auto', md: 'auto', lg: '100px' }}
         >
           <Box>
-            <Text fontSize={16} fontWeight="bold">Price Details</Text>
+            <Text fontSize={16} fontWeight="bold">Order Details</Text>
             <Flex justifyContent="space-between" fontSize={14} p="10px" fontWeight="bold">
               <Text>Item Total(MRP)</Text>
               <Text>₹ {total}</Text>
@@ -229,7 +230,7 @@ let total = data.reduce((acc, el) => acc + el.price*el.quantity, 0);
 
           <FormControl id="pin" isRequired>
             <FormLabel>Pin code</FormLabel>
-            <Input value={pin} onChange={(e)=>setPin(e.target.value)} type="number" isRequired/>
+            <Input value={pin} onChange={(e)=>setPin(e.target.value)} type="number"  isRequired/>
           </FormControl>
 
           <Stack spacing={10}>

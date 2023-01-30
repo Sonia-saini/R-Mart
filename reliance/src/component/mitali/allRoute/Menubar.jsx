@@ -1,6 +1,6 @@
 import React from 'react'
 import {ChevronDownIcon} from '@chakra-ui/icons'
-import {Box, Text} from '@chakra-ui/react'
+import {Box, color, Text} from '@chakra-ui/react'
 import { Link} from 'react-router-dom'
 import './Menubar'
 
@@ -8,9 +8,9 @@ const Menubar = () => {
 
   return (
     <div >
-         <Box className='navbar'>
+         <Box className='navbar' _hover={{color:"white",cursor:"pointer"}}>
             <Link to="/iron">
-         <Text fontSize={"sm"}>IRON</Text>
+         <Text fontSize={"sm"} _hover={{color:"white",cursor:"pointer"}}>IRON</Text>
        <ChevronDownIcon marginTop={'4%'} marginLeft={'0.5rem'} />
        </Link>
        <Link to="/computers">

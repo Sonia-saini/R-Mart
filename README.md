@@ -2,9 +2,9 @@
 
 Reliance Digital
 
-
- <img margin="auto" display="block" width="250px" src="https://i.postimg.cc/59P18N4b/Whats-App-Image-2023-01-31-at-6-38-08-PM.jpg" alt="reactjs" />
-
+<p align="center">
+ <img width="250px" src="https://i.postimg.cc/59P18N4b/Whats-App-Image-2023-01-31-at-6-38-08-PM.jpg" alt="reactjs" />
+</p>
 <h3 align="center">It's a Full Stack healthcare web application with all the major functionalities</h3>
 
 <br/>
@@ -24,13 +24,13 @@ Reliance Digital
 <h4 align="center">Backend:</h4>
 
 <p align="center">
-  <img width="100px" src="https://i.pinimg.com/474x/8b/7c/ac/8b7cac4d85303b79158dd3cf2d9b63c8.jpg" alt="expressjs" />
+  <img width="80px" src="https://i.pinimg.com/474x/8b/7c/ac/8b7cac4d85303b79158dd3cf2d9b63c8.jpg" alt="expressjs" />
 </p>
 
 <h4 align="center">Deployed On:</h4>
 
 <p align="center">
-  <img width="100px" src="https://www.netlify.com/img/global/meta-image.jpg" alt="vercel" />
+  <img width="80px" src="https://www.netlify.com/img/global/meta-image.jpg" alt="vercel" />
 </p>
 
 <h3 align="center"><a href="https://unrivaled-raindrop-937925.netlify.app/"><strong>Want to see live preview »</strong></a></h3>

@@ -14,6 +14,7 @@ import Navbar from '../../../Saurabh/Navbar';
 import { Link } from 'react-router-dom';
 import {getPostsMobile,updatePosts} from '../../api/api.action';
 import Menubar from '../Menubar';
+import { addtocart } from '../../../sanket/cart/redux/actions';
 
 
 
@@ -209,10 +210,10 @@ const Mobiles = () => {
                   Brand
             </CardBody>
             <CardBody>
-                  <Search2Icon/>
+                  <Search2Icon display={{base:"none"}}/>
             </CardBody>
       </Box>
-      <Box className='checkbox'mt="-2rem">
+      <Box className='checkbox'mt="-2rem"  ml={{base:"-30px",lg:"-10px"}}>
       <Checkbox onChange={()=>{filter('Usha')}}>Usha </Checkbox>
       <Checkbox onChange={()=>{filter('Philips')}}>Philips </Checkbox>
       <Checkbox onChange={()=>{filter('Kelvinator')}}>Kelvinator </Checkbox>
@@ -220,16 +221,16 @@ const Mobiles = () => {
       </Box>
     </Card>
     {/* filter by price and discount */}
-    <Card className='brand' bg={'whiteAlpha.900'}>
+    <Card className='brand' bg={'whiteAlpha.900'} fontSize={{lg:"15px",md:"12px",sm:"10px"}}>
       <Box display='flex'>
           <CardBody>
                   discount
             </CardBody>
             <CardBody>
-                  <Search2Icon/>
+                  <Search2Icon display={{base:"none"}}/>
             </CardBody>
       </Box>
-      <Box className='checkbox'mt="-2rem">
+      <Box className='checkbox'mt="-2rem" fontSize={{lg:"15px",md:"12px",sm:"10px",base:"10px"}} ml={{base:"-30px",lg:"-10px"}}>
       <Checkbox onClick={()=>{filter('Usha')}}>20% - 25% </Checkbox>
         <Checkbox onClick={()=>{filter('Philips')}}>25% - 30%</Checkbox>
         <Checkbox onClick={()=>{filter('Kelvinator')}}>30% - 35% </Checkbox>
@@ -237,7 +238,7 @@ const Mobiles = () => {
       </Box>
     </Card>
      </Box>
-<Box className='m-right'>
+<Box className='m-right' fontSize={{lg:"15px",md:"12px",sm:"10px",base:"10px"}}>
   {/* ui right heading */}
   <Card className='m-heading' bg={'whiteAlpha.900'}>
       <CardBody className="m-head">
@@ -247,7 +248,7 @@ const Mobiles = () => {
             </Heading>
             <Text >(showing items total of 15)</Text>
         </Box>
-        <Box style={{display:"flex"}}>
+        <Box display={{lg:"flex",sm:"grid",md:"grid"}}>
             <Text >Sort By : </Text>
             <Text className='text' onClick={asc}>Price(Low-High) </Text>
             <Text className='text'onClick={desc}>Price(High-Low)</Text>
@@ -270,25 +271,25 @@ const Mobiles = () => {
     <Box className="details">
     {datas.map((post) => (
       <Card key={post.id}  bg={'whiteAlpha.900'}>
-       <Image src={post.url} alt={post.price}className="image"/>
+       <Image src={post.url} alt={post.price}className="image" w="100%"/>
        <Box style={{height:'40%'}}>
-           <Text style={{height:"40%", overflow:"hidden",textOverflow: "ellipsis"}}>{post.desciption}</Text>
+           <Text style={{height:"40%", overflow:"hidden",textOverflow: "ellipsis"}}>{post.name}</Text>
            <Text>&#8377; {post.price}</Text>
            <Text style={{display:"flex",marginLeft:"30%"}}>{post.rating? star(post.rating) : ""}</Text>
            <Box className='offers'>OFFERS AVAILABLE</Box>
        </Box> 
        <Box style={{display:"flex", height:"10%"}}>
-         <Card className="wishList" onClick={()=>{addToCart(post.id)}}>
+         <Card className="wishList" onClick={()=>{addToCart(post.id)}} p="10px">
          <Text style={{width:"25%"}} className="cart">
-           <FaCartArrowDown color='green' size="95%" width="40%" />
+           <FaCartArrowDown color='green' size="95%" width="100%" />
            </Text>
-           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Add</Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-22px"}} onClick={()=>dispatch(addtocart({...post,quantity:1}))}>Add</Text>
          </Card>
          <Card className="wishList" onClick={onOpen}>
            <Text style={{width:"25%"}}>
-           <AiOutlineHeart color='red' size="95%" width="40%"/>
+           <AiOutlineHeart color='red' size="95%" width="100%"/>
            </Text>
-           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-25%"}}>Wish List</Text>
+           <Text style={{width:"75%", marginLeft:"25%", marginTop:"-22px"}}>Wish List</Text>
          </Card>
         </Box>
         <Modal isOpen={isOpen} onClose={onClose}>

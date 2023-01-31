@@ -7,7 +7,7 @@
     grid-template-columns: repeat(1, auto);
     padding:2rem;
     margin-top: 1rem;
-    font-weight: 200;
+    
 }
 .brand{
     margin-top: 1rem;
@@ -97,6 +97,9 @@
     .wishList{
         transform:scale(0.8)
     }
+    .checkbox{
+        font-size: 7px;
+    }
   }
   @media screen and (max-width: 666px) {
     .details{
@@ -104,5 +107,11 @@
     }
     .wishList{
         transform:scale(0.8)
+    }
+   
+  }
+  @media  (min-width:280px) and (max-width: 666px){
+    .checkbox{
+        font-size: 7px;
     }
   }

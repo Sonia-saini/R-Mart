@@ -3,7 +3,7 @@
 Reliance Digital
 
 
- <img width="250px" src="https://i.postimg.cc/59P18N4b/Whats-App-Image-2023-01-31-at-6-38-08-PM.jpg" alt="reactjs" />
+ <img margin="auto" display="block" width="250px" src="https://i.postimg.cc/59P18N4b/Whats-App-Image-2023-01-31-at-6-38-08-PM.jpg" alt="reactjs" />
 
 <h3 align="center">It's a Full Stack healthcare web application with all the major functionalities</h3>
 

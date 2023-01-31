@@ -23,13 +23,13 @@ Reliance Digital
 <h4 align="center">Backend:</h4>
 
 <p align="center">
-  <img src="https://i.pinimg.com/474x/8b/7c/ac/8b7cac4d85303b79158dd3cf2d9b63c8.jpg" alt="expressjs" />
+  <img width="100px" src="https://i.pinimg.com/474x/8b/7c/ac/8b7cac4d85303b79158dd3cf2d9b63c8.jpg" alt="expressjs" />
 </p>
 
 <h4 align="center">Deployed On:</h4>
 
 <p align="center">
-  <img src="https://www.netlify.com/img/global/meta-image.jpg" alt="vercel" />
+  <img width="100px" src="https://www.netlify.com/img/global/meta-image.jpg" alt="vercel" />
 </p>
 
 <h3 align="center"><a href="https://unrivaled-raindrop-937925.netlify.app/"><strong>Want to see live preview »</strong></a></h3>

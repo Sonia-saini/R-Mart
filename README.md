@@ -61,7 +61,7 @@ R-MART is designed to be a one-stop shop for all your online shopping needs. Wit
 
 -   Mitali Sinha [[LinkedIn Profile](https://www.linkedin.com/in/mitali-sinha-183134203/)] [[Github Profile](https://github.com/mira713)]
 
--  Sanket Potdar [[LinkedIn Profile](https://www.linkedin.com/in/suman-saurav-06896b231/)] [[Github Profile](https://github.com/sanket-potdar563)]
+-  Sanket Potdar [[LinkedIn Profile](https://www.linkedin.com/in/sanket-potdar563/)] [[Github Profile](https://github.com/sanket-potdar563)]
 
 -   Saurabh Pawar [[LinkedIn Profile](https://www.linkedin.com/in/saurabh-pawar-web-developer/)] [[Github Profile](https://github.com/saurabhpawar1997)]
 

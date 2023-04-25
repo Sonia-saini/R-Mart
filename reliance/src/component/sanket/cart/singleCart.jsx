@@ -65,8 +65,8 @@ const SingleCart = ({ items, url, price, name, category ,quantity}) => {
 
   const actualPrice1 = () => {
     if (typeof price === "string" && price.includes("₹")) {
-      return +price.split(".")[0];
-    } else return `₹${price.toLocaleString("en-US")}`;
+      return +price.split(".")[0]*quantity;
+    } else return `₹${price*quantity.toLocaleString("en-US")}`;
   };
 
   const actualPrice2 = () => {

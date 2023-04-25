@@ -154,7 +154,7 @@ export const Iron = () => {
   })
  }
 
- localStorage.setItem('cart-item',JSON.stringify(cart))
+ localStorage.setItem('carts',JSON.stringify(cart))
 
  let wishList=(ind)=>{
   posts.map((el)=>{

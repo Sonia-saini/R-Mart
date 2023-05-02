@@ -14,17 +14,17 @@ import { Iron } from "../component/mitali/allRoute/Iron/Iron";
 import { Juicers } from "../component/mitali/allRoute/juicers/juicers";
 import { Computers } from "../component/mitali/allRoute/computers/computers";
 import { Camaras } from "../component/mitali/allRoute/camaras/camaras";
-
-
 import Checkout from "../component/sanket/checkout/checkout";
-
-
-
 import UserDetails from '../component/suman/UserDetails';
 import Pagenotfound from '../component/sonia/Pagenotfound';
 import Wish from "../component/mitali/allRoute/wish/wish";
 import Payment from "../component/payment";
 import Private from "../component/Private";
+import AddNewIron from "../component/suman/AddNewIron";
+import AddNewMakeup from "../component/suman/AddNewMakeup";
+import AddNewMobile from "../component/suman/AddNewMobile";
+import AddNewJuicer from "../component/suman/AddNewJuicer";
+import AddNewComp from "../component/suman/AddNewComp";
 
 
 
@@ -43,6 +43,13 @@ function Allroutes() {
             <Route path='/login' element={<Login/>}></Route>
             <Route path='/admin' element={<Admin/>}></Route>
             <Route path='/adminpage' element={<AdminPage/>}></Route>
+
+            <Route path='/newironadd' element={<AddNewIron/>}></Route>
+            <Route path='/newmakeupadd' element={<AddNewMakeup/>}></Route>
+            <Route path='/newmobileadd' element={<AddNewMobile/>}></Route>
+            <Route path='/newjuiceradd' element={<AddNewJuicer/>}></Route>
+            <Route path='/newcomputeradd' element={<AddNewComp/>}></Route>
+
             <Route path="/userdetails" element={<UserDetails/>}></Route>
 
             <Route path='/cart' element={<Cart/>}></Route>

@@ -14,7 +14,7 @@ export const getPosts=()=> async(dispatch)=>{
     dispatch({type:API_GET_LOADING});
 
     try{
-        let res= await axios.get(' https://shines-node-deploy.onrender.com/products');
+        let res= await axios.get('https://shines-node-deploy.onrender.com/products');
         dispatch({type:API_GET_SUCCESS, payload : res.data.makeup})
     }catch(e){
         dispatch({type : API_GET_ERROR, payload: e.message})
